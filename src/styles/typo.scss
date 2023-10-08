@@ -1,0 +1,20 @@
+@import '@styles/variables.scss';
+
+%defaultTypo {
+  font-size: 16px;
+  font-weight: 400;
+  color: $black;
+}
+
+%bigTitle {
+  font-size: 48px;
+}
+
+%regularText {
+  font-size: 16px;
+  line-height: 150%;
+}
+
+%menuText {
+  font-size: 24px;
+}

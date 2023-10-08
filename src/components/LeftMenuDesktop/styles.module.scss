@@ -1,0 +1,55 @@
+@import '@styles/variables.scss';
+@import '@styles/typo.scss';
+
+.container {
+  display: flex;
+  gap: $s;
+  height: 100%;
+}
+
+.nameContainer {
+  @extend %bigTitle;
+  font-weight: 700;
+}
+
+.navContainer {
+  display: flex;
+  margin-top: $xl;
+  margin-left: $m;
+  gap: $s;
+}
+
+.navUl {
+  display: flex;
+  flex-direction: column;
+  gap: $s;
+}
+
+.navItem {
+  @extend %menuText;
+}
+
+.bar {
+  width: 1px;
+  background-color: $black;
+  height: 100%;
+}
+
+.navPointer {
+  display: flex;
+  align-items: center;
+  gap: $xxs;
+}
+
+.pointerRound {
+  background-color: $black;
+  border-radius: 100%;
+  width: $xs;
+  height: $xs;
+}
+
+.pointerBar {
+  height: 1px;
+  width: 35px;
+  background-color: $black;
+}

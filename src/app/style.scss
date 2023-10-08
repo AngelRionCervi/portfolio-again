@@ -1,0 +1,31 @@
+@import '@styles/typo.scss';
+
+body {
+  @extend %defaultTypo;
+  padding: 0;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+}
+
+button {
+  padding: none;
+  border: none;
+  background: none;
+  font-size: unset;
+  font-family: unset;
+  cursor: pointer;
+}
