@@ -1,0 +1,12 @@
+@import '@styles/variables.scss';
+@import '@styles/typo.scss';
+
+.pageTitleContainer {
+  @extend %fontL;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $black;
+  color: $white;
+  height: 34px;
+}

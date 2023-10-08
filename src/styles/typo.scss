@@ -6,15 +6,19 @@
   color: $black;
 }
 
-%bigTitle {
-  font-size: 48px;
+%fontS {
+  font-size: 14px;
 }
 
-%regularText {
+%fontM {
   font-size: 16px;
   line-height: 150%;
 }
 
-%menuText {
+%fontL {
   font-size: 24px;
+}
+
+%fontXL {
+  font-size: 48px;
 }

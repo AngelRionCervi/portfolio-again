@@ -8,7 +8,7 @@
 }
 
 .nameContainer {
-  @extend %bigTitle;
+  @extend %fontXL;
   font-weight: 700;
 }
 
@@ -26,7 +26,7 @@
 }
 
 .navItem {
-  @extend %menuText;
+  @extend %fontL;
 }
 
 .bar {

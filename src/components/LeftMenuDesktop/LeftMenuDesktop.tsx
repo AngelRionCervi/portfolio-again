@@ -4,6 +4,7 @@ import anime from 'animejs'
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import styles from './styles.module.scss'
+import CONSTANTS from '@constants'
 
 interface NavItem {
   name: string
@@ -13,18 +14,13 @@ interface NavItem {
 
 export default function LeftMenuDesktop() {
   const navPointerOffset = 14
-  const navPointerSpace = 50
+  const navPointerSpace = 48
 
-  const navItems: Array<NavItem> = [
-    { name: 'Home', link: '/home', pointerY: navPointerOffset },
-    { name: 'Blog', link: '/blog', pointerY: navPointerOffset + navPointerSpace },
-    { name: 'Work', link: '/work', pointerY: navPointerOffset + navPointerSpace * 2 },
-    { name: 'About', link: '/about', pointerY: navPointerOffset + navPointerSpace * 3 },
-  ]
+  const navItems = CONSTANTS.ROUTES.map((route, index) => ({ ...route, pointerY: navPointerOffset + navPointerSpace * index }))
 
   const pathname = usePathname()
 
-  let curPointerY = navItems.find(({ link }) => link === pathname)?.pointerY ?? navItems[0].pointerY
+  let curPointerY = navItems.find(({ link }) => link === pathname)?.pointerY
 
   function changePage({ pointerY }: NavItem) {
     anime({
