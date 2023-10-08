@@ -1,7 +1,7 @@
 import styles from './styles.module.scss'
 
-export default function Home() {
+export default function Blog() {
   return (
-    <div>home</div>
+    <div>blog</div>
   )
 }
