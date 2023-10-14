@@ -1,19 +1,11 @@
 import * as React from 'react'
 
-interface PlusPayload {
-  name: string
-  x: number
-  y: number
-}
-
-interface SvgWorkTimelineProps {
-  onPlusClick: (plusPayload: PlusPayload) => void
-}
-
 const SvgWorkTimeline = ({ onPlusClick }: SvgWorkTimelineProps) => {
   function handlePlusClick(evt: React.MouseEvent<HTMLElement>, name: string) {
-    const rect = (evt.target as HTMLElement).getBoundingClientRect()
-    onPlusClick({ name, x: rect.top, y: rect.right })
+    const rect = (evt.target as HTMLElement).closest('a')?.getBoundingClientRect()
+    if (rect) {
+      onPlusClick({ name, x: rect.top, y: rect.right })
+    }
   }
 
   return (

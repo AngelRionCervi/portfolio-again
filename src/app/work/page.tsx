@@ -7,7 +7,7 @@ import { useEffect } from 'react'
 
 export default function Work() {
 
-  function handlePlusClick({name, x, y}) {
+  function handlePlusClick({name, x, y}: PlusPayload) {
     console.log({name, x, y})
   }
 
