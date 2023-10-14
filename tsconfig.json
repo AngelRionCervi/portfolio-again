@@ -22,9 +22,10 @@
       "@/*": ["./src/*"],
       "@components/*": ["./src/components/*"],
       "@constants": ["./src/constants"],
-      "@styles/*": ["./src/styles/*"]
+      "@styles/*": ["./src/styles/*"],
+      "@assets/*": ["./src/assets/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/WorkTimeline"],
   "exclude": ["node_modules"]
 }
