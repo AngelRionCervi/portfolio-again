@@ -1,9 +1,11 @@
 @import '@styles/typo.scss';
+@import '@styles/variables.scss';
 
 body {
   @extend %defaultTypo;
   padding: 0;
   margin: 0;
+  background-color: $background;
 }
 
 p {
