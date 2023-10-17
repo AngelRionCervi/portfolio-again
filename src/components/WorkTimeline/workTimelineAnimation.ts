@@ -1,5 +1,7 @@
 import anime from 'animejs'
 
+export const totalDuration = 3200;
+
 const barsDelay = 32;
 const animeInstances: Array<number> = [];
 
@@ -14,15 +16,16 @@ export default function workTimelineAnimation(selector: string) {
     `${selector} .bar-1, .bar-2, .bar-3, .company-bar-h-1, .company-bar-h-2, .company-bar-v, .year-bar, .company-bubble, .years, .question-mark`,
     false
   )
-
-  anime({
-    targets: `${selector} .main-line`,
-    strokeDashoffset: [anime.setDashoffset, 0],
-    easing: 'easeInOutSine',
-    direction: 'forward',
-    duration: 2500,
-  })
-
+  animeInstances.push(window.setTimeout(() => {
+    anime({
+      targets: `${selector} .main-line`,
+      strokeDashoffset: [anime.setDashoffset, 0],
+      easing: 'easeInOutSine',
+      direction: 'forward',
+      duration: 2500,
+    })
+  }))
+  
   animeInstances.push(window.setTimeout(() => {
     toggleHideShowElements(`${selector} .bar-1`, true)
     anime({
@@ -108,7 +111,7 @@ export default function workTimelineAnimation(selector: string) {
       direction: 'forward',
       duration: 500,
     })
-  }, 3200))
+  }, totalDuration))
 }
 
 export function stopAnimation() {

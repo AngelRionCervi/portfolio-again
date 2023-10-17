@@ -1,25 +1,30 @@
 'use client'
 
-import anime from 'animejs'
 import styles from './style.module.scss'
 import WorkTimeline from '@components/WorkTimeline/WorkTimeline'
 import { useEffect } from 'react'
-import workTimelineAnimation, { stopAnimation } from '@components/WorkTimeline/workTimelineAnimation'
-
-function toggleHideShowElements(selector: string, show: boolean) {
-  document.querySelectorAll(selector).forEach((el) => {
-    ;(el as HTMLElement).style.display = show ? 'block' : 'none'
-  })
-}
+import workTimelineAnimation, { stopAnimation, totalDuration } from '@components/WorkTimeline/workTimelineAnimation'
+import { getSeenWorkPage, setSeenWorkPage } from '@lib/sessionStorage'
 
 export default function Work() {
   function handlePlusClick({ name, x, y }: PlusPayload) {
     console.log({ name, x, y })
   }
 
+  let setSeenTimeout: number;
+
   useEffect(() => {
-    workTimelineAnimation(`.${styles.workContainer}`);
-    return () => stopAnimation()
+    if (getSeenWorkPage() !== 'true') {
+      workTimelineAnimation(`.${styles.workContainer}`);
+      setSeenTimeout = window.setTimeout(() => {
+        setSeenWorkPage();
+      }, totalDuration)
+    }
+
+    return () => {
+      clearTimeout(setSeenTimeout);
+      stopAnimation();
+    }
   }, [])
 
   return (
