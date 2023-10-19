@@ -1,11 +1,11 @@
 import * as React from 'react'
 import styles from './styles.module.scss'
 
-const SvgComponent = ({ onPlusClick }: SvgWorkTimelineProps) => {
+const SvgWorkTimeline = ({ onPlusClick }: SvgWorkTimelineProps) => {
   function handlePlusClick(evt: React.MouseEvent<HTMLElement>, name: string) {
     const rect = (evt.target as HTMLElement).closest('a')?.getBoundingClientRect()
     if (rect) {
-      onPlusClick({ name, x: rect.top, y: rect.right })
+      onPlusClick({ name, x: rect.right, y: rect.top })
     }
   }
 
@@ -683,4 +683,4 @@ const SvgComponent = ({ onPlusClick }: SvgWorkTimelineProps) => {
   )
 }
 
-export default SvgComponent
+export default SvgWorkTimeline

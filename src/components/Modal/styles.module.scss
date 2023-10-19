@@ -1,0 +1,34 @@
+@import '@styles/variables.scss';
+@import '@styles/typo.scss';
+
+.container {
+    border: 1px solid $black;
+    padding: $m;
+    position: fixed;
+    background-color: $background;
+}
+
+.closeButton {
+    background-color: $black;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: $xs;
+}
+
+.titleLink {
+    @extend %fontL;
+    color: $black;
+}
+
+.techIcons {
+    display: flex;
+    gap: $xxs;
+}
+
+.text {
+    @extend %fontM;
+    color: $black;
+}

@@ -4,8 +4,4 @@
   display: flex;
   justify-content: center;
   margin-top: $xxl;
-
-  @media screen and (max-height: 900px) {
-    margin-top: $s;
-  }
 }

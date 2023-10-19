@@ -1,0 +1,27 @@
+{
+    "dmag": {
+        "title": "Draw me a Garden",
+        "tech": ["js", "php"],
+        "text": "At vero eos et accusamus ue corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga."
+    },
+    "mashup": {
+        "title": "Mashup Studio",
+        "tech": ["react", "ts", "electron", "node", "mongodb"],
+        "text": "At vero eos et accusamus et iusto odio dignissimos duamus et iusto odio dignissimoamus et iusto odio dignissimoamus et iusto odio dignissimocimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga."
+    },
+    "tripica": {
+        "title": "triPica",
+        "tech": ["react", "reactNative", "svelte", "ts"],
+        "text": "ue corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga."
+    },
+    "cryptonovae": {
+        "title": "Cryptonovae",
+        "tech": ["ts", "svelte", "electron", "node"],
+        "text": "At vero eos et accustatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga."
+    },
+    "francetv": {
+        "title": "France TV",
+        "tech": ["ts", "svelte", "react", "node"],
+        "text": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident"
+    }
+}
