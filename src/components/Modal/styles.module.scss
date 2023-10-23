@@ -35,11 +35,16 @@
     justify-content: center;
 }
 
+.reverseCloseButton {
+    top: unset;
+    bottom: 0;
+}
+
 .closeButtonInner {
     display: flex;
     align-items: center;
     justify-content: center;
-    animation: rotateClose forwards ease-out 500ms;
+    animation: rotateClose forwards ease-in 300ms;
 }
 
 .content {
@@ -62,6 +67,7 @@
 .text {
     @extend %fontS;
     color: $black;
+    word-break: break-all;
 }
 
 @keyframes anOpacity {
