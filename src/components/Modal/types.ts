@@ -4,6 +4,7 @@ interface WorkTimelineModalProps {
 }
 
 interface CompanyProps {
-    name: string;
+    name: string
     position: { x: number, y: number }
+    size: number
 }

@@ -3,5 +3,10 @@
 .workContainer {
   display: flex;
   justify-content: center;
-  margin-top: $xxl;
+  overflow: hidden;
+  height: 100%;
+}
+
+.workContainerInner {
+  padding: $l;
 }

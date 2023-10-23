@@ -3,14 +3,15 @@ import styles from './styles.module.scss'
 
 const SvgWorkTimeline = ({ onPlusClick }: SvgWorkTimelineProps) => {
   function handlePlusClick(evt: React.MouseEvent<HTMLElement>, name: string) {
-    const rect = (evt.target as HTMLElement).closest('a')?.getBoundingClientRect()
+    const rect = (evt.target as HTMLElement).closest('a')?.getBoundingClientRect();
+
     if (rect) {
-      onPlusClick({ name, x: rect.right, y: rect.top })
+      onPlusClick({ name, x: rect.right, y: rect.top, size: rect.width })
     }
   }
 
   return (
-    <svg width={742} height={724} viewBox="0 0 742 724" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg className={styles.timelineSvg} width={742} height={724} viewBox="0 0 742 724" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M1 196L666 196C707.421 196 741 229.579 741 271V371C741 412.421 707.421 446 666 446H76C34.5786 446 1 479.579 1 521V621C1 662.421 34.5786 696 76 696H699"
         stroke="black"

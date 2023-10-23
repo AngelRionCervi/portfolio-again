@@ -10,9 +10,11 @@ import WorkTimelineModal from '@/components/Modal/WorkTimelineModal'
 export default function Work() {
   const [selectedCompany, setSelectedCompany] = useState<CompanyProps | null>(null);
 
-  function handlePlusClick({ name, x, y }: PlusPayload) {
-    console.log({ name, x, y });
-    setSelectedCompany({ name, position: { x, y } })
+  function handlePlusClick({ name, x, y, size }: PlusPayload) {
+    closeModal();
+    setTimeout(() => {
+      setSelectedCompany({ name, position: { x, y }, size });
+    })
   }
 
   let setSeenTimeout: number;
@@ -31,12 +33,18 @@ export default function Work() {
     }
   }, [])
 
+  function closeModal() {
+    setSelectedCompany(null);
+  }
+
   return (
     <div className={styles.workContainer}>
       {selectedCompany && (
-        <WorkTimelineModal company={selectedCompany} closeModal={() => setSelectedCompany(null)} />
+        <WorkTimelineModal company={selectedCompany} closeModal={closeModal} />
       )}
-      <WorkTimeline onPlusClick={handlePlusClick} />
+      <div className={styles.workContainerInner}>
+        <WorkTimeline onPlusClick={handlePlusClick} />
+      </div>
     </div>
   )
 }

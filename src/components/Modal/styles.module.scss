@@ -3,19 +3,50 @@
 
 .container {
     border: 1px solid $black;
-    padding: $m;
     position: fixed;
     background-color: $background;
+    opacity: 0;
+    animation: anOpacity forwards 100ms;
+}
+
+.containerInner {
+    position: relative;
+}
+
+.backdrop {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    animation: anOpacity forwards 100ms;
 }
 
 .closeButton {
     background-color: $black;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.closeButtonInner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: rotateClose forwards ease-out 500ms;
 }
 
 .content {
     display: flex;
     flex-direction: column;
     gap: $xs;
+    padding: $s;
 }
 
 .titleLink {
@@ -29,6 +60,18 @@
 }
 
 .text {
-    @extend %fontM;
+    @extend %fontS;
     color: $black;
+}
+
+@keyframes anOpacity {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes rotateClose {
+    to {
+        transform: rotate(45deg);
+    }
 }
