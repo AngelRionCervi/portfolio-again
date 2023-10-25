@@ -1,7 +1,7 @@
-import BaseLayout from '@/components/BaseLayout/BaseLayout'
 import type { Metadata } from 'next'
 import { Roboto_Mono } from 'next/font/google'
 import './style.scss';
+import LayoutCheck from '@components/Layout/LayoutCheck';
 
 const inter = Roboto_Mono({ subsets: ['latin'] })
 
@@ -15,9 +15,12 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+
   return (
     <html lang="en">
-      <body className={inter.className}><BaseLayout>{children}</BaseLayout></body>
+      <body className={inter.className}>
+        <LayoutCheck>{children}</LayoutCheck>
+      </body>
     </html>
   )
 }

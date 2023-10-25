@@ -1,0 +1,8 @@
+@import '@styles/variables.scss';
+
+.unmounted {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: $background;
+}

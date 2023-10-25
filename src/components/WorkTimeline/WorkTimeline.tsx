@@ -1,4 +1,3 @@
-import * as React from 'react'
 import styles from './styles.module.scss'
 
 const SvgWorkTimeline = ({ onPlusClick }: SvgWorkTimelineProps) => {

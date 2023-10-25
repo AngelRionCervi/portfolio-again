@@ -1,0 +1,37 @@
+@import '@styles/variables.scss';
+@import '@styles/typo.scss';
+
+.topMenu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid $black;
+    height: 50px;
+    padding: 0 20px;
+    background-color: $background;
+    position: sticky;
+    top: 0;
+
+    * {
+        flex: 1 0 0;
+    }
+}
+
+.arcTypo {
+    @extend %fontS;
+}
+
+.menuPage {
+    @extend %fontL;
+    text-align: center;
+    font-weight: bold;
+}
+
+.burgerMenuContainer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.burgerMenuButton {
+    max-width: fit-content;
+}
