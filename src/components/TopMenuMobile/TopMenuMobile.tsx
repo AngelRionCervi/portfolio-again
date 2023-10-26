@@ -1,16 +1,17 @@
+import { useContext } from 'react';
 import Link from 'next/link';
 import styles from './styles.module.scss';
 import BurgerMenuIcon from '@components/BurgerMenu/BurgerMenuIcon/BurgerMenuIcon';
+import { BurgerMenuContext } from '@context/BurgerMenuContext';
 
 interface TopMenuMobileProps {
     title: string
 }
 
 export default function TopMenuMobile({ title }: TopMenuMobileProps) {
+    const { toggleBurgerMenu, isBurgerMenuOpen } = useContext(BurgerMenuContext);
 
-    function toggleBurgerMenu() {
-        console.log('toggle burger')
-    }
+    console.log('burger menu is 2', isBurgerMenuOpen)
 
     return (
         <div className={styles.topMenu}>

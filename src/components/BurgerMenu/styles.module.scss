@@ -3,11 +3,47 @@
 
 .container {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100vw;
     height: 100vh;
     background-color: $background;
+    z-index: 1;
+    animation: slideOpen forwards ease-out 250ms;
+}
+
+.isClosing {
+    animation: slideClose forwards ease-out 250ms;
 }
 
 .closeButton {
-    color: white;
+    color: black;
+}
+
+.topRow {
+    height: 50px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@keyframes slideOpen {
+    from {
+        transform: translateX(100vw);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideClose {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(100vw);
+    }
 }

@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Roboto_Mono } from 'next/font/google'
 import './style.scss';
 import LayoutCheck from '@components/Layout/LayoutCheck';
+import ContextReducer from '@/context/ContextReducer';
 
 const inter = Roboto_Mono({ subsets: ['latin'] })
 
@@ -19,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <LayoutCheck>{children}</LayoutCheck>
+        <ContextReducer><LayoutCheck>{children}</LayoutCheck></ContextReducer>
       </body>
     </html>
   )
