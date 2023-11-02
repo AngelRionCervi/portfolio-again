@@ -1,30 +1,42 @@
-import { useContext, useState } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useContext, useEffect } from 'react';
 import styles from './styles.module.scss';
 import { BurgerMenuContext } from '@context/BurgerMenuContext';
 import { cx } from '@lib/helpers';
+import CONSTANTS from '@constants';
 
 export default function BurgerMenu() {
-  const { toggleBurgerMenu } = useContext(BurgerMenuContext);
-  const [burgerClosing, setBurgerClosing] = useState(false);
+  const { toggleBurgerMenu, isBurgerMenuClosing, isBurgerMenuOpen } = useContext(BurgerMenuContext);
 
-  function closeBurgerMenu() {
-    setBurgerClosing(true);
+  const pathname = usePathname()
 
-    setTimeout(() => {
-      toggleBurgerMenu();
-    }, 250)
+  useEffect(() => {
+    document.body.classList.toggle('burgerMenuOpen');
+  }, [isBurgerMenuOpen])
+
+  function switchRoute(newPath: string) {
+    if (pathname === newPath) return;
+    toggleBurgerMenu();
   }
 
-  const className = cx(styles, {
+  const containerClass = cx(styles, {
     container: true,
-    isClosing: burgerClosing
+    isClosing: isBurgerMenuClosing
   })
 
   return (
-    <div className={className}>
-      <div className={styles.topRow}>
-        <div />
-        <button onClick={closeBurgerMenu} className={styles.closeButton}>close</button>
+    <div className={containerClass}>
+      <div className={styles.innerContainer}>
+        <nav>
+          <ul className={styles.list}>
+            {CONSTANTS.ROUTES.map(({ link, name, id }) => (
+              <li key={id} className={styles.listItem}>
+                <Link className={`${styles.link} ${link === pathname ? styles.linkCurrent : ''}`} href={link} onClick={() => switchRoute(link)}>{name}</Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </div>
     </div>
   )

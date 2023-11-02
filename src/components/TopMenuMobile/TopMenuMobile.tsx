@@ -9,21 +9,21 @@ interface TopMenuMobileProps {
 }
 
 export default function TopMenuMobile({ title }: TopMenuMobileProps) {
-    const { toggleBurgerMenu, isBurgerMenuOpen } = useContext(BurgerMenuContext);
-
-    console.log('burger menu is 2', isBurgerMenuOpen)
+    const { toggleBurgerMenu, isBurgerMenuOpen, isBurgerMenuClosing } = useContext(BurgerMenuContext);
 
     return (
-        <div className={styles.topMenu}>
-            <div>
-                <Link href="/home" className={styles.arcTypo}>ARC</Link>
+        <>
+            <button className={styles.burgerMenuButton} onClick={toggleBurgerMenu}>
+                <BurgerMenuIcon />
+            </button>
+            <div className={styles.topMenu}>
+                <div>
+                    <Link href="/home" className={styles.arcTypo}>ARC</Link>
+                </div>
+                <p className={styles.menuPage}>{title}</p>
+                <div />
             </div>
-            <p className={styles.menuPage}>{title}</p>
-            <div className={styles.burgerMenuContainer}>
-                <button className={styles.burgerMenuButton} onClick={toggleBurgerMenu}>
-                    <BurgerMenuIcon />
-                </button>
-            </div>
-        </div>
+        </>
+
     )
 }

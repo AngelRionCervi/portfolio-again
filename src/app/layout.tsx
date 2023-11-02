@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Roboto_Mono } from 'next/font/google'
 import './style.scss';
 import LayoutCheck from '@components/Layout/LayoutCheck';
-import ContextReducer from '@/context/ContextReducer';
+import ContextReducer from '@context/ContextReducer';
 
 const inter = Roboto_Mono({ subsets: ['latin'] })
 

@@ -10,25 +10,55 @@
     background-color: $background;
     z-index: 1;
     animation: slideOpen forwards ease-out 250ms;
+    border-left: 1px solid $black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .isClosing {
     animation: slideClose forwards ease-out 250ms;
 }
 
-.closeButton {
-    color: black;
+.innerContainer {
+    width: fit-content;
 }
 
-.topRow {
-    height: 50px;
-    padding: 0 20px;
-    box-sizing: border-box;
-    width: 100%;
+.list {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    gap: 30px;
 }
+
+.link {
+    @extend %fontL;
+    width: 100%;
+    display: block;
+    text-align: center;
+    color: $black;
+    padding: $xs;
+}
+
+.linkCurrent {
+    background-color: $black;
+    color: $white;
+}
+
+// .closeButton {
+//     color: black;
+// }
+
+// .topRow {
+//     height: 50px;
+//     padding: 0 20px;
+//     box-sizing: border-box;
+//     width: 100%;
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+
+//     flex-direction: row-reverse;
+// }
 
 @keyframes slideOpen {
     from {
