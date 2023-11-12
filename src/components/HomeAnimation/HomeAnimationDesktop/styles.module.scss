@@ -1,0 +1,97 @@
+@import '@styles/variables.scss';
+
+$skewX: -35;
+$skewY: 90 - $skewX;
+$skewXDeg: $skewX * 1deg;
+$skewYDeg: $skewY * 1deg;
+$pi: 3.14;
+$boxWidth: 1000px;
+$topFaceHeight: 50px;
+$bottomFaceHeight: 40px;
+
+$xRad: calc(abs($skewX) * $pi / 180);
+$addedWidth: calc($topFaceHeight * tan($xRad));
+
+$yRad: calc(abs($skewY) * $pi / 180);
+$addedHeight: calc($addedWidth * tan($yRad));
+
+$door1Width: 400px;
+$door1Left: 50px;
+$doorHeight: 20px;
+$doorTop: $topFaceHeight / 2 - $doorHeight / 2;
+
+.container {
+}
+
+.box {
+  width: $boxWidth;
+  height: 150px;
+  position: relative;
+}
+
+.face {
+  position: absolute;
+}
+
+.faceTop {
+  width: $boxWidth;
+  height: $topFaceHeight;
+  transform: skewX($skewXDeg);
+  border-top: 1px solid $black;
+  border-left: 1px solid $black;
+}
+
+.faceBottom {
+  top: $topFaceHeight;
+  left: calc($addedWidth / 2 * -1);
+  width: $boxWidth + 1;
+  height: $bottomFaceHeight;
+  background-color: $black;
+  border-right: 1px solid $black;
+}
+
+.faceRight {
+  width: $addedWidth;
+  height: $bottomFaceHeight;
+  background-color: $black;
+  right: calc($addedWidth / 2 * -1) - 2;
+  top: calc($addedHeight / 2 * -1);
+  transform: skewY($skewYDeg);
+  border-left: 1px solid $black;
+}
+
+.door1Container {
+  position: relative;
+  width: $boxWidth / 2;
+  height: $topFaceHeight;
+}
+
+.door {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: $door1Width;
+  border-top: 1px solid $black;
+  background-color: #e08c8c;
+  animation: doorOpen 1s ease-in-out forwards;
+}
+
+@keyframes doorOpen {
+  0% {
+    height: 0;
+    width: 0;
+    opacity: 0;
+  }
+  50% {
+    height: 0;
+    width: $door1Width;
+    opacity: 1;
+  }
+  100% {
+    height: $doorHeight;
+    border-bottom: 1px solid $black;
+    border-left: 1px solid $black;
+    border-right: 1px solid $black;
+  }
+}
