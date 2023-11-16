@@ -1,11 +1,11 @@
-import HomeAnimationDesktop from '@components/HomeAnimation/HomeAnimationDesktop/HomeAnimationDesktop'
+import HomeAnimation from '@components/HomeAnimation/HomeAnimation'
 import styles from './styles.module.scss'
 
 export default function Home() {
   return (
     <div>
-      <div style={{ marginBottom: '300px' }}>home</div>
-      <HomeAnimationDesktop />
+      <div style={{ marginBottom: '400px' }}>home</div>
+      <HomeAnimation />
     </div>
   )
 }

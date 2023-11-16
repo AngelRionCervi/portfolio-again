@@ -11,3 +11,10 @@ $l: 40px;
 $xl: 48px;
 $xxl: 64px;
 $g: 96px;
+
+:export {
+  background: $background;
+  black: $black;
+  white: $white;
+  gray: $gray;
+}

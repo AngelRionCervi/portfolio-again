@@ -1,0 +1,29 @@
+@import '@styles/variables.module.scss';
+
+.container {
+  font-size: $xxl;
+  color: $black;
+  font-weight: bold;
+  position: relative;
+}
+
+.repetition1 {
+  position: absolute;
+  opacity: 1;
+  left: 0;
+  bottom: 0;
+}
+
+.repetition2 {
+  position: absolute;
+  opacity: 0.2;
+  left: 5px;
+  bottom: 5px;
+}
+
+.repetition3 {
+  position: absolute;
+  opacity: 0.05;
+  left: 10px;
+  bottom: 10px;
+}

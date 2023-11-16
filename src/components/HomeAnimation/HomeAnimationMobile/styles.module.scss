@@ -5,9 +5,9 @@ $skewY: 90 - $skewX;
 $skewXDeg: $skewX * 1deg;
 $skewYDeg: $skewY * 1deg;
 $pi: 3.14;
-$boxWidth: 600px;
-$topFaceHeight: 40px;
-$bottomFaceHeight: 30px;
+$boxWidth: 300px;
+$topFaceHeight: 35px;
+$bottomFaceHeight: 25px;
 
 $xRad: calc(abs($skewX) * $pi / 180);
 $addedWidth: calc($topFaceHeight * tan($xRad));
@@ -22,11 +22,13 @@ $doorHeight: 15px;
 $doorTop: $topFaceHeight / 2 - $doorHeight / 2;
 
 .container {
-  position: relative;
+  width: 500px;
+  height: 500px;
 }
 
-.boxContainer {
-  background-color: $background;
+.innerContainer {
+  position: relative;
+  transform: rotate(90deg) translate(60%);
 }
 
 .box {
@@ -41,7 +43,7 @@ $doorTop: $topFaceHeight / 2 - $doorHeight / 2;
 .faceTop {
   position: absolute;
   display: flex;
-  gap: 50px;
+  gap: 75px;
   width: $boxWidth;
   height: $topFaceHeight;
   transform: skewX($skewXDeg);
@@ -97,14 +99,14 @@ $doorTop: $topFaceHeight / 2 - $doorHeight / 2;
 
 .door1Inner {
   position: relative;
-  width: 200px;
+  width: 75px;
   display: flex;
   justify-content: flex-end;
 }
 
 .door2Inner {
   position: relative;
-  width: 200px;
+  width: 75px;
   display: flex;
   justify-content: flex-start;
 }
@@ -138,19 +140,21 @@ $doorTop: $topFaceHeight / 2 - $doorHeight / 2;
 .bottomHidePanel {
   position: absolute;
   width: $boxWidth;
-  height: 40px;
+  height: 100vw;
   background-color: $background;
   top: calc($topFaceHeight + $bottomFaceHeight);
 }
 
 .word1Container {
   position: absolute;
-  left: 80px;
-  bottom: -100px;
+  left: 125px;
+  bottom: -230px;
+  transform: rotate(-90deg);
 }
 
 .word2Container {
   position: absolute;
-  left: 330px;
-  bottom: -100px;
+  left: 275px;
+  bottom: -230px;
+  transform: rotate(-90deg);
 }

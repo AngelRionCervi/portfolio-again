@@ -1,5 +1,5 @@
-@import '@styles/typo.scss';
-@import '@styles/variables.scss';
+@import '@styles/typo.module.scss';
+@import '@styles/variables.module.scss';
 
 body {
   @extend %defaultTypo;
