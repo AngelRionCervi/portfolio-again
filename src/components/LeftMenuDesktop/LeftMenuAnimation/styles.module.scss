@@ -1,0 +1,7 @@
+.container {
+  width: 150px;
+  height: 174px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+

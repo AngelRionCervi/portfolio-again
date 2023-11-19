@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import styles from './styles.module.scss'
 import CONSTANTS from '@constants'
+import LeftMenuAnimation from './LeftMenuAnimation/LeftMenuAnimation'
 
 interface NavItem {
   name: string
@@ -35,6 +36,7 @@ export default function LeftMenuDesktop() {
   return (
     <div className={styles.container}>
       <div>
+        <LeftMenuAnimation />
         <div className={styles.nameContainer}>
           <p>Angel</p>
           <p>Rion-</p>
