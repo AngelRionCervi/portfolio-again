@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import { useDevice } from '@lib/useDevice';
+import { useDevice } from '@/lib/hooks/useDevice';
 import styles from './styles.module.scss'
 import DesktopLayout from '@components/Layout/DesktopLayout/DesktopLayout'
 import MobileLayout from '@components/Layout/MobileLayout/MobileLayout'

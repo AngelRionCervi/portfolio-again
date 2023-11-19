@@ -6,8 +6,8 @@ import desktopStyles from './HomeAnimationDesktop/styles.module.scss'
 import mobileStyles from './HomeAnimationMobile/styles.module.scss'
 import homeDesktopAnimationData, { stopAnimationDesktop } from '@components/HomeAnimation/HomeAnimationDesktop/homeDesktopAnimationData'
 import homeMobileAnimationData, { stopAnimationMobile } from '@components/HomeAnimation/HomeAnimationMobile/homeMobileAnimationData'
-import { useDevice } from '@lib/useDevice'
-import { useMounted } from '@/lib/useMounted'
+import { useDevice } from '@/lib/hooks/useDevice'
+import { useMounted } from '@/lib/hooks/useMounted'
 
 export default function HomeAnimationDesktop() {
   const isMobile = useDevice()

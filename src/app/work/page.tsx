@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from 'react'
 import workTimelineAnimation, { stopAnimation, totalDuration } from '@components/WorkTimeline/workTimelineAnimation'
 import { getSeenWorkPage, setSeenWorkPage } from '@lib/sessionStorage'
 import WorkTimelineModal from '@components/Modal/WorkTimelineModal'
-import { useMounted } from '@/lib/useMounted'
+import { useMounted } from '@/lib/hooks/useMounted'
 
 export default function Work() {
   const [selectedCompany, setSelectedCompany] = useState<CompanyProps | null>(null)

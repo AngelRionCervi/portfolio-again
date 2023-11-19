@@ -7,14 +7,9 @@
   height: 100%;
 }
 
-.nameContainer {
-  @extend %fontXL;
-  font-weight: 700;
-}
-
 .navContainer {
   display: flex;
-  margin-top: $xl;
+  margin-top: 300px;
   margin-left: $m;
   gap: $s;
 }
