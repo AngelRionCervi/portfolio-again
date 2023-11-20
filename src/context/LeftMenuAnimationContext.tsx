@@ -5,7 +5,7 @@ import { RouteName } from '@/constants/routes'
 
 const frameSvgs = require.context('@assets/splittedFrames', true, /^\.\/(framesHome|framesWork|framesBlog|framesAbout)\/\d+\.svg$/, 'sync')
 
-type Frames = Record<RouteName, Array<React.ElementType>>
+export type Frames = Record<RouteName, Array<() => React.ReactElement<'svg'>>>
 
 interface LeftMenuAnimationContextProps {
   frames: Frames
