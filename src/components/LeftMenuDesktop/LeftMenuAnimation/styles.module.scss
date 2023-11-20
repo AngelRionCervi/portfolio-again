@@ -2,6 +2,8 @@
 
 .container {
   position: relative;
+  width: 165px;
+  height: 190px;
 }
 
 .belowFrame {
@@ -19,4 +21,30 @@
   height: 174px;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
+}
+
+.triangleTop {
+  transform: rotate(180deg)
+}
+
+.triangleBottom {
+  transform: rotate(0deg)
+}
+
+.triangleTopContainer {
+  position: absolute;
+  left: -16px;
+  top: -1px;
+  height: 17px;
+  width: 17px;
+  transform-origin: bottom left;
+}
+
+.triangleBottomContainer {
+  position: absolute;
+  right: 14px;
+  bottom: 0;
+  height: 17px;
+  width: 17px;
+  transform-origin: bottom left;
 }
