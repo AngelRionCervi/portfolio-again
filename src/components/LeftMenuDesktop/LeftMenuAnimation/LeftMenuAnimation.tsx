@@ -1,9 +1,9 @@
-import { useContext, useState } from 'react'
+import { useContext, useState, useRef } from 'react'
 import styles from './styles.module.scss'
 import { usePage } from '@lib/hooks/usePage'
-import { Frames, LeftMenuAnimationContext } from '@/context/LeftMenuAnimationContext'
+import { Frames, LeftMenuAnimationContext } from '@context/LeftMenuAnimationContext'
 import LeftAnimationTriangle from '@assets/icons/left-animation-triangle.svg'
-import { startAnimation } from './AnimationData/animationData'
+import AnimationManager from './AnimationManager'
 import { useAfterMountEffect } from '@lib/hooks/useAfterMountEffect'
 import { useOnceEffect } from '@lib/hooks/useOnceEffect'
 
@@ -12,13 +12,18 @@ export default function LeftMenuAnimation() {
   const page = usePage()
   const [startFrames, setStartFrames] = useState<Frames[keyof Frames] | null>(null)
 
+  const animationManager = useRef<ReturnType<typeof AnimationManager> | null>(null)
+
   useOnceEffect(() => {
     setStartFrames(frames[page.name])
+    animationManager.current = AnimationManager()
+    animationManager.current.startLoop()
   }, [frames])
 
   useAfterMountEffect(() => {
-    console.log(page)
-    startAnimation({
+    if (!animationManager.current) return
+
+    animationManager.current.addToQueue({
       aboveFrame: styles.aboveFrame,
       triangleTopContainer: styles.triangleTopContainer,
       triangleBottomContainer: styles.triangleBottomContainer,
@@ -35,7 +40,14 @@ export default function LeftMenuAnimation() {
       <div className={styles.triangleBottomContainer}>
         <LeftAnimationTriangle className={styles.triangleBottom} width="17px" height="17px" />
       </div>
-      <div className={styles.aboveFrame}>{startFrames && startFrames.map((Frames, i) => <Frames key={i} />)}</div>
+      <div className={styles.aboveFrame}>
+        {startFrames &&
+          startFrames.map((Frames, index) => (
+            <div className={styles.frameContainer} key={index}>
+              <Frames />
+            </div>
+          ))}
+      </div>
     </div>
   )
 }
