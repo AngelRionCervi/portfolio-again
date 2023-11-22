@@ -7,6 +7,7 @@ import workTimelineAnimation, { stopAnimation, totalDuration } from '@components
 import { getSeenWorkPage, setSeenWorkPage } from '@lib/sessionStorage'
 import WorkTimelineModal from '@components/Modal/WorkTimelineModal'
 import { useMounted } from '@/lib/hooks/useMounted'
+import ButtonCube from '@components/ButtonCube/ButtonCube'
 
 export default function Work() {
   const [selectedCompany, setSelectedCompany] = useState<CompanyProps | null>(null)
@@ -41,9 +42,13 @@ export default function Work() {
 
   return (
     <div className={styles.workContainer}>
-      {selectedCompany && <WorkTimelineModal company={selectedCompany} closeModal={closeModal} />}
-      <div style={{ visibility: isMounted ? 'visible' : 'hidden' }} className={styles.workContainerInner}>
+      {/* {selectedCompany && <WorkTimelineModal company={selectedCompany} closeModal={closeModal} />} */}
+      {/* <div style={{ visibility: isMounted ? 'visible' : 'hidden' }} className={styles.workContainerInner}>
         <WorkTimeline onPlusClick={handlePlusClick} />
+      </div> */}
+      <div className={styles.workButtons}>
+        <ButtonCube id="hey" size={150}>hey</ButtonCube>
+        {/* <ButtonCube id="oh" size={150}>oh</ButtonCube> */}
       </div>
     </div>
   )

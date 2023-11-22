@@ -2,14 +2,22 @@
 
 .container {
   position: relative;
-  width: 165px;
-  height: 190px;
+}
+
+.containerIdle {
+
+}
+
+.containerEnter {
+
+}
+
+.containerLeave {
+
 }
 
 .belowFrame {
   position: absolute;
-  width: 150px;
-  height: 174px;
   background-color: $black;
   top: 15px;
   left: -15px;
@@ -17,10 +25,10 @@
 
 .aboveFrame {
   position: absolute;
-  width: 150px;
-  height: 174px;
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  background-color: $background;
+  top: 0;
+  left: 0;
+  border: 1px solid $black;
 }
 
 .triangleTop {
@@ -43,13 +51,8 @@
 .triangleBottomContainer {
   position: absolute;
   right: 14px;
-  bottom: 0;
+  bottom: -1px;
   height: 17px;
   width: 17px;
   transform-origin: bottom left;
-}
-
-.frameContainer {
-  width: 25px;
-  height: 29px;
 }

@@ -2,7 +2,7 @@ import { useContext, useState, useRef } from 'react'
 import styles from './styles.module.scss'
 import { usePage } from '@lib/hooks/usePage'
 import { Frames, LeftMenuAnimationContext } from '@context/LeftMenuAnimationContext'
-import LeftAnimationTriangle from '@assets/icons/left-animation-triangle.svg'
+import CornerTriangle from '@assets/icons/corner-triangle.svg'
 import AnimationManager from './AnimationManager'
 import { useAfterMountEffect } from '@lib/hooks/useAfterMountEffect'
 import { useOnceEffect } from '@lib/hooks/useOnceEffect'
@@ -35,10 +35,10 @@ export default function LeftMenuAnimation() {
     <div className={styles.container}>
       <div className={styles.belowFrame} />
       <div className={styles.triangleTopContainer}>
-        <LeftAnimationTriangle className={styles.triangleTop} width="17px" height="17px" />
+        <CornerTriangle className={styles.triangleTop} width="17px" height="17px" />
       </div>
       <div className={styles.triangleBottomContainer}>
-        <LeftAnimationTriangle className={styles.triangleBottom} width="17px" height="17px" />
+        <CornerTriangle className={styles.triangleBottom} width="17px" height="17px" />
       </div>
       <div className={styles.aboveFrame}>
         {startFrames &&
