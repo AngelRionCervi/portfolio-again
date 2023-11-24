@@ -1,24 +1,28 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
-import { useDevice } from '@/lib/hooks/useDevice';
+import React, { useContext, useEffect, useState } from 'react'
+import { useDevice } from '@/lib/hooks/useDevice'
 import styles from './styles.module.scss'
 import DesktopLayout from '@components/Layout/DesktopLayout/DesktopLayout'
 import MobileLayout from '@components/Layout/MobileLayout/MobileLayout'
+import { ModalContext } from '@context/ModalContext'
+import Modal from '@components/Modal/Modal'
 
 export default function LayoutCheck({ children }: { children: React.ReactNode }) {
-    const isMobile = useDevice();
+  const isMobile = useDevice()
+  const { isModalOpen } = useContext(ModalContext)
 
-    const [isMounted, setIsMounted] = useState(false);
+  const [isMounted, setIsMounted] = useState(false)
 
-    useEffect(() => {
-        setIsMounted(true);
-    }, [])
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
 
-    return (
-        <>
-            {!isMounted && <div className={styles.unmounted} />}
-            {isMounted && (isMobile ? <MobileLayout>{children}</MobileLayout> : <DesktopLayout>{children}</DesktopLayout>)}
-        </>
-    )
+  return (
+    <>
+      {isModalOpen && <Modal />}
+      {!isMounted && <div className={styles.unmounted} />}
+      {isMounted && (isMobile ? <MobileLayout>{children}</MobileLayout> : <DesktopLayout>{children}</DesktopLayout>)}
+    </>
+  )
 }

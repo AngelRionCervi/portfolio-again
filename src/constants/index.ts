@@ -1,8 +1,8 @@
 import * as routeConstants from './routes'
-import * as workConstants from './work'
 import * as deviceConstants from './device'
 import * as burgerMenuConstants from './burgerMenu'
+import * as modalConstants from './modal'
 
-const CONSTANTS = { ...routeConstants, ...workConstants, ...deviceConstants, ...burgerMenuConstants };
+const CONSTANTS = { ...routeConstants, ...deviceConstants, ...burgerMenuConstants, ...modalConstants }
 
-export default CONSTANTS;
+export default CONSTANTS

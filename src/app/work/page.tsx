@@ -2,18 +2,22 @@
 
 import styles from './style.module.scss'
 import WorkTimeline from '@components/WorkTimeline/WorkTimeline'
-import { useEffect, useRef, useState } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
 import workTimelineAnimation, { stopAnimation, totalDuration } from '@components/WorkTimeline/workTimelineAnimation'
 import { getSeenWorkPage, setSeenWorkPage } from '@lib/sessionStorage'
-import WorkTimelineModal from '@components/Modal/WorkTimelineModal'
+import WorkTimelineModal from '@/components/Modal.old/WorkTimelineModal'
 import { useMounted } from '@/lib/hooks/useMounted'
 import ButtonCube from '@components/ButtonCube/ButtonCube'
+import { ModalContext } from '@/context/ModalContext'
+import WorkModalContent from '@/components/WorkModalContent/WorkModalContent'
 
 export default function Work() {
   const [selectedCompany, setSelectedCompany] = useState<CompanyProps | null>(null)
   const isMounted = useMounted()
 
-  const intervalRef = useRef(0)
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  const { setModalContent, toggleModal } = useContext(ModalContext)
 
   function handlePlusClick({ name, x, y, size }: PlusPayload) {
     closeModal()
@@ -25,19 +29,27 @@ export default function Work() {
   useEffect(() => {
     if (getSeenWorkPage() !== 'true') {
       workTimelineAnimation(`.${styles.workContainer}`)
-      intervalRef.current = window.setTimeout(() => {
+      timeoutRef.current = setTimeout(() => {
         setSeenWorkPage()
       }, totalDuration)
     }
 
     return () => {
-      clearTimeout(intervalRef.current)
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current)
+      }
       stopAnimation()
     }
   }, [])
 
   function closeModal() {
     setSelectedCompany(null)
+  }
+
+  function onFrameButtonClick(id: string) {
+    console.log('id eheheeh', id)
+    setModalContent(<WorkModalContent />)
+    toggleModal()
   }
 
   return (
@@ -47,8 +59,8 @@ export default function Work() {
         <WorkTimeline onPlusClick={handlePlusClick} />
       </div> */}
       <div className={styles.workButtons}>
-        <ButtonCube id="hey" size={150}>hey</ButtonCube>
-        {/* <ButtonCube id="oh" size={150}>oh</ButtonCube> */}
+        <ButtonCube onClick={onFrameButtonClick} id="hey" size={150}>hey</ButtonCube>
+        <ButtonCube onClick={onFrameButtonClick} id="oh" size={150}>oh</ButtonCube>
       </div>
     </div>
   )

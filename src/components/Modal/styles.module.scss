@@ -1,83 +1,29 @@
 @import '@styles/variables.module.scss';
-@import '@styles/typo.module.scss';
 
 .container {
-    border: 1px solid $black;
-    position: fixed;
-    background-color: $background;
-    opacity: 0;
-    animation: anOpacity forwards 100ms;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
 }
 
-.containerInner {
-    position: relative;
+.modalContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid $black;
+  background-color: $background;
+}
+
+.modalInner {
+  display: block;
 }
 
 .backdrop {
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.2);
-    animation: anOpacity forwards 100ms;
-}
-
-.closeButton {
-    background-color: $black;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 18px;
-    height: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.reverseCloseButton {
-    top: unset;
-    bottom: 0;
-}
-
-.closeButtonInner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: rotateClose forwards ease-in 300ms;
-}
-
-.content {
-    display: flex;
-    flex-direction: column;
-    gap: $xs;
-    padding: $s;
-}
-
-.titleLink {
-    @extend %fontL;
-    color: $black;
-}
-
-.techIcons {
-    display: flex;
-    gap: $xxs;
-}
-
-.text {
-    @extend %fontS;
-    color: $black;
-    word-break: break-all;
-}
-
-@keyframes anOpacity {
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes rotateClose {
-    to {
-        transform: rotate(45deg);
-    }
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.25);
 }
