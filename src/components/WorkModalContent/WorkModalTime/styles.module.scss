@@ -1,0 +1,77 @@
+@import '@styles/variables.module.scss';
+@import '@styles/typo.module.scss';
+
+$circleDiameter: 150px;
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.inner {
+  position: relative;
+  width: $circleDiameter + 4px;
+}
+
+.tube {
+  border-radius: $circleDiameter / 2;
+  width: 100%;
+  height: $circleDiameter + 4px;
+  background-color: $black;
+}
+
+.circle {
+  position: absolute;
+  width: $circleDiameter;
+  height: $circleDiameter;
+  border-radius: 100%;
+  top: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: $background;
+  border: 2px solid $black;
+}
+
+.date {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.dateTop {
+  @extend %fontS;
+  color: $background;
+  height: $circleDiameter - 10;
+
+  > p:first-of-type {
+    @extend %fontXS;
+  }
+}
+
+.dateBottom {
+  @extend %fontS;
+  color: $black;
+  margin-top: 10px;
+
+  > p:first-of-type {
+    @extend %fontXS;
+  }
+}
+
+.dashLineContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.topDashLine {
+  margin-top: -6px;
+}
+
+:export {
+  circleDiameter: $circleDiameter;
+}

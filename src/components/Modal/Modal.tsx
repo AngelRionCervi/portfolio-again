@@ -1,14 +1,13 @@
 'use client'
 
-import { useContext, useEffect, useRef, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import styles from './styles.module.scss'
 import { ModalContext } from '@context/ModalContext'
 import { modalAnimation } from './ModalAnimations'
-import { useAfterMountEffect } from '@lib/hooks/useAfterMountEffect'
-import { useOnceEffect } from '@lib/hooks/useOnceEffect'
+import CONSTANTS from '@constants'
 
 export default function Modal() {
-  const dimensions = { width: 800, height: 600 }
+  const dimensions = CONSTANTS.MODAL_DIMENSIONS
   const animationSelectors = { modalContainer: styles.modalContainer, modalInner: styles.modalInner, backdrop: styles.backdrop }
 
   const [openDone, setOpenDone] = useState(false)

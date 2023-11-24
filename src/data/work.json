@@ -1,27 +1,126 @@
 {
     "dmag": {
         "title": "Draw me a Garden",
-        "tech": ["js", "php"],
-        "text": "At vero eos et accusamus ue corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga."
+        "role": "PHP and JS developper (intern)",
+        "techStack": [
+            "js",
+            "php"
+        ],
+        "description": "At vero eos et accusamus ue corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+        "link": {
+            "label": "dmag.fr",
+            "url": "https://www.dmag.fr"
+        },
+        "periode": {
+            "start": [
+                6,
+                2019
+            ],
+            "end": [
+                12,
+                2019
+            ]
+        }
     },
     "mashup": {
         "title": "Mashup Studio",
-        "tech": ["react", "ts", "electron", "node", "mongodb"],
-        "text": "At vero eos et accusamus et iusto odio dignissimos duamus et iusto odio dignissimoamus et iusto odio dignissimoamus et iusto odio dignissimocimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga."
+        "role": "Fullstack developper",
+        "techStack": [
+            "react",
+            "ts",
+            "electron",
+            "node",
+            "mongodb"
+        ],
+        "description": "At vero eos et accusamus et iusto odio dignissimos duamus et iusto odio dignissimoamus et iusto odio dignissimoamus et iusto odio dignissimocimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+        "link": {
+            "label": "mashuptable.fr",
+            "url": "https://www.mashuptable.fr"
+        },
+        "periode": {
+            "start": [
+                1,
+                2020
+            ],
+            "end": [
+                1,
+                2021
+            ]
+        }
     },
     "tripica": {
         "title": "triPica",
-        "tech": ["react", "reactNative", "svelte", "ts"],
-        "text": "ue corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga."
+        "role": "Front-end developper",
+        "techStack": [
+            "react",
+            "reactNative",
+            "svelte",
+            "ts"
+        ],
+        "description": "ue corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+        "link": {
+            "label": "tripica.com",
+            "url": "https://www.tripica.com"
+        },
+        "periode": {
+            "start": [
+                1,
+                2021
+            ],
+            "end": [
+                11,
+                2022
+            ]
+        }
     },
     "cryptonovae": {
         "title": "Cryptonovae",
-        "tech": ["ts", "svelte", "electron", "node"],
-        "text": "At vero eos et accustatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga."
+        "role": "Software developper",
+        "techStack": [
+            "ts",
+            "svelte",
+            "electron",
+            "node"
+        ],
+        "description": "At vero eos et accustatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+        "link": {
+            "label": "cryptonovae.com",
+            "url": "https://cryptonovae.com"
+        },
+        "periode": {
+            "start": [
+                11,
+                2021
+            ],
+            "end": [
+                3,
+                2023
+            ]
+        }
     },
     "francetv": {
         "title": "France TV",
-        "tech": ["ts", "svelte", "react", "node"],
-        "text": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et "
+        "role": "Front-end developper",
+        "techStack": [
+            "ts",
+            "svelte",
+            "react",
+            "node"
+        ],
+        "description": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et ",
+        "link": {
+            "label": "nowuproject.eu",
+            "url": "https://www.nowuproject.eu"
+        },
+        "periode": {
+            "start": [
+                2,
+                2023
+            ],
+            "end": [
+                1,
+                2024
+            ]
+        }
     }
 }

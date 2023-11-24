@@ -1,0 +1,56 @@
+@import '@styles/variables.module.scss';
+@import '@styles/typo.module.scss';
+
+.container {
+  display: flex;
+  height: calc(100% - $l * 2);
+}
+
+.leftRow {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 50%;
+}
+
+.upperLeftRow {
+  display: flex;
+  flex-direction: column;
+}
+
+.lowerLeftRow {
+  margin-bottom: $m;
+}
+
+.rightRow {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+}
+
+.title {
+  @extend %fontXL;
+}
+
+.role {
+  margin-top: $m;
+  color: $background;
+  background-color: $black;
+  width: fit-content;
+  padding: $xxs;
+}
+
+.description {
+  @extend %fontS;
+  margin-top: $m;
+}
+
+.techStack {
+  margin-top: $m;
+}
+
+.link {
+  background-color: $accent;
+  padding: $xxs;
+  text-decoration: underline;
+}

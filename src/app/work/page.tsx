@@ -48,7 +48,7 @@ export default function Work() {
 
   function onFrameButtonClick(id: string) {
     console.log('id eheheeh', id)
-    setModalContent(<WorkModalContent />)
+    setModalContent(<WorkModalContent id={id} />)
     toggleModal()
   }
 
@@ -59,8 +59,8 @@ export default function Work() {
         <WorkTimeline onPlusClick={handlePlusClick} />
       </div> */}
       <div className={styles.workButtons}>
-        <ButtonCube onClick={onFrameButtonClick} id="hey" size={150}>hey</ButtonCube>
-        <ButtonCube onClick={onFrameButtonClick} id="oh" size={150}>oh</ButtonCube>
+        <ButtonCube onClick={onFrameButtonClick} id="dmag" size={150}>hey</ButtonCube>
+        <ButtonCube onClick={onFrameButtonClick} id="mashup" size={150}>oh</ButtonCube>
       </div>
     </div>
   )
