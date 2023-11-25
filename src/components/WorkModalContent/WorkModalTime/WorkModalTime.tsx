@@ -11,14 +11,16 @@ export interface WorkModalTimeProps {
 }
 
 export default function WorkModalTime({ periode }: WorkModalTimeProps) {
+  const monthLabels = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec']
+
   useEffect(() => {
     workModalTimeAnimation({
-      container: styles.container,
       tube: styles.tube,
       circle: styles.circle,
       dates: { top: styles.dateTop, bottom: styles.dateBottom },
       circleDiameter: parseInt(styles.circleDiameter),
       periode,
+      monthLabels,
     })
   }, [])
 
@@ -35,8 +37,8 @@ export default function WorkModalTime({ periode }: WorkModalTimeProps) {
       <div className={styles.inner}>
         <div className={styles.tube}>
           <div className={getDateClass(true)}>
-            <p>blabla</p>
-            <p>blublue</p>
+            <p>{monthLabels[periode.start[0] - 1]}.</p>
+            <p>{periode.start[1]}</p>
           </div>
           <div className={styles.dashLineContainer}>
             <DashLine height={CONSTANTS.MODAL_DIMENSIONS.height - CONSTANTS.WORK_MODAL_PADDING * 2 - 150} className={styles.topDashLine} />
@@ -46,8 +48,8 @@ export default function WorkModalTime({ periode }: WorkModalTimeProps) {
               <DashLine height={parseInt(styles.circleDiameter) / 2 - 20} stroke={cssVariables.black} />
             </div>
             <div className={getDateClass(false)}>
-              <p>blabla</p>
-              <p>blublue</p>
+              <p></p>
+              <p></p>
             </div>
           </div>
         </div>

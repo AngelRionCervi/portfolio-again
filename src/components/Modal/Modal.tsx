@@ -1,23 +1,30 @@
 'use client'
 
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
 import styles from './styles.module.scss'
 import { ModalContext } from '@context/ModalContext'
-import { modalAnimation } from './ModalAnimations'
+import ModalAnimationManager from './ModalAnimations'
 import CONSTANTS from '@constants'
 
 export default function Modal() {
   const dimensions = CONSTANTS.MODAL_DIMENSIONS
-  const animationSelectors = { modalContainer: styles.modalContainer, modalInner: styles.modalInner, backdrop: styles.backdrop }
-
+  const animationManager = useRef<ReturnType<typeof ModalAnimationManager> | null>(null)
   const [openDone, setOpenDone] = useState(false)
-
   const { toggleModal, modalContent, isModalOpen, isModalClosing, forceCloseModal } = useContext(ModalContext)
+
+  useEffect(() => {
+    animationManager.current = ModalAnimationManager({
+      modalContainer: styles.modalContainer,
+      modalInner: styles.modalInner,
+      backdrop: styles.backdrop,
+      dimensions,
+    })
+  }, [])
 
   useEffect(() => {
     if (!isModalOpen) return
 
-    modalAnimation(animationSelectors, dimensions).then(() => {
+    animationManager.current?.openAnimation().then(() => {
       setOpenDone(true)
     })
   }, [isModalOpen])
@@ -25,7 +32,7 @@ export default function Modal() {
   useEffect(() => {
     if (!isModalClosing) return
 
-    modalAnimation(animationSelectors, dimensions, true)
+    animationManager.current?.closeAnimation()
   }, [isModalClosing])
 
   function closeModal() {

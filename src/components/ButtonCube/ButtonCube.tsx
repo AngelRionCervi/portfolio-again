@@ -2,25 +2,26 @@ import { useEffect, useRef, useState } from 'react'
 import anime from 'animejs'
 import styles from './styles.module.scss'
 import CornerTriangle from '@assets/icons/corner-triangle.svg'
-import AnimationManager, { AnimationType } from './ButtonCubeAnimations'
+import ButtonCubeAnimationManager, { AnimationType } from './ButtonCubeAnimations'
+import { WorkModalContentProps } from '../WorkModalContent/WorkModalContent'
 
 interface ButtonCubeProps {
   children: React.ReactNode
   size: number
-  id: string
-  onClick: (id: string) => void
+  id: WorkModalContentProps['id']
+  onClick: (id: WorkModalContentProps['id']) => void
 }
 
 export default function ButtonCube({ children, size, id, onClick }: ButtonCubeProps) {
   const shift = 15
   const [buttonState, setButtonState] = useState<AnimationType | null>(null)
-  const animationManager = useRef<ReturnType<typeof AnimationManager> | null>(null)
+  const animationManager = useRef<ReturnType<typeof ButtonCubeAnimationManager> | null>(null)
   const idleTimeout = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
     if (animationManager?.current) return
 
-    animationManager.current = AnimationManager({
+    animationManager.current = ButtonCubeAnimationManager({
       id,
       aboveFrame: styles.aboveFrame,
       belowFrame: styles.belowFrame,

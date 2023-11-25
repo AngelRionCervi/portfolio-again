@@ -9,7 +9,7 @@ import WorkTimelineModal from '@/components/Modal.old/WorkTimelineModal'
 import { useMounted } from '@/lib/hooks/useMounted'
 import ButtonCube from '@components/ButtonCube/ButtonCube'
 import { ModalContext } from '@/context/ModalContext'
-import WorkModalContent from '@/components/WorkModalContent/WorkModalContent'
+import WorkModalContent, { WorkModalContentProps } from '@/components/WorkModalContent/WorkModalContent'
 
 export default function Work() {
   const [selectedCompany, setSelectedCompany] = useState<CompanyProps | null>(null)
@@ -46,7 +46,7 @@ export default function Work() {
     setSelectedCompany(null)
   }
 
-  function onFrameButtonClick(id: string) {
+  function onFrameButtonClick(id: WorkModalContentProps['id']) {
     console.log('id eheheeh', id)
     setModalContent(<WorkModalContent id={id} />)
     toggleModal()
@@ -61,6 +61,7 @@ export default function Work() {
       <div className={styles.workButtons}>
         <ButtonCube onClick={onFrameButtonClick} id="dmag" size={150}>hey</ButtonCube>
         <ButtonCube onClick={onFrameButtonClick} id="mashup" size={150}>oh</ButtonCube>
+        <ButtonCube onClick={onFrameButtonClick} id="cryptonovae" size={150}>cn</ButtonCube>
       </div>
     </div>
   )

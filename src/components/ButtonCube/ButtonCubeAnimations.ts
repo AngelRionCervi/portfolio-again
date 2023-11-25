@@ -16,7 +16,7 @@ const hoverDuration = 500
 const clickDuration = 50
 const animationTypes = ['idle', 'enter', 'leave', 'down', 'up'] as const
 
-export default function AnimationManager({ id, aboveFrame, belowFrame, triangleTopContainer, triangleBottomContainer }: ButtonCubeAnimationElements) {
+export default function ButtonCubeAnimationManager({ id, aboveFrame, belowFrame, triangleTopContainer, triangleBottomContainer }: ButtonCubeAnimationElements) {
   const animations: Record<AnimationType, Array<AnimeInstance>> = {
     idle: [],
     enter: [],

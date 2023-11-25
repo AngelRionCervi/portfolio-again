@@ -5,7 +5,7 @@ import styles from './styles.module.scss'
 import WorkModalTime from './WorkModalTime/WorkModalTime'
 import CONSTANTS from '@constants'
 
-interface WorkModalContentProps {
+export interface WorkModalContentProps {
   id: keyof typeof workData
 }
 
