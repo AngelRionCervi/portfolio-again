@@ -1,13 +1,11 @@
 'use client'
 
-import { useContext } from 'react'
 import anime from 'animejs'
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import styles from './styles.module.scss'
 import CONSTANTS from '@constants'
 import LeftMenuAnimation from './LeftMenuAnimation/LeftMenuAnimation'
-import { LeftMenuAnimationContext } from '@context/LeftMenuAnimationContext'
 
 interface NavItem {
   name: string
