@@ -1,16 +1,37 @@
 @import '@styles/variables.module.scss';
 
-.container {
+.containerDesktop {
   height: 100%;
   display: flex;
 }
 
-.yearSelectorContainer {
+.containerMobile {
+  height: 100%;
+}
+
+.yearSelectorContainerDesktop {
   width: 35%;
   height: 75%;
 }
 
-.articlesContainer {
+.yearSelectorContainerMobile {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: $m;
+  height: 45px;
+}
+
+.articlesContainerMobile {
+  width: calc(100% - $m * 2);
+  margin-top: $m;
+  padding-left: $m;
+  padding-right: $m;
+}
+
+.articlesContainerDesktop {
   width: 65%;
   margin-top: $m;
+  padding-left: $m;
+  padding-right: $m;
 }
