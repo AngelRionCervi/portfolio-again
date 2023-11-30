@@ -1,17 +1,12 @@
-import { sleep } from '@/lib/helpers'
 import anime from 'animejs'
-import { ThemeType } from '../ThemeSwitcher'
-
-function degToRad(deg: number) {
-  const pi = Math.PI
-  return deg * (pi / 180)
-}
+import { sleep, degToRad } from '@/lib/helpers'
+import { ThemeType } from '@components/ThemeSwitcher/ThemeSwitcher'
 
 interface ThemeSwitcherAnimationProps {
   id: string
 }
 
-export class ThemeSwicthAnimationManager {
+export default class ThemeSwicthAnimationManager {
   id: ThemeSwitcherAnimationProps['id']
 
   stepDuration = 200
@@ -24,14 +19,25 @@ export class ThemeSwicthAnimationManager {
   }
 
   switchLight() {
-    anime({
+    const anims = []
+
+    const innerCircleTimeline = anime.timeline({
       targets: `#${this.id} .innerCircle`,
-      translateX: -5,
       duration: this.stepDuration,
       easing: 'linear',
     })
 
-    anime({
+    innerCircleTimeline.add({
+      translateX: -5,
+    })
+
+    innerCircleTimeline.add({
+      scale: 0.4,
+    })
+
+    anims.push(innerCircleTimeline)
+
+    const outerCircleAnim = anime({
       targets: `#${this.id} .outerCircle`,
       scale: 0,
       duration: this.stepDuration,
@@ -39,14 +45,7 @@ export class ThemeSwicthAnimationManager {
       delay: this.stepDuration,
     })
 
-    setTimeout(() => {
-      anime({
-        targets: `#${this.id} .innerCircle`,
-        scale: 0.4,
-        duration: this.stepDuration,
-        easing: 'linear',
-      })
-    }, this.stepDuration)
+    anims.push(outerCircleAnim)
 
     for (let i = 0; i < this.degList.length; i++) {
       const deg = this.degList[i]
@@ -54,76 +53,90 @@ export class ThemeSwicthAnimationManager {
       const x = length * Math.cos(degToRad(deg))
       const y = length * Math.sin(degToRad(deg))
 
-      anime({
-        targets: `#${this.id} .ray-${i + 1}`,
-        translate: `${x}px ${y}px`,
-        duration: this.rayAnimationDuration,
-        easing: 'easeInSine',
-        delay: this.stepDuration + ((i + 1) * this.rayAnimationDuration) / 2,
-      })
+      anims.push(
+        anime({
+          targets: `#${this.id} .ray-${i + 1}`,
+          translate: `${x}px ${y}px`,
+          duration: this.rayAnimationDuration,
+          easing: 'easeInSine',
+          delay: this.stepDuration + ((i + 1) * this.rayAnimationDuration) / 2,
+        })
+      )
     }
+
+    return Promise.all(anims.map((an) => an.finished))
   }
 
   switchDark() {
+    const anims = []
+
     for (let i = 0; i < this.degList.length; i++) {
       const deg = this.degList[i]
       const length = 0
       const x = length * Math.cos(degToRad(deg))
       const y = length * Math.sin(degToRad(deg))
 
-      anime({
-        targets: `#${this.id} .ray-${i + 1}`,
-        translate: `${x}px ${y}px`,
-        duration: this.rayAnimationDuration,
-        easing: 'easeOutSine',
-      })
+      anims.push(
+        anime({
+          targets: `#${this.id} .ray-${i + 1}`,
+          translate: `${x}px ${y}px`,
+          duration: this.rayAnimationDuration,
+          easing: 'easeOutSine',
+        })
+      )
     }
 
-    setTimeout(() => {
-      anime({
-        targets: `#${this.id} .innerCircle`,
-        scale: 1,
-        duration: this.stepDuration,
-        easing: 'linear',
-      })
+    const innerCircleTimeline = anime.timeline({
+      targets: `#${this.id} .innerCircle`,
+      duration: this.stepDuration,
+      easing: 'linear',
+    })
 
-      anime({
-        targets: `#${this.id} .outerCircle`,
-        scale: 1,
-        duration: this.stepDuration,
-        easing: 'linear',
-      })
-    }, this.stepDuration)
+    innerCircleTimeline.add({
+      delay: this.stepDuration,
+      scale: 1,
+    })
 
-    setTimeout(() => {
-      anime({
-        targets: `#${this.id} .innerCircle`,
-        translateX: 0,
-        duration: this.stepDuration,
-        easing: 'linear',
-      })
-    }, this.stepDuration * 2)
+    innerCircleTimeline.add({
+      translateX: 0,
+    })
+
+    anims.push(innerCircleTimeline)
+
+    const outerCircleAnim = anime({
+      targets: `#${this.id} .outerCircle`,
+      scale: 1,
+      duration: this.stepDuration,
+      easing: 'linear',
+      delay: this.stepDuration,
+    })
+
+    anims.push(outerCircleAnim)
+
+    return Promise.all(anims.map((an) => an.finished))
   }
 
   switchTheme(themeType: ThemeType) {
     this.instances.push(themeType)
   }
 
-  checkInstances() {
-    const lastInstance = this.instances.pop()
+  async checkInstances() {
+    if (!this.instances.length) return
 
+    const lastInstance = this.instances.pop()
+    this.instances = []
     if (lastInstance === 'dark') {
-      this.switchLight()
+      await this.switchLight()
     } else if (lastInstance === 'light') {
-      this.switchDark()
+      await this.switchDark()
     }
   }
 
   async loop() {
     await sleep(50)
+    await this.checkInstances()
 
-    this.checkInstances()
-    this.instances = []
+    this.loop()
   }
 }
 
