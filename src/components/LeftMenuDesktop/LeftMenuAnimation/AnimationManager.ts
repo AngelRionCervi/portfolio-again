@@ -2,7 +2,7 @@ import ReactDOMServer from 'react-dom/server'
 import anime from 'animejs'
 import { Frames } from '@context/LeftMenuAnimationContext'
 import { sleep } from '@lib/helpers'
-import { background } from '@styles/variables.module.scss'
+import cssVariables from '@styles/variables.module.scss'
 
 interface StartAnimationProps {
   aboveFrame: string
@@ -106,7 +106,7 @@ export default function AnimationManager() {
 
     aboveFrameEl.innerText = "It's broken now :/"
     aboveFrameEl.style.display = 'block'
-    aboveFrameEl.style.color = background
+    aboveFrameEl.style.color = cssVariables.background
     aboveFrameEl.style.translate = '-15px 15px'
   }
 

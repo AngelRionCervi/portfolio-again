@@ -6,7 +6,6 @@ interface WorkModalTimeAnimationProps {
   tube: string
   circle: string
   dates: { top: string; bottom: string }
-  circleDiameter: number
   periode: WorkModalTimeProps['periode']
   monthLabels: Array<string>
 }
@@ -26,30 +25,46 @@ function getDates(periode: WorkModalTimeProps['periode'], monthLabels: Array<str
   return generatedDates
 }
 
-export function workModalTimeAnimation({ dates, tube, circle, circleDiameter, periode, monthLabels }: WorkModalTimeAnimationProps) {
-  const duration = 2000
+export function workModalTimeAnimation({ dates, tube, circle, periode, monthLabels }: WorkModalTimeAnimationProps) {
+  const duration = 10000
   const easing = 'easeOutQuad'
-
   const dateBottomEls = document.querySelectorAll(`.${dates.bottom} > p`) as NodeListOf<HTMLElement>
   const generatedDates = getDates(periode, monthLabels)
+
+  const circleDiameter = parseInt(getComputedStyle(document.body).getPropertyValue('--workCircleDiameter'))
+  const isMobile = circleDiameter < CONSTANTS.MOBILE_BREAKPOINT
 
   const time = {
     index: 0,
   }
 
-  anime({
-    targets: `.${tube}`,
-    height: CONSTANTS.MODAL_DIMENSIONS.height - CONSTANTS.WORK_MODAL_PADDING * 2,
-    duration,
-    easing,
-  })
-
-  anime({
-    targets: `.${circle}`,
-    top: CONSTANTS.MODAL_DIMENSIONS.height - circleDiameter - CONSTANTS.WORK_MODAL_PADDING * 2 - 2,
-    duration,
-    easing,
-  })
+  if (isMobile) {
+    anime({
+      targets: `.${tube}`,
+      width: window.innerWidth - 32,
+      duration,
+      easing,
+    })
+    anime({
+      targets: `.${circle}`,
+      left: window.innerWidth - 32 - circleDiameter - 2,
+      duration,
+      easing,
+    })
+  } else {
+    anime({
+      targets: `.${tube}`,
+      height: CONSTANTS.MODAL_DIMENSIONS_DESKTOP.height - CONSTANTS.WORK_MODAL_PADDING * 2,
+      duration,
+      easing,
+    })
+    anime({
+      targets: `.${circle}`,
+      top: CONSTANTS.MODAL_DIMENSIONS_DESKTOP.height - circleDiameter - CONSTANTS.WORK_MODAL_PADDING * 2 - 2,
+      duration,
+      easing,
+    })
+  }
 
   anime({
     targets: time,

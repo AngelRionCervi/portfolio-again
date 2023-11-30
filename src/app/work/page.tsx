@@ -1,50 +1,13 @@
 'use client'
 
 import styles from './style.module.scss'
-import WorkTimeline from '@components/WorkTimeline/WorkTimeline'
-import { useContext, useEffect, useRef, useState } from 'react'
-import workTimelineAnimation, { stopAnimation, totalDuration } from '@components/WorkTimeline/workTimelineAnimation'
-import { getSeenWorkPage, setSeenWorkPage } from '@lib/sessionStorage'
-import WorkTimelineModal from '@/components/Modal.old/WorkTimelineModal'
-import { useMounted } from '@/lib/hooks/useMounted'
+import { useContext } from 'react'
 import ButtonCube from '@components/ButtonCube/ButtonCube'
 import { ModalContext } from '@/context/ModalContext'
 import WorkModalContent, { WorkModalContentProps } from '@/components/WorkModalContent/WorkModalContent'
 
 export default function Work() {
-  const [selectedCompany, setSelectedCompany] = useState<CompanyProps | null>(null)
-  const isMounted = useMounted()
-
-  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
-
   const { setModalContent, toggleModal } = useContext(ModalContext)
-
-  function handlePlusClick({ name, x, y, size }: PlusPayload) {
-    closeModal()
-    setTimeout(() => {
-      setSelectedCompany({ name, position: { x, y }, size })
-    })
-  }
-
-  useEffect(() => {
-    if (getSeenWorkPage() !== 'true') {
-      workTimelineAnimation(`.${styles.workContainer}`)
-      timeoutRef.current = setTimeout(() => {
-        setSeenWorkPage()
-      }, totalDuration)
-    }
-
-    return () => {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current)
-      }
-      stopAnimation()
-    }
-  }, [])
-
-  function closeModal() {
-    setSelectedCompany(null)
-  }
 
   function onFrameButtonClick(id: WorkModalContentProps['id']) {
     console.log('id eheheeh', id)
@@ -54,14 +17,22 @@ export default function Work() {
 
   return (
     <div className={styles.workContainer}>
-      {/* {selectedCompany && <WorkTimelineModal company={selectedCompany} closeModal={closeModal} />} */}
-      {/* <div style={{ visibility: isMounted ? 'visible' : 'hidden' }} className={styles.workContainerInner}>
-        <WorkTimeline onPlusClick={handlePlusClick} />
-      </div> */}
       <div className={styles.workButtons}>
-        <ButtonCube onClick={onFrameButtonClick} id="dmag" size={150}>hey</ButtonCube>
-        <ButtonCube onClick={onFrameButtonClick} id="mashup" size={150}>oh</ButtonCube>
-        <ButtonCube onClick={onFrameButtonClick} id="cryptonovae" size={150}>cn</ButtonCube>
+        <ButtonCube onClick={onFrameButtonClick} id="dmag" size={150}>
+          Draw Me A Garden
+        </ButtonCube>
+        <ButtonCube onClick={onFrameButtonClick} id="mashup" size={150}>
+          Mashup Studio
+        </ButtonCube>
+        <ButtonCube onClick={onFrameButtonClick} id="tripica" size={150}>
+          tripica
+        </ButtonCube>
+        <ButtonCube onClick={onFrameButtonClick} id="cryptonovae" size={150}>
+          Cryptonovae
+        </ButtonCube>
+        <ButtonCube onClick={onFrameButtonClick} id="francetv" size={150}>
+          France TV
+        </ButtonCube>
       </div>
     </div>
   )

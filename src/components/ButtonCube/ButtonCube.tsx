@@ -54,12 +54,8 @@ export default function ButtonCube({ children, size, id, onClick }: ButtonCubePr
     }, anime.random(1000, 3000))
   }
 
-  function onFrameClick() {
-    console.log('clickckick')
-  }
-
   return (
-    <div id={id} style={{ width: `${size + shift}px`, height: `${size + shift}px` }} className={styles.container}>
+    <div id={id} style={{ width: `${size}px`, height: `${size + shift}px` }} className={styles.container}>
       <div style={{ width: `${size}px`, height: `${size}px` }} className={styles.belowFrame} />
       <div className={styles.triangleTopContainer}>
         <CornerTriangle className={styles.triangleTop} width="17px" height="17px" />

@@ -3,7 +3,7 @@
 import { createContext, useEffect, useState } from 'react'
 import { RouteName } from '@/constants/routes'
 
-const frameSvgs = require.context('@assets/splittedFrames', true, /^\.\/(framesHome|framesWork|framesBlog|framesAbout)\/\d+\.svg$/, 'sync')
+const frameModules = require.context('@assets/splittedFrames', true, /^\.\/(framesHome|framesWork|framesBlog|framesAbout)\/\d+\.svg$/, 'sync')
 
 export type Frames = Record<RouteName, Array<() => React.ReactElement<'svg'>>>
 
@@ -26,18 +26,18 @@ export default function LeftMenuAnimationContextProvider({ children }: { childre
   const [frames, setFrames] = useState(defaultContextValues.frames)
 
   useEffect(() => {
-    const assembledFrames = frameSvgs.keys().reduce((acc, path) => {
+    const frameSvgs = frameModules.keys().reduce((acc, path) => {
       const pathSplit = path.split(/(Home|Work|Blog|About)/)
       const pageName = pathSplit[1] as RouteName
       const svgIndex = parseInt(pathSplit[2].match(/\d+/)?.[0] ?? '1')
 
       acc[pageName] = [...(acc[pageName] || [])]
-      acc[pageName][svgIndex - 1] = frameSvgs(path).default
+      acc[pageName][svgIndex - 1] = frameModules(path).default
 
       return acc
     }, {} as Frames)
 
-    setFrames(assembledFrames)
+    setFrames(frameSvgs)
   }, [])
 
   return <LeftMenuAnimationContext.Provider value={{ frames }}>{children}</LeftMenuAnimationContext.Provider>

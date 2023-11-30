@@ -9,6 +9,8 @@ interface ModalAnimationManagerProps {
 }
 
 export default function ModalAnimationManager({ modalContainer, modalInner, backdrop, dimensions }: ModalAnimationManagerProps) {
+  const modalContainerEl = document.querySelector(`.${modalContainer}`) as HTMLElement
+
   return {
     openAnimation() {
       const openAnimations = []
@@ -22,7 +24,7 @@ export default function ModalAnimationManager({ modalContainer, modalInner, back
 
       openAnimations[1] = anime({
         targets: `.${modalContainer}`,
-        height: ['0', `${dimensions.height}px`],
+        height: ['0', `${modalContainerEl.offsetHeight}px`],
         easing: 'easeOutExpo',
         duration: CONSTANTS.MODAL_OPEN_ANIMATION_DURATION,
         direction: 'forward',
@@ -52,7 +54,7 @@ export default function ModalAnimationManager({ modalContainer, modalInner, back
 
       closeAnimations[1] = anime({
         targets: `.${modalContainer}`,
-        height: ['0', `${dimensions.height}px`],
+        height: ['0', `${modalContainerEl.offsetHeight}px`],
         backgroundColor: ['white', 'black'],
         easing: 'easeInExpo',
         duration: CONSTANTS.MODAL_CLOSE_ANIMATION_DURATION * 0.5,

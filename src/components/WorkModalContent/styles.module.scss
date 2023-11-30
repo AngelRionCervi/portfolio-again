@@ -2,15 +2,44 @@
 @import '@styles/typo.module.scss';
 
 .container {
-  display: flex;
+  position: relative;
   height: calc(100% - $l * 2);
+  padding: 40px;
+
+  @media screen and (max-width: $mobileBreakpoint) {
+    padding: 16px;
+  }
+}
+
+.innerContainer {
+  display: flex;
+  height: 100%;
+
+  @media screen and (max-width: $mobileBreakpoint) {
+    display: block;
+  }
+}
+
+.closeButton {
+  position: absolute;
+  right: $l;
+  top: $l;
+
+  @media screen and (max-width: $mobileBreakpoint) {
+    right: $s;
+    top: $s;
+  }
 }
 
 .leftRow {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 50%;
+  width: 60%;
+
+  @media screen and (max-width: $mobileBreakpoint) {
+    width: 100%;
+  }
 }
 
 .upperLeftRow {
@@ -18,18 +47,22 @@
   flex-direction: column;
 }
 
-.lowerLeftRow {
-  margin-bottom: $m;
-}
-
 .rightRow {
   display: flex;
   justify-content: center;
-  width: 50%;
+  width: 40%;
+
+  @media screen and (max-width: $mobileBreakpoint) {
+    width: 100%;
+  }
 }
 
 .title {
   @extend %fontXL;
+
+  @media screen and (max-width: $mobileBreakpoint) {
+    width: 85%;
+  }
 }
 
 .role {
@@ -47,6 +80,9 @@
 
 .techStack {
   margin-top: $m;
+  display: flex;
+  align-items: center;
+  gap: $s;
 }
 
 .link {

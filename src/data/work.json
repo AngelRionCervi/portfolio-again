@@ -4,9 +4,11 @@
         "role": "PHP and JS developper (intern)",
         "techStack": [
             "js",
-            "php"
+            "php",
+            "sass",
+            "mysql"
         ],
-        "description": "At vero eos et accusamus ue corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+        "description": "Draw Me A Garden is a startup that aims to advise and create gardens based on location and dimensions of the area with the use of 3D models and gardening experts.<br><br>I've been able to create new features and continue developments on the website and on the garden creation app.",
         "link": {
             "label": "dmag.fr",
             "url": "https://www.dmag.fr"
@@ -26,13 +28,13 @@
         "title": "Mashup Studio",
         "role": "Fullstack developper",
         "techStack": [
-            "react",
             "ts",
+            "react",
             "electron",
             "node",
             "mongodb"
         ],
-        "description": "At vero eos et accusamus et iusto odio dignissimos duamus et iusto odio dignissimoamus et iusto odio dignissimoamus et iusto odio dignissimocimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+        "description": "The mashup table is an educational tool that allows the user to intuitively edit and manipulate video, sounds or images via tagged paper cards placed on the device.<br><br>I was in charge of developing a robust core engine for manipulating media and tracking their position, then creating specific apps for clients such as schools and museums for educational workshops, presentation and interactive information display.",
         "link": {
             "label": "mashuptable.fr",
             "url": "https://www.mashuptable.fr"
@@ -52,12 +54,13 @@
         "title": "triPica",
         "role": "Front-end developper",
         "techStack": [
+            "ts",
             "react",
-            "reactNative",
+            "reactnative",
             "svelte",
-            "ts"
+            "sass"
         ],
-        "description": "ue corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+        "description": "triPica is a SaaS company that provides telecom and energy industries with tools to create digital propositions for their clients (mobile packages, energy contracts, eKYC).<br><br>I was in a team in charge of developing the business support system platform and the mobile app for telecom customers.",
         "link": {
             "label": "tripica.com",
             "url": "https://www.tripica.com"
@@ -80,9 +83,10 @@
             "ts",
             "svelte",
             "electron",
-            "node"
+            "node",
+            "tailwind"
         ],
-        "description": "At vero eos et accustatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+        "description": "Cryptonovae is a startup whose objective is to develop a platform to centralize crypto exchanges (CEX and DEX) on a single app.<br><br>I was in a team responsible for the electron app and the trading engine, as the lead developer of the app my goal was to make it communicate with the C# trading engine and the backend API while also creating a clean and modern UI.",
         "link": {
             "label": "cryptonovae.com",
             "url": "https://cryptonovae.com"
@@ -105,9 +109,9 @@
             "ts",
             "svelte",
             "react",
-            "node"
+            "sass"
         ],
-        "description": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et ",
+        "description": "France TV is the french national public television broadcaster, I worked in a team in charge of the NOWU media, which is an article website that aims to educate and raise public awareness on ecology.<br><br>As the front end developer I added various features to the website such as information feeds, quizzes, filter search and more. Eco conception was very important from the start and the team and I spent a lot of time trying to find innovative ways to make the website as energy efficient as possible.",
         "link": {
             "label": "nowuproject.eu",
             "url": "https://www.nowuproject.eu"

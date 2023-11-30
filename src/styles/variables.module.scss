@@ -13,10 +13,17 @@ $xl: 48px;
 $xxl: 64px;
 $g: 96px;
 
+$mobileBreakpoint: 859px;
+$modalWidthDesktop: 800px;
+$modalHeightDesktop: 600px;
+
 :export {
   background: $background;
   black: $black;
   white: $white;
   gray: $gray;
   accent: $accent;
+  mobileBreakpoint: $mobileBreakpoint;
+  modalWidthDesktop: $modalWidthDesktop;
+  modalHeightDesktop: $modalHeightDesktop;
 }

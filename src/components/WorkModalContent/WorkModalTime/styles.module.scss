@@ -1,7 +1,7 @@
 @import '@styles/variables.module.scss';
 @import '@styles/typo.module.scss';
 
-$circleDiameter: 150px;
+$circleDiameter: 100px;
 
 .container {
   width: 100%;
@@ -11,26 +11,41 @@ $circleDiameter: 150px;
 
 .inner {
   position: relative;
-  width: $circleDiameter + 4px;
+  width: calc(var(--workCircleDiameter) + 4px);
+
+  @media screen and (max-width: $mobileBreakpoint) {
+    width: 100%;
+  }
 }
 
 .tube {
-  border-radius: $circleDiameter / 2;
+  border-radius: calc(var(--workCircleDiameter) / 2);
   width: 100%;
-  height: $circleDiameter + 4px;
+  height: calc(var(--workCircleDiameter) + 4px);
   background-color: $black;
+
+  @media screen and (max-width: $mobileBreakpoint) {
+    width: calc(var(--workCircleDiameter) + 4px);
+  }
 }
 
 .circle {
   position: absolute;
-  width: $circleDiameter;
-  height: $circleDiameter;
+  width: var(--workCircleDiameter);
+  height: var(--workCircleDiameter);
   border-radius: 100%;
   top: 2px;
   left: 50%;
   transform: translateX(-50%);
   background-color: $background;
   border: 2px solid $black;
+
+  @media screen and (max-width: $mobileBreakpoint) {
+    left: 0;
+    top: 0;
+    right: 2px;
+    transform: unset;
+  }
 }
 
 .date {
@@ -39,13 +54,16 @@ $circleDiameter: 150px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
+
+  @media screen and (max-width: $mobileBreakpoint) {
+
+  }
 }
 
 .dateTop {
   @extend %fontS;
   color: $background;
-  height: $circleDiameter - 10;
+  height: calc(var(--workCircleDiameter) - 10px);
 
   > p:first-of-type {
     @extend %fontXS;
@@ -66,12 +84,18 @@ $circleDiameter: 150px;
   width: 100%;
   display: flex;
   justify-content: center;
+
+
 }
 
 .topDashLine {
   margin-top: -40px;
+  @media screen and (max-width: $mobileBreakpoint) {
+    transform-origin: center;
+    transform: rotate(90deg);
+  }
 }
 
 :export {
-  circleDiameter: $circleDiameter;
+  circleDiameter: 150px;
 }

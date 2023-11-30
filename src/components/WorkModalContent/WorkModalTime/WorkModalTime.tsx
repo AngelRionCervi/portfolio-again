@@ -18,7 +18,6 @@ export default function WorkModalTime({ periode }: WorkModalTimeProps) {
       tube: styles.tube,
       circle: styles.circle,
       dates: { top: styles.dateTop, bottom: styles.dateBottom },
-      circleDiameter: parseInt(styles.circleDiameter),
       periode,
       monthLabels,
     })
@@ -41,7 +40,7 @@ export default function WorkModalTime({ periode }: WorkModalTimeProps) {
             <p>{periode.start[1]}</p>
           </div>
           <div className={styles.dashLineContainer}>
-            <DashLine height={CONSTANTS.MODAL_DIMENSIONS.height - CONSTANTS.WORK_MODAL_PADDING * 2 - 150} className={styles.topDashLine} />
+            <DashLine height={CONSTANTS.MODAL_DIMENSIONS_DESKTOP.height - CONSTANTS.WORK_MODAL_PADDING * 2 - 150} className={styles.topDashLine} />
           </div>
           <div className={styles.circle}>
             <div className={styles.dashLineContainer}>

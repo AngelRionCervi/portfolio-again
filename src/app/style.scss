@@ -1,6 +1,16 @@
 @import '@styles/typo.module.scss';
 @import '@styles/variables.module.scss';
 
+:root {
+  --workCircleDiameter: 150px;
+}
+
+@media screen and (max-width: $mobileBreakpoint) {
+  :root {
+    --workCircleDiameter: 100px;
+  }
+}
+
 body {
   @extend %defaultTypo;
   padding: 0;
