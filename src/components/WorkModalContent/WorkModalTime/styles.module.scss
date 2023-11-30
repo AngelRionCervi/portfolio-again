@@ -1,8 +1,6 @@
 @import '@styles/variables.module.scss';
 @import '@styles/typo.module.scss';
 
-$circleDiameter: 100px;
-
 .container {
   width: 100%;
   display: flex;
@@ -26,6 +24,8 @@ $circleDiameter: 100px;
 
   @media screen and (max-width: $mobileBreakpoint) {
     width: calc(var(--workCircleDiameter) + 4px);
+    display: flex;
+    align-items: center;
   }
 }
 
@@ -41,6 +41,7 @@ $circleDiameter: 100px;
   border: 2px solid $black;
 
   @media screen and (max-width: $mobileBreakpoint) {
+    display: flex;
     left: 0;
     top: 0;
     right: 2px;
@@ -54,16 +55,16 @@ $circleDiameter: 100px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  @media screen and (max-width: $mobileBreakpoint) {
-
-  }
 }
 
 .dateTop {
   @extend %fontS;
   color: $background;
   height: calc(var(--workCircleDiameter) - 10px);
+
+  @media screen and (max-width: $mobileBreakpoint) {
+    min-width: var(--workCircleDiameter);
+  }
 
   > p:first-of-type {
     @extend %fontXS;
@@ -75,6 +76,12 @@ $circleDiameter: 100px;
   color: $black;
   margin-top: 10px;
 
+  @media screen and (max-width: $mobileBreakpoint) {
+    min-width: var(--workCircleDiameter);
+    margin-top: 0;
+    margin-left: -24px;
+  }
+
   > p:first-of-type {
     @extend %fontXS;
   }
@@ -85,17 +92,29 @@ $circleDiameter: 100px;
   display: flex;
   justify-content: center;
 
-
-}
-
-.topDashLine {
-  margin-top: -40px;
   @media screen and (max-width: $mobileBreakpoint) {
-    transform-origin: center;
-    transform: rotate(90deg);
+    height: 100%;
+    align-items: center;
   }
 }
 
-:export {
-  circleDiameter: 150px;
+.dashLineContainerBottom {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  @media screen and (max-width: $mobileBreakpoint) {
+    width: fit-content;
+    height: 100%;
+    align-items: center;
+    justify-content: flex-start;
+  }
+}
+
+.topDashLineDesktop {
+  margin-top: -40px;
+}
+
+.topDashLineMobile {
+  margin-left: -20px;
 }

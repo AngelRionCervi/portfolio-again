@@ -1,0 +1,44 @@
+<svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle class="outerCircle" style="transform-origin: center;" cx="11.5" cy="11.5" r="11"
+    fill="#E3E3E3" stroke="black" />
+  <mask id="mask0_91_965" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="1" y="1" width="21"
+    height="21">
+    <circle cx="11.5" cy="11.5" r="10" fill="#E3E3E3" stroke="black" />
+  </mask>
+  <g mask="url(#mask0_91_965)">
+    <circle class="innerCircle" style="transform-origin: 16px center;" cx="16.4412" cy="11.5" r="10"
+      fill="black" stroke="black" />
+  </g>
+  <g style="transform: translate(8px, 8px);">
+    <!-- <path class="ray-1" fill-rule="evenodd" clip-rule="evenodd"
+      d="M7 4.00003H2V3.00003H7V4.00003Z" fill="black" />
+    <path class="ray-2" fill-rule="evenodd" clip-rule="evenodd"
+      d="M3 2.00003L6.53552 5.53558L5.82842 6.24268L2.29288 2.70715L3 2.00003Z" fill="black" />
+    <path class="ray-3" fill-rule="evenodd" clip-rule="evenodd"
+      d="M4 2.00003L4 7.00003H3L3 2.00003L4 2.00003Z"
+      fill="black" />
+    <path class="ray-4" fill-rule="evenodd" clip-rule="evenodd"
+      d="M4.53553 3.00004L1 6.53558L0.292893 5.82847L3.82843 2.29293L4.53553 3.00004Z" fill="black" />
+    <path class="ray-8" fill-rule="evenodd" clip-rule="evenodd"
+      d="M6.53553 1.00004L3 4.53558L2.29289 3.82847L5.82843 0.292935L6.53553 1.00004Z" fill="black" />
+    <path class="ray-5" fill-rule="evenodd" clip-rule="evenodd"
+      d="M5 4.00003H0V3.00003H5V4.00003Z" fill="black" />
+    <path class="ray-6" fill-rule="evenodd" clip-rule="evenodd"
+      d="M1.00004 3.05176e-05L4.53557 3.53556L3.82847 4.24267L0.292931 0.707137L1.00004 3.05176e-05Z"
+      fill="black" />
+    <path class="ray-7" fill-rule="evenodd" clip-rule="evenodd"
+      d="M4 3.36925e-05L4 5.00003H3L3 3.37362e-05L4 3.36925e-05Z" fill="black" /> -->
+
+      <path class="ray-8"  fill-rule="evenodd" clip-rule="evenodd" d="M6.82844 1.00002L4.00001 3.82844L3.29291 3.12134L6.12133 0.292911L6.82844 1.00002Z" fill="black"/>
+<path class="ray-7"  fill-rule="evenodd" clip-rule="evenodd" d="M4 -4.37114e-08L4 4L3 4L3 0L4 -4.37114e-08Z" fill="black"/>
+<path  class="ray-6"  fill-rule="evenodd" clip-rule="evenodd" d="M1.00002 -1.12057e-05L3.82844 2.82842L3.12134 3.53552L0.292911 0.707096L1.00002 -1.12057e-05Z" fill="black"/>
+<path  class="ray-5" fill-rule="evenodd" clip-rule="evenodd" d="M4 4.00003H0V3.00003H4V4.00003Z" fill="black"/>
+<path class="ray-4" fill-rule="evenodd" clip-rule="evenodd" d="M3.82844 3.70714L1.00001 6.53557L0.292908 5.82846L3.12133 3.00003L3.82844 3.70714Z" fill="black"/>
+<path class="ray-3" fill-rule="evenodd" clip-rule="evenodd" d="M4 3.00003L4 7.00003L3 7.00003L3 3.00003L4 3.00003Z" fill="black"/>
+<path  class="ray-2" fill-rule="evenodd" clip-rule="evenodd" d="M4.00002 2.99999L6.82844 5.82842L6.12134 6.53552L3.29291 3.7071L4.00002 2.99999Z" fill="black"/>
+
+    <path class="ray-1" fill-rule="evenodd" clip-rule="evenodd" d="M7 4H3V3H7V4Z" fill="black"/>
+
+  </g>
+</svg>
+  

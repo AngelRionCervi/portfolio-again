@@ -34,7 +34,7 @@
             "node",
             "mongodb"
         ],
-        "description": "The mashup table is an educational tool that allows the user to intuitively edit and manipulate video, sounds or images via tagged paper cards placed on the device.<br><br>I was in charge of developing a robust core engine for manipulating media and tracking their position, then creating specific apps for clients such as schools and museums for educational workshops, presentation and interactive information display.",
+        "description": "The mashup table is an educational tool that allows the user to intuitively edit and manipulate video, sounds or images via tagged paper cards placed on the device.<br><br>I was in charge of developing a robust core engine for manipulating media and tracking their position, then creating specific apps for clients such as schools and museums for interactive information display.",
         "link": {
             "label": "mashuptable.fr",
             "url": "https://www.mashuptable.fr"
@@ -111,7 +111,7 @@
             "react",
             "sass"
         ],
-        "description": "France TV is the french national public television broadcaster, I worked in a team in charge of the NOWU media, which is an article website that aims to educate and raise public awareness on ecology.<br><br>As the front end developer I added various features to the website such as information feeds, quizzes, filter search and more. Eco conception was very important from the start and the team and I spent a lot of time trying to find innovative ways to make the website as energy efficient as possible.",
+        "description": "France TV is the french national public television broadcaster, I worked in a team in charge of the NOWU media, which is an article website that aims to educate and raise awareness on ecology.<br><br>As the front end developer I added various features to the website such as information feeds, quizzes, filter search and more.",
         "link": {
             "label": "nowuproject.eu",
             "url": "https://www.nowuproject.eu"

@@ -3,11 +3,12 @@
 
 .container {
   position: relative;
-  height: calc(100% - $l * 2);
-  padding: 40px;
+  height: calc(100% - $m * 2);
+  padding: $m;
 
   @media screen and (max-width: $mobileBreakpoint) {
-    padding: 16px;
+    padding: $s;
+    height: calc(100% - $s * 2);
   }
 }
 
@@ -16,19 +17,15 @@
   height: 100%;
 
   @media screen and (max-width: $mobileBreakpoint) {
-    display: block;
+    flex-direction: column;
+    //justify-content: space-between;
   }
 }
 
 .closeButton {
   position: absolute;
-  right: $l;
-  top: $l;
-
-  @media screen and (max-width: $mobileBreakpoint) {
-    right: $s;
-    top: $s;
-  }
+  right: $s;
+  top: $s;
 }
 
 .leftRow {
@@ -39,6 +36,7 @@
 
   @media screen and (max-width: $mobileBreakpoint) {
     width: 100%;
+    justify-content: unset;
   }
 }
 
@@ -54,6 +52,8 @@
 
   @media screen and (max-width: $mobileBreakpoint) {
     width: 100%;
+    margin-bottom: $s;
+    margin-top: $s;
   }
 }
 
@@ -86,7 +86,20 @@
 }
 
 .link {
+  margin-top: $m;
   background-color: $accent;
   padding: $xxs;
   text-decoration: underline;
+  width: fit-content;
+
+  @media screen and (max-width: $mobileBreakpoint) {
+    padding: $xxs 0;
+    width: 100vw;
+    margin-left: $s * -1;
+    text-align: right;
+
+    > p {
+      margin-right: $s;
+    }
+  }
 }

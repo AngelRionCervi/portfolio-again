@@ -9,8 +9,7 @@ import { useDevice } from '@lib/hooks/useDevice'
 
 export default function Modal() {
   const isMobile = useDevice()
-  console.log('ismobile', isMobile)
-
+  
   const animationManager = useRef<ReturnType<typeof ModalAnimationManager> | null>(null)
   const [openDone, setOpenDone] = useState(false)
   const { toggleModal, modalContent, isModalOpen, isModalClosing, forceCloseModal } = useContext(ModalContext)

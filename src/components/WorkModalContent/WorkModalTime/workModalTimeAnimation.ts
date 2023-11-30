@@ -26,13 +26,12 @@ function getDates(periode: WorkModalTimeProps['periode'], monthLabels: Array<str
 }
 
 export function workModalTimeAnimation({ dates, tube, circle, periode, monthLabels }: WorkModalTimeAnimationProps) {
-  const duration = 10000
+  const duration = 1250
   const easing = 'easeOutQuad'
   const dateBottomEls = document.querySelectorAll(`.${dates.bottom} > p`) as NodeListOf<HTMLElement>
   const generatedDates = getDates(periode, monthLabels)
-
   const circleDiameter = parseInt(getComputedStyle(document.body).getPropertyValue('--workCircleDiameter'))
-  const isMobile = circleDiameter < CONSTANTS.MOBILE_BREAKPOINT
+  const isMobile = window.innerWidth < CONSTANTS.MOBILE_BREAKPOINT
 
   const time = {
     index: 0,

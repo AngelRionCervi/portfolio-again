@@ -22,13 +22,13 @@ export default function WorkModalContent({ id }: WorkModalContentProps) {
   const isMobile = useDevice()
 
   useEffect(() => {
-    console.log('data toolSvgs', data, toolSvgs)
+    //console.log('data toolSvgs', data, toolSvgs)
   }, [data])
 
   return (
     <div className={styles.container}>
       <button className={styles.closeButton} onClick={toggleModal}>
-        {<CloseCross />}
+        <CloseCross />
       </button>
       <div className={styles.innerContainer}>
         <div className={styles.leftRow}>
@@ -46,11 +46,10 @@ export default function WorkModalContent({ id }: WorkModalContentProps) {
               })}
             </div>
           </div>
-          <div>
-            <Link className={styles.link} href={data.link.url} target="_blank">
-              {data.link.label}
-            </Link>
-          </div>
+          <Link className={styles.link} href={data.link.url} target="_blank">
+            <p>{data.link.label}</p>
+          </Link>
+          {isMobile && <div />}
         </div>
         <div className={styles.rightRow}>
           <WorkModalTime periode={data.periode} />

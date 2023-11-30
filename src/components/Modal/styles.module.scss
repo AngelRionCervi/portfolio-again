@@ -16,8 +16,8 @@
   transform: translate(-50%, -50%);
   border: 1px solid $black;
   background-color: $background;
-  width: 800px;
-  height: 600px;
+  width: $modalWidthDesktop;
+  height: $modalHeightDesktop;
 
   @media screen and (max-width: $mobileBreakpoint) {
     width: 100vw;

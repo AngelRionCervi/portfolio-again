@@ -1,4 +1,5 @@
 import styles from './style.module.scss'
+import ThemeSwitcher from '@components/ThemeSwitcher/ThemeSwitcher'
 
 interface PageInfoProps {
   text: string
@@ -6,11 +7,11 @@ interface PageInfoProps {
 }
 
 function RightPageInfo({ text, id }: PageInfoProps) {
+
   return (
     <div className={styles.rightPageContainer}>
       <div className={styles.topInfo}>
-        <div className={styles.bar} />
-        <p>{id}</p>
+        <ThemeSwitcher />
       </div>
       <div className={styles.bottomInfo}>
         <div className={styles.bottomInner}>
