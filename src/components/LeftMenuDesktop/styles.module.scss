@@ -26,7 +26,7 @@
 
 .bar {
   width: 1px;
-  background-color: $black;
+  background-color: var(--black);
   height: 100%;
 }
 
@@ -37,7 +37,7 @@
 }
 
 .pointerRound {
-  background-color: $black;
+  background-color: var(--black);
   border-radius: 100%;
   width: $xs;
   height: $xs;
@@ -46,5 +46,5 @@
 .pointerBar {
   height: 1px;
   width: 35px;
-  background-color: $black;
+  background-color: var(--black);
 }

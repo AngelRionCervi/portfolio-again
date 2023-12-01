@@ -1,6 +1,7 @@
 import BurgerMenuContext from './BurgerMenuContext'
 import ModalContext from './ModalContext'
 import ToolSvgsContext from './ToolSvgsContext'
+import ThemeContext from './ThemeContext'
 
 interface ComposeProps {
   components: Array<React.JSXElementConstructor<React.PropsWithChildren<any>>>
@@ -21,5 +22,5 @@ function Compose({ components = [], children }: ComposeProps) {
 }
 
 export default function ContextReducer({ children }: { children: React.ReactNode }) {
-  return <Compose components={[BurgerMenuContext, ModalContext, ToolSvgsContext]}>{children}</Compose>
+  return <Compose components={[BurgerMenuContext, ModalContext, ToolSvgsContext, ThemeContext]}>{children}</Compose>
 }

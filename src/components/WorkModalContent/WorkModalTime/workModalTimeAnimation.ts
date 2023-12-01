@@ -30,7 +30,7 @@ export function workModalTimeAnimation({ dates, tube, circle, periode, monthLabe
   const easing = 'easeOutQuad'
   const dateBottomEls = document.querySelectorAll(`.${dates.bottom} > p`) as NodeListOf<HTMLElement>
   const generatedDates = getDates(periode, monthLabels)
-  const circleDiameter = parseInt(getComputedStyle(document.body).getPropertyValue('--workCircleDiameter'))
+  const circleDiameter = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--workCircleDiameter'))
   const isMobile = window.innerWidth < CONSTANTS.MOBILE_BREAKPOINT
 
   const time = {

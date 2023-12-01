@@ -2,9 +2,9 @@
 @import '@styles/typo.module.scss';
 
 .container {
-    border: 1px solid $black;
+    border: 1px solid var(--black);
     position: fixed;
-    background-color: $background;
+    background-color: var(--background);
     opacity: 0;
     animation: anOpacity forwards 100ms;
 }
@@ -24,7 +24,7 @@
 }
 
 .closeButton {
-    background-color: $black;
+    background-color: var(--black);
     position: absolute;
     right: 0;
     top: 0;
@@ -56,7 +56,7 @@
 
 .titleLink {
     @extend %fontL;
-    color: $black;
+    color: var(--black);
 }
 
 .techIcons {
@@ -66,7 +66,7 @@
 
 .text {
     @extend %fontS;
-    color: $black;
+    color: var(--black);
     word-break: break-all;
 }
 

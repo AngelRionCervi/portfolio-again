@@ -67,8 +67,8 @@
 
 .role {
   margin-top: $m;
-  color: $background;
-  background-color: $black;
+  color: var(--background);
+  background-color: var(--black);
   width: fit-content;
   padding: $xxs;
 }

@@ -2,7 +2,7 @@
 
 .container {
   font-size: $xxl;
-  color: $black;
+  color: var(--black);
   font-weight: bold;
   position: relative;
 }

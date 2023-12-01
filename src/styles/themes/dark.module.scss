@@ -1,0 +1,15 @@
+$background: black;
+$textColor: white;
+$black: white;
+$white: #ffffff;
+$gray: #747474;
+$accent: #e08c8c;
+
+:export {
+  background: $background;
+  black: $black;
+  textColor: $textColor;
+  white: $white;
+  gray: $gray;
+  accent: $accent;
+}

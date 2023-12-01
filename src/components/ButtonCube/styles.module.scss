@@ -6,17 +6,17 @@
 
 .belowFrame {
   position: absolute;
-  background-color: $black;
+  background-color: var(--black);
   top: 15px;
   left: -15px;
 }
 
 .aboveFrame {
   position: absolute;
-  background-color: $background;
+  background-color: var(--background);
   top: 0;
   left: 0;
-  border: 1px solid $black;
+  border: 1px solid var(--black);
 }
 
 .triangleTop {

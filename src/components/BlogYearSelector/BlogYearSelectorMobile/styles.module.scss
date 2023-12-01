@@ -5,7 +5,7 @@
   width: 150px;
   height: 45px;
   overflow: hidden;
-  border: 1px solid $black;
+  border: 1px solid var(--black);
   z-index: 1;
   position: absolute;
 }
@@ -42,7 +42,7 @@
 
 .otherYearsContainer {
   width: 100%;
-  background-color: $background;
+  background-color: var(--background);
   display: flex;
   justify-content: center;
   align-items: center;

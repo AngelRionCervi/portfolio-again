@@ -7,10 +7,10 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: $background;
+    background-color: var(--background);
     z-index: 1;
     animation: slideOpen forwards ease-out 250ms;
-    border-left: 1px solid $black;
+    border-left: 1px solid var(--black);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -35,13 +35,13 @@
     width: 100%;
     display: block;
     text-align: center;
-    color: $black;
+    color: var(--black);
     padding: $xs;
 }
 
 .linkCurrent {
-    background-color: $black;
-    color: $white;
+    background-color: var(--black);
+    color: var(--white);
 }
 
 // .closeButton {

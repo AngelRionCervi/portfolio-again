@@ -3,6 +3,11 @@
 
 :root {
   --workCircleDiameter: 150px;
+  --background: var(--background);
+  --black: #000000;
+  --gray: #747474;
+  --accent: #e08c8c;
+  --text: black;
 }
 
 @media screen and (max-width: $mobileBreakpoint) {
@@ -11,11 +16,15 @@
   }
 }
 
+* {
+  color: var(--textColor)
+}
+
 body {
   @extend %defaultTypo;
   padding: 0;
   margin: 0;
-  background-color: $background;
+  background-color: var(--background);
 }
 
 p {
@@ -52,7 +61,6 @@ h5 {
 }
 
 .backdrop {
-
   &:after {
     content: "";
     width: 100vw;

@@ -5,10 +5,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid $black;
+    border-bottom: 1px solid var(--black);
     height: 50px;
     padding: 0 20px;
-    background-color: $background;
+    background-color: var(--background);
     position: sticky;
     top: 0;
 

@@ -1,16 +1,15 @@
-import { useEffect, useRef, useState } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
 import MoonIcon from '@assets/icons/theme/moon.svg'
 import ThemeSwicthAnimationManager from './ThemeSwitcherAnimation/ThemeSwitcherAnimation'
 import { useAfterMountEffect } from '@lib/hooks/useAfterMountEffect'
 import CONSTANTS from '@constants'
-
-export type ThemeType = 'light' | 'dark'
+import { ThemeContext, ThemeType } from '@context/ThemeContext'
 
 export default function ThemeSwitcher() {
   const id = 'theme_svg'
-
   const [currentTheme, setCurrentTheme] = useState<ThemeType>('light')
   const animationManager = useRef<ThemeSwicthAnimationManager | null>(null)
+  const { changeTheme } = useContext(ThemeContext)
 
   useEffect(() => {
     animationManager.current = new ThemeSwicthAnimationManager({ id })
@@ -19,7 +18,7 @@ export default function ThemeSwitcher() {
 
   useAfterMountEffect(() => {
     animationManager.current?.switchTheme(currentTheme)
-    // change theme here
+    changeTheme(currentTheme)
   }, [currentTheme])
 
   return (

@@ -1,7 +1,7 @@
 <svg width="25" height="29" viewBox="0 0 25 29" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_118_11434)">
 <rect width="25" height="29" fill="white"/>
-<path d="M-75 -116H75V58H-75V-116Z" fill="#E3E3E3"/>
+<path d="M-75 -116H75V58H-75V-116Z" fill="var(--background)"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M74 -115H-74V57H74V-115ZM-75 -116V58H75V-116H-75Z" fill="black"/>
 <path d="M-20.7408 -47.9828H-29.4283V-67.7015H-42.3033V-47.9828H-51.022V-93.4828H-42.3033V-74.8265H-29.4283V-93.4828H-20.7408V-47.9828Z" fill="black"/>
 <path d="M-39.9908 -8L-35.6783 9.09375L-30.772 -8H-19.8658V37.5H-27.9283V24.0312L-27.5533 2.75L-33.522 22.5H-37.8658L-43.2095 3.59375L-42.8345 24.0312V37.5H-50.897V-8H-39.9908Z" fill="black"/>
