@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, useContext, useReducer } from 'react'
 import anime from 'animejs'
 import styles from './styles.module.scss'
 import CornerTriangle from '@assets/icons/corner-triangle.svg'

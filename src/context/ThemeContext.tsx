@@ -4,6 +4,7 @@ import { createContext, useEffect, useState } from 'react'
 import CONSTANTS from '@constants'
 import lightTheme from '@styles/themes/light.module.scss'
 import darkTheme from '@styles/themes/dark.module.scss'
+import { getThemeStorage, setThemeStorage } from '@/lib/localStorage'
 
 const themeMap = {
   light: { ...lightTheme },
@@ -12,14 +13,19 @@ const themeMap = {
 
 export type ThemeType = typeof CONSTANTS.THEMES.LIGHT | typeof CONSTANTS.THEMES.DARK
 
+export interface GetCurrentThemeReturn {
+  currentTheme: ThemeType
+  var: (typeof themeMap)[keyof typeof themeMap]
+}
+
 export interface ThemeContextProps {
   currentTheme: ThemeType
   changeTheme: (themeType: ThemeType) => void
-  getCurrentTheme: () => { currentTheme: ThemeType; var: (typeof themeMap)[keyof typeof themeMap] } | null
+  getCurrentTheme: () => GetCurrentThemeReturn | null
 }
 
 const defaultContextValues: ThemeContextProps = Object.freeze({
-  currentTheme: CONSTANTS.THEMES.LIGHT,
+  currentTheme: getThemeStorage() || 'light',
   changeTheme: () => {},
   getCurrentTheme: () => null,
 })
@@ -27,7 +33,7 @@ const defaultContextValues: ThemeContextProps = Object.freeze({
 export const ThemeContext = createContext<ThemeContextProps>(defaultContextValues)
 
 export default function ThemeContextProvider({ children }: { children: React.ReactNode }) {
-  const [currentTheme, setCurrentTheme] = useState<ThemeType>(CONSTANTS.THEMES.LIGHT)
+  const [currentTheme, setCurrentTheme] = useState<ThemeType>(getThemeStorage() || 'light')
 
   useEffect(() => {
     const theme = themeMap[currentTheme]
@@ -37,6 +43,8 @@ export default function ThemeContextProvider({ children }: { children: React.Rea
     Object.entries(theme).forEach(([key, val]) => {
       document.documentElement.style.setProperty(`--${key}`, val)
     })
+
+    setThemeStorage(currentTheme)
   }, [currentTheme])
 
   function changeTheme(themeType: ThemeType) {

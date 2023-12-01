@@ -18,7 +18,7 @@ export default function BaseLayout({ children }: { children: React.ReactNode }) 
             <LeftMenuDesktop />
           </div>
           <div className={styles.mainContainer}>
-            <TitlePage title={page.name} />
+            
             {children}
           </div>
           <div className={styles.pageInfoContainer}>

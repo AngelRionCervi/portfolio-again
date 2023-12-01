@@ -1,5 +1,5 @@
 <svg width="47" height="47" viewBox="0 0 47 47" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="23.5" cy="23.5" r="23.5" fill="black" />
+  <circle cx="23.5" cy="23.5" r="23.5" fill="var(--black)" />
   <path d="M15.7783 15.7782L31.3346 31.3346" stroke="var(--background)" stroke-width="2" />
   <path d="M31.3347 15.7782L15.7783 31.3346" stroke="var(--background)" stroke-width="2" />
 </svg>

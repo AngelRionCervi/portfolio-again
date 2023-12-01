@@ -1,5 +1,4 @@
 import anime, { AnimeInstance } from 'animejs'
-import cssVariables from '@styles/variables.module.scss'
 
 export type AnimationType = 'idle' | 'enter' | 'leave' | 'down' | 'up'
 
@@ -16,7 +15,13 @@ const hoverDuration = 500
 const clickDuration = 50
 const animationTypes = ['idle', 'enter', 'leave', 'down', 'up'] as const
 
-export default function ButtonCubeAnimationManager({ id, aboveFrame, belowFrame, triangleTopContainer, triangleBottomContainer }: ButtonCubeAnimationElements) {
+export default function ButtonCubeAnimationManager({
+  id,
+  aboveFrame,
+  belowFrame,
+  triangleTopContainer,
+  triangleBottomContainer,
+}: ButtonCubeAnimationElements) {
   const animations: Record<AnimationType, Array<AnimeInstance>> = {
     idle: [],
     enter: [],
@@ -47,30 +52,33 @@ export default function ButtonCubeAnimationManager({ id, aboveFrame, belowFrame,
     return { currentAnimationType, animationsPromise }
   }
 
+  const black = getComputedStyle(document.documentElement).getPropertyValue('--black')
+  const accent = getComputedStyle(document.documentElement).getPropertyValue('--accent')
+
   return {
     idleAnimation() {
-        setCurrentAnimation('idle')
-        const idleAboveFrame = anime({
-          targets: `#${id} > .${aboveFrame}`,
-          translate: [
-            { value: '-3px 3px', easing: 'easeInOutQuad', duration: idleDuration },
-            { value: '0px 0px', easing: 'easeInOutQuad', duration: idleDuration },
-          ],
-          loop: true,
-        })
+      setCurrentAnimation('idle')
+      const idleAboveFrame = anime({
+        targets: `#${id} > .${aboveFrame}`,
+        translate: [
+          { value: '-3px 3px', easing: 'easeInOutQuad', duration: idleDuration },
+          { value: '0px 0px', easing: 'easeInOutQuad', duration: idleDuration },
+        ],
+        loop: true,
+      })
 
-        const idleTriangles = anime({
-          targets: `#${id} > .${triangleTopContainer}, #${id} > .${triangleBottomContainer}`,
-          scale: [
-            { value: 0.85, easing: 'easeInOutQuad', duration: idleDuration },
-            { value: 1, easing: 'easeInOutQuad', duration: idleDuration },
-          ],
-          loop: true,
-        })
-        
-        animations.idle.push(idleAboveFrame, idleTriangles)
+      const idleTriangles = anime({
+        targets: `#${id} > .${triangleTopContainer}, #${id} > .${triangleBottomContainer}`,
+        scale: [
+          { value: 0.85, easing: 'easeInOutQuad', duration: idleDuration },
+          { value: 1, easing: 'easeInOutQuad', duration: idleDuration },
+        ],
+        loop: true,
+      })
 
-        return getAnimeState()
+      animations.idle.push(idleAboveFrame, idleTriangles)
+
+      return getAnimeState()
     },
     enterAnimation() {
       setCurrentAnimation('enter')
@@ -91,14 +99,14 @@ export default function ButtonCubeAnimationManager({ id, aboveFrame, belowFrame,
 
       const enterTriangles = anime({
         targets: `#${id} > .${triangleTopContainer} > svg, #${id} > .${triangleBottomContainer} > svg`,
-        fill: [belowFrameEl?.style?.backgroundColor || cssVariables.black, cssVariables.accent],
+        fill: [belowFrameEl?.style?.backgroundColor || black, accent],
         easing: 'easeInOutQuad',
         duration: hoverDuration,
       })
 
       const enterBelowFrame = anime({
         targets: `#${id} > .${belowFrame}`,
-        backgroundColor: [belowFrameEl?.style?.backgroundColor || cssVariables.black, cssVariables.accent],
+        backgroundColor: [belowFrameEl?.style?.backgroundColor || black, accent],
         easing: 'easeInOutQuad',
         duration: hoverDuration,
       })
@@ -126,14 +134,14 @@ export default function ButtonCubeAnimationManager({ id, aboveFrame, belowFrame,
 
       const leaveTriangles = anime({
         targets: `#${id} > .${triangleTopContainer} > svg, #${id} > .${triangleBottomContainer} > svg`,
-        fill: [belowFrameEl?.style?.backgroundColor || cssVariables.accent, cssVariables.black],
+        fill: [belowFrameEl?.style?.backgroundColor || accent, black],
         easing: 'easeInOutQuad',
         duration: hoverDuration,
       })
 
       const leaveBelowFrame = anime({
         targets: `#${id} > .${belowFrame}`,
-        backgroundColor: [belowFrameEl?.style?.backgroundColor || cssVariables.accent, cssVariables.black],
+        backgroundColor: [belowFrameEl?.style?.backgroundColor || accent, black],
         easing: 'easeInOutQuad',
         duration: hoverDuration,
       })
@@ -161,14 +169,14 @@ export default function ButtonCubeAnimationManager({ id, aboveFrame, belowFrame,
 
       const downTriangles = anime({
         targets: `#${id} > .${triangleTopContainer} > svg, #${id} > .${triangleBottomContainer} > svg`,
-        fill: [belowFrameEl?.style?.backgroundColor || cssVariables.black, cssVariables.accent],
+        fill: [belowFrameEl?.style?.backgroundColor || black, accent],
         easing: 'easeInOutQuad',
         duration: clickDuration,
       })
 
       const downBelowFrame = anime({
         targets: `#${id} > .${belowFrame}`,
-        backgroundColor: [belowFrameEl?.style?.backgroundColor || cssVariables.black, cssVariables.accent],
+        backgroundColor: [belowFrameEl?.style?.backgroundColor || black, accent],
         easing: 'easeInOutQuad',
         duration: clickDuration,
       })
@@ -197,6 +205,6 @@ export default function ButtonCubeAnimationManager({ id, aboveFrame, belowFrame,
       animations.leave.push(clickAboveFrame, upTrianglesContainer)
 
       return getAnimeState()
-    },
+    }
   }
 }

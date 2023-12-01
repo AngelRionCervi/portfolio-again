@@ -7,7 +7,8 @@
   --black: #000000;
   --gray: #747474;
   --accent: #e08c8c;
-  --text: black;
+  --textColor: #000000;
+  --textColorInverted: #ffffff;
 }
 
 @media screen and (max-width: $mobileBreakpoint) {
@@ -16,15 +17,15 @@
   }
 }
 
-* {
-  color: var(--textColor)
-}
-
 body {
   @extend %defaultTypo;
   padding: 0;
   margin: 0;
   background-color: var(--background);
+}
+
+body, button, p {
+  color: var(--textColor);
 }
 
 p {
@@ -62,7 +63,7 @@ h5 {
 
 .backdrop {
   &:after {
-    content: "";
+    content: '';
     width: 100vw;
     height: 100vh;
     filter: brightness(10%);

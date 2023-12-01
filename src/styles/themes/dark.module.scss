@@ -1,6 +1,7 @@
-$background: black;
-$textColor: white;
-$black: white;
+$background: #000000;
+$textColor: #ffffff;
+$textColorInverted: #000000;
+$black: #ffffff;
 $white: #ffffff;
 $gray: #747474;
 $accent: #e08c8c;
@@ -9,6 +10,7 @@ $accent: #e08c8c;
   background: $background;
   black: $black;
   textColor: $textColor;
+  textColorInverted: $textColorInverted;
   white: $white;
   gray: $gray;
   accent: $accent;

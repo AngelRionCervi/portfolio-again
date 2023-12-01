@@ -1,11 +1,10 @@
 'use client'
 
 import Link from 'next/link'
-import { useEffect, useContext } from 'react'
+import { useContext } from 'react'
 import workData from '@data/work.json'
 import styles from './styles.module.scss'
 import WorkModalTime from './WorkModalTime/WorkModalTime'
-import CONSTANTS from '@constants'
 import { ToolSvgsContext } from '@context/ToolSvgsContext'
 import CloseCross from '@assets/icons/close-cross.svg'
 import { ModalContext } from '@context/ModalContext'
@@ -20,10 +19,6 @@ export default function WorkModalContent({ id }: WorkModalContentProps) {
   const toolSvgs = useContext(ToolSvgsContext)
   const { toggleModal } = useContext(ModalContext)
   const isMobile = useDevice()
-
-  useEffect(() => {
-    //console.log('data toolSvgs', data, toolSvgs)
-  }, [data])
 
   return (
     <div className={styles.container}>

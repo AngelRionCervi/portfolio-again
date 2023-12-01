@@ -59,8 +59,11 @@
 
 .dateTop {
   @extend %fontS;
-  color: var(--background);
   height: calc(var(--workCircleDiameter) - 10px);
+
+  p {
+    color: var(--textColorInverted);
+  }
 
   @media screen and (max-width: $mobileBreakpoint) {
     min-width: var(--workCircleDiameter);
