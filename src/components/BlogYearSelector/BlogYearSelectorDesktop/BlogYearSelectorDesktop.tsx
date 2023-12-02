@@ -56,7 +56,7 @@ export default function BlogYearSelectorDesktop() {
         {years.map((year) => {
           return (
             <button className={styles.year} key={year} onClick={() => changeYear(year)}>
-              {year}
+              <p>{year}</p>
             </button>
           )
         })}

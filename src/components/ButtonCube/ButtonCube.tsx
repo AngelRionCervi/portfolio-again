@@ -55,7 +55,16 @@ export default function ButtonCube({ children, size, id, onClick }: ButtonCubePr
   }
 
   return (
-    <div id={id} style={{ width: `${size}px`, height: `${size + shift}px` }} className={styles.container}>
+    <button
+      id={id}
+      style={{ width: `${size}px`, height: `${size + shift}px` }}
+      className={styles.container}
+      onMouseEnter={() => setButtonState('enter')}
+      onMouseLeave={() => setButtonState('leave')}
+      onMouseDown={() => setButtonState('down')}
+      onMouseUp={() => setButtonState('up')}
+      onClick={() => onClick(id)}
+    >
       <div style={{ width: `${size}px`, height: `${size}px` }} className={styles.belowFrame} />
       <div className={styles.triangleTopContainer}>
         <CornerTriangle className={styles.triangleTop} width="17px" height="17px" />
@@ -63,17 +72,9 @@ export default function ButtonCube({ children, size, id, onClick }: ButtonCubePr
       <div className={styles.triangleBottomContainer}>
         <CornerTriangle className={styles.triangleBottom} width="17px" height="17px" />
       </div>
-      <button
-        onMouseEnter={() => setButtonState('enter')}
-        onMouseLeave={() => setButtonState('leave')}
-        onMouseDown={() => setButtonState('down')}
-        onMouseUp={() => setButtonState('up')}
-        onClick={() => onClick(id)}
-        style={{ width: `${size}px`, height: `${size}px` }}
-        className={styles.aboveFrame}
-      >
+      <div style={{ width: `${size - 2}px`, height: `${size - 2}px` }} className={styles.aboveFrame}>
         {children}
-      </button>
-    </div>
+      </div>
+    </button>
   )
 }

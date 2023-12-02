@@ -1,7 +1,19 @@
 @import '@styles/variables.module.scss';
 
+$easInOutQuad: cubic-bezier(0.45, 0, 0.55, 1);
+$duration: 400ms;
+
 .container {
   position: relative;
+
+  &:hover, &:focus, &:active {
+    .triangleTop, .triangleBottom {
+      fill: var(--accent);
+    }
+    .belowFrame {
+      background-color: var(--accent);
+    }
+  }
 }
 
 .belowFrame {
@@ -9,6 +21,7 @@
   background-color: var(--black);
   top: 15px;
   left: -15px;
+  transition: background-color $duration $easInOutQuad;
 }
 
 .aboveFrame {
@@ -21,10 +34,12 @@
 
 .triangleTop {
   transform: rotate(180deg);
+  transition: fill $duration $easInOutQuad;
 }
 
 .triangleBottom {
   transform: rotate(0deg);
+  transition: fill $duration $easInOutQuad;
 }
 
 .triangleTopContainer {

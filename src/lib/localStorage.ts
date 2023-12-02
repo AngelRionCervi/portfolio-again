@@ -1,3 +1,5 @@
+'use client'
+
 import { ThemeType } from '@context/ThemeContext'
 
 export function setThemeStorage(theme: ThemeType) {

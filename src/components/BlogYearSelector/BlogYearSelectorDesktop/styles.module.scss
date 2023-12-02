@@ -17,8 +17,10 @@
 
 .year {
   @extend %fontM;
-  padding: 4px;
+  padding: $xxs;
   z-index: 1;
+  display: flex;
+  align-items: center;
 }
 
 .selection {
@@ -28,4 +30,6 @@
   width: 75px;
   left: 50%;
   transform: translateX(-50%);
+  border: 1px solid var(--black);
+  margin-top: -2px;
 }

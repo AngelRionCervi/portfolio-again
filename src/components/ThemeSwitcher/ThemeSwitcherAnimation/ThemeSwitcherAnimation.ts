@@ -1,6 +1,6 @@
 import anime from 'animejs'
 import { sleep, degToRad } from '@/lib/helpers'
-import { ThemeType } from '@components/ThemeSwitcher/ThemeSwitcher'
+import { ThemeType } from '@context/ThemeContext'
 
 interface ThemeSwitcherAnimationProps {
   id: string
@@ -28,7 +28,7 @@ export default class ThemeSwicthAnimationManager {
     })
 
     innerCircleTimeline.add({
-      translateX: -5,
+      translate: "-5px 0px",
     })
 
     innerCircleTimeline.add({
@@ -98,7 +98,7 @@ export default class ThemeSwicthAnimationManager {
     })
 
     innerCircleTimeline.add({
-      translateX: 0,
+      translate: "0px 0px",
     })
 
     anims.push(innerCircleTimeline)

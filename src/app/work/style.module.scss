@@ -2,20 +2,78 @@
 
 .workContainer {
   display: flex;
-  justify-content: center;
-  overflow: hidden;
   height: 100%;
-}
-
-.workContainerInner {
-  padding: $l;
 }
 
 .workButtons {
   margin-top: 150px;
+  padding: 0 $l 0 calc(15px + $l);
+  display: flex;
+  justify-content: center;
+}
+
+.workButtonsInner {
   display: flex;
   gap: $g;
   flex-wrap: wrap;
-  padding: 0 $m 0 calc(15px + $m);
   height: fit-content;
+  justify-content: space-evenly;
+}
+
+.buttonCubeContent {
+  width: 100%;
+  height: 100%;
+  padding: $s;
+  box-sizing: border-box;
+  font-size: $sm;
+  line-height: 160%;
+}
+
+.frtv {
+  text-align: left;
+  margin-top: -4px;
+}
+
+.dmag {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.cryptonovae {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotate(45deg);
+}
+
+.mashup {
+  position: relative;
+  padding: 0;
+
+  > div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    > p:nth-of-type(1) {
+      position: absolute;
+      top: 0;
+      left: 12px;
+    }
+
+    > p:nth-of-type(2) {
+      position: absolute;
+      transform: rotate(90deg);
+      right: -22px;
+      bottom: 35px;
+    }
+  }
+}
+
+.tripica {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }

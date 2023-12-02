@@ -26,9 +26,9 @@ export default function SvgBurgerMenuIcon () {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <rect className={topBarClass} width={20} height={2.14286} fill="black" />
-      <rect y={6.42856} width={20} height={2.14286} fill="black" />
-      <rect className={bottomBarClass} y={12.8571} width={20} height={2.14286} fill="black" />
+      <rect className={topBarClass} width={20} height={2.14286} fill="var(--black)" />
+      <rect y={6.42856} width={20} height={2.14286} fill="var(--black)" />
+      <rect className={bottomBarClass} y={12.8571} width={20} height={2.14286} fill="var(--black)" />
     </svg>
   )
 }

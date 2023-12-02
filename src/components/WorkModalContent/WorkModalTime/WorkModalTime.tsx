@@ -5,7 +5,6 @@ import styles from './styles.module.scss'
 import { workModalTimeAnimation } from './workModalTimeAnimation'
 import DashLine from '@assets/icons/dash-line.svg'
 import DashLineH from '@assets/icons/dash-line-h.svg'
-import cssVariables from '@styles/variables.module.scss'
 import { cx } from '@lib/helpers'
 import CONSTANTS from '@constants'
 import { useDevice } from '@lib/hooks/useDevice'
@@ -57,9 +56,9 @@ export default function WorkModalTime({ periode }: WorkModalTimeProps) {
           <div className={styles.circle}>
             <div className={styles.dashLineContainerBottom}>
               {isMobile ? (
-                <DashLineH  width={27} stroke={cssVariables.black} />
+                <DashLineH  width={27} stroke="var(--black)" />
               ) : (
-                <DashLine height={50} stroke={cssVariables.black} />
+                <DashLine height={50} stroke="var(--black)" />
               )}
             </div>
             <div className={getDateClass(false)}>

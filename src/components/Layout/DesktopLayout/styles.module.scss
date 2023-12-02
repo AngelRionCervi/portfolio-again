@@ -6,23 +6,17 @@
   width: 100vw;
   justify-content: center;
   align-items: center;
+  position: fixed;
 }
 
 .innerLayout {
   display: grid;
-  grid-template-columns: 2fr 8fr 1fr;
+  grid-template-columns: 1fr 8fr 1fr;
   height: 90vh;
   width: 90vw;
 }
 
 .mainContainer {
   max-height: 90vh;
-}
-
-.menuContainer {
-
-}
-
-.pageInfoContainer {
-
+  overflow: auto;
 }
