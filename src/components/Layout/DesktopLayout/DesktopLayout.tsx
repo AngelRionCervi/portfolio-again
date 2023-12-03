@@ -14,13 +14,18 @@ export default function BaseLayout({ children }: { children: React.ReactNode }) 
       <div className={styles.baseLayout}>
         <div className={styles.innerLayout}>
           <div className={styles.menuContainer}>
-            <LeftMenuDesktop />
+            <div className={styles.menuInner}>
+              <LeftMenuDesktop />
+            </div>
           </div>
           <div className={styles.mainContainer}>
+            <div className={styles.topBar}></div>
             {children}
           </div>
           <div className={styles.pageInfoContainer}>
-            <RightPageInfo text={page.name} id={page.id} />
+            <div className={styles.pageInfoInner}>
+              <RightPageInfo text={page.name} id={page.id} />
+            </div>
           </div>
         </div>
       </div>

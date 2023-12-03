@@ -19,7 +19,7 @@
   width: $modalWidthDesktop;
   height: $modalHeightDesktop;
 
-  @media screen and (max-width: $mobileBreakpoint) {
+  @media screen and (max-width: $modalFullscreenBreakpoint) {
     width: 100vw;
     height: 100vh;
   }

@@ -8,9 +8,10 @@
 }
 
 .navContainer {
+  margin-top: $g;
   display: flex;
-  margin-top: 300px;
   margin-left: $m;
+  justify-content: space-between;
   gap: $s;
 }
 
@@ -33,11 +34,11 @@
 .navPointer {
   display: flex;
   align-items: center;
-  gap: $xxs;
+  gap: $xs;
 }
 
 .pointerRound {
-  background-color: var(--black);
+  background-color: var(--accent);
   border-radius: 100%;
   width: $xs;
   height: $xs;

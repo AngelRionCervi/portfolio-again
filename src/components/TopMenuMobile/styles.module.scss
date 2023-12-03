@@ -2,39 +2,41 @@
 @import '@styles/typo.module.scss';
 
 .topMenu {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid var(--black);
-    height: 50px;
-    padding: 0 20px;
-    background-color: var(--background);
-    position: sticky;
-    top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--black);
+  height: $burgerMenuHeight;
+  padding: 0 $s;
+  background-color: var(--background);
+  position: fixed;
+  width: calc(100% - $s * 2);
+  top: 0;
+  z-index: 50;
 
-    * {
-        flex: 1 0 0;
-    }
+  * {
+    flex: 1 0 0;
+  }
 }
 
 .themeSwitcherContainer {
-    margin-top: 4px;
+  margin-top: 4px;
 }
 
 .menuPage {
-    @extend %fontL;
-    text-align: center;
-    font-weight: bold;
+  @extend %fontL;
+  text-align: center;
+  font-weight: bold;
 }
 
 .burgerMenuContainer {
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .burgerMenuButton {
-    z-index: 99;
-    position: fixed;
-    right: 20px;
-    top: 15px;
+  z-index: 99;
+  position: fixed;
+  right: 20px;
+  top: 15px;
 }

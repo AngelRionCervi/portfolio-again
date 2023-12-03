@@ -15,7 +15,7 @@ export interface WorkModalTimeProps {
 
 export default function WorkModalTime({ periode }: WorkModalTimeProps) {
   const monthLabels = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec']
-  const isMobile = useDevice()
+  const isMobile = useDevice('modal')
 
   useEffect(() => {
     workModalTimeAnimation({
@@ -25,6 +25,8 @@ export default function WorkModalTime({ periode }: WorkModalTimeProps) {
       periode,
       monthLabels,
     })
+
+    console.log('modal mobile', isMobile)
   }, [])
 
   function getDateClass(isTop: boolean) {

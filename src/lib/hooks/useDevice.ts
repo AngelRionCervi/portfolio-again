@@ -1,21 +1,28 @@
-'use client';
+'use client'
 
-import CONSTANTS from "@constants";
-import { useState, useEffect } from "react";
+import CONSTANTS from '@constants'
+import { useState, useEffect } from 'react'
 
-export function useDevice() {
-    const [windowWidth, setWindowWidth] = useState<number>(0);
+type Breakpoint = 'modal' | 'mobile'
 
-    useEffect(() => {
-        function handleResize() {
-            setWindowWidth(window.innerWidth);
-        }
+export function useDevice(breakpoint: Breakpoint = 'mobile') {
+  const [windowWidth, setWindowWidth] = useState<number>(0)
 
-        window.addEventListener("resize", handleResize);
-        handleResize();
+  useEffect(() => {
+    function handleResize() {
+      setWindowWidth(window.innerWidth)
+    }
 
-        return () => window.removeEventListener("resize", handleResize);
-    }, []);
+    window.addEventListener('resize', handleResize)
+    handleResize()
 
-    return windowWidth <= CONSTANTS.MOBILE_BREAKPOINT;
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  const breakpointMap = {
+    mobile: CONSTANTS.MOBILE_BREAKPOINT,
+    modal: CONSTANTS.MODAL_FULLSCREEN_BREAKPOINT,
+  }
+
+  return windowWidth <= breakpointMap[breakpoint]
 }

@@ -6,19 +6,29 @@ import { useContext } from 'react'
 import ButtonCube from '@components/ButtonCube/ButtonCube'
 import { ModalContext } from '@/context/ModalContext'
 import WorkModalContent, { WorkModalContentProps } from '@/components/WorkModalContent/WorkModalContent'
+import { useDevice } from '@/lib/hooks/useDevice'
+import { sleep } from '@/lib/helpers'
 
 const cn = classNames.bind(styles)
 
 export default function Work() {
   const { setModalContent, toggleModal } = useContext(ModalContext)
+  const isMobile = useDevice('modal')
 
-  function onFrameButtonClick(id: WorkModalContentProps['id']) {
+  async function onFrameButtonClick(id: WorkModalContentProps['id']) {
+    if (isMobile) {
+      await sleep(100)
+    }
     setModalContent(<WorkModalContent id={id} />)
     toggleModal()
   }
 
   return (
     <div className={styles.workContainer}>
+      <p className={styles.workWords}>
+        I have been able to work for multiple companies in the past few years, the challenges has been varied and I feel lucky to have met so many
+        cool people to work with.
+      </p>
       <div className={styles.workButtons}>
         <div className={styles.workButtonsInner}>
           <ButtonCube onClick={onFrameButtonClick} id="francetv" size={150}>

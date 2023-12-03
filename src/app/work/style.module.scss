@@ -2,14 +2,36 @@
 
 .workContainer {
   display: flex;
-  height: 100%;
+  flex-direction: column;
+  overflow: auto;
+  padding: $m;
+  margin-top: 5vh;
+  height: calc(100vh - $m * 2 - 5vh);
+  
+  @media screen and (max-width: $mobileBreakpoint) {
+    height: calc(100vh - $burgerMenuHeight - $m * 2);
+    margin-top: $burgerMenuHeight;
+  }
+}
+
+.workWords {
+  margin-top: $l;
+
+  @media screen and (max-width: $mobileBreakpoint) {
+    margin-top: $s;
+  }
 }
 
 .workButtons {
-  margin-top: 150px;
-  padding: 0 $l 0 calc(15px + $l);
+  width: calc(100% - 15px);
+  margin-top: $g;
+  padding-left: 15px;
   display: flex;
   justify-content: center;
+
+  @media screen and (max-width: $mobileBreakpoint) {
+    margin-top: $l;
+  }
 }
 
 .workButtonsInner {
@@ -18,6 +40,10 @@
   flex-wrap: wrap;
   height: fit-content;
   justify-content: space-evenly;
+
+  @media screen and (max-width: $mobileBreakpoint) {
+    gap: $l;
+  }
 }
 
 .buttonCubeContent {

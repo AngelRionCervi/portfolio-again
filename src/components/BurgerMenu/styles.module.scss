@@ -2,7 +2,7 @@
 @import '@styles/typo.module.scss';
 
 .container {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
@@ -43,22 +43,6 @@
     background-color: var(--black);
     color: var(--white);
 }
-
-// .closeButton {
-//     color: black;
-// }
-
-// .topRow {
-//     height: 50px;
-//     padding: 0 20px;
-//     box-sizing: border-box;
-//     width: 100%;
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-
-//     flex-direction: row-reverse;
-// }
 
 @keyframes slideOpen {
     from {

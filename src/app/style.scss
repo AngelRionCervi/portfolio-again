@@ -11,7 +11,7 @@
   --textColorInverted: #ffffff;
 }
 
-@media screen and (max-width: $mobileBreakpoint) {
+@media screen and (max-width: $modalFullscreenBreakpoint) {
   :root {
     --workCircleDiameter: 100px;
   }
@@ -22,6 +22,7 @@ body {
   padding: 0;
   margin: 0;
   background-color: var(--background);
+  overflow: hidden;
 }
 
 body, button, p {

@@ -62,7 +62,9 @@ export default function ButtonCube({ children, size, id, onClick }: ButtonCubePr
       onMouseEnter={() => setButtonState('enter')}
       onMouseLeave={() => setButtonState('leave')}
       onMouseDown={() => setButtonState('down')}
+      onTouchStart={() => setButtonState('down')}
       onMouseUp={() => setButtonState('up')}
+      onTouchEnd={() => setButtonState('up')}
       onClick={() => onClick(id)}
     >
       <div style={{ width: `${size}px`, height: `${size}px` }} className={styles.belowFrame} />

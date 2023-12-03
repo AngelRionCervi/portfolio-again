@@ -11,12 +11,45 @@
 
 .innerLayout {
   display: grid;
-  grid-template-columns: 1fr 8fr 1fr;
-  height: 90vh;
+  grid-template-columns: 2fr 8fr 1fr;
+  height: 100vh;
   width: 90vw;
 }
 
-.mainContainer {
-  max-height: 90vh;
-  overflow: auto;
+.topBar {
+  height: 5vh;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-bottom: 1px solid var(--black);
+  z-index: 50;
 }
+
+.mainContainer {
+  position: relative;
+  max-height: 90vh;
+}
+
+.menuContainer {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.menuInner {
+  height: 90%;
+}
+
+.pageInfoContainer {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.pageInfoInner {
+  height: 90%;
+  width: 100%;
+}
+

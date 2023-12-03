@@ -14,8 +14,8 @@ interface NavItem {
 }
 
 export default function LeftMenuDesktop() {
-  const navPointerOffset = 14
-  const navPointerSpace = 48
+  const navPointerOffset = 15
+  const navPointerSpace = 51
 
   const navItems = CONSTANTS.ROUTES.map((route, index) => ({ ...route, pointerY: navPointerOffset + navPointerSpace * index }))
 

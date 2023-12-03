@@ -11,7 +11,7 @@
   position: relative;
   width: calc(var(--workCircleDiameter) + 4px);
 
-  @media screen and (max-width: $mobileBreakpoint) {
+  @media screen and (max-width: $modalFullscreenBreakpoint) {
     width: 100%;
   }
 }
@@ -22,7 +22,7 @@
   height: calc(var(--workCircleDiameter) + 4px);
   background-color: var(--black);
 
-  @media screen and (max-width: $mobileBreakpoint) {
+  @media screen and (max-width: $modalFullscreenBreakpoint) {
     width: calc(var(--workCircleDiameter) + 4px);
     display: flex;
     align-items: center;
@@ -40,7 +40,7 @@
   background-color: var(--background);
   border: 2px solid var(--black);
 
-  @media screen and (max-width: $mobileBreakpoint) {
+  @media screen and (max-width: $modalFullscreenBreakpoint) {
     display: flex;
     left: 0;
     top: 0;
@@ -65,7 +65,7 @@
     color: var(--textColorInverted);
   }
 
-  @media screen and (max-width: $mobileBreakpoint) {
+  @media screen and (max-width: $modalFullscreenBreakpoint) {
     min-width: var(--workCircleDiameter);
   }
 
@@ -79,7 +79,7 @@
   color: var(--black);
   margin-top: 10px;
 
-  @media screen and (max-width: $mobileBreakpoint) {
+  @media screen and (max-width: $modalFullscreenBreakpoint) {
     min-width: var(--workCircleDiameter);
     margin-top: 0;
     margin-left: -24px;
@@ -95,7 +95,7 @@
   display: flex;
   justify-content: center;
 
-  @media screen and (max-width: $mobileBreakpoint) {
+  @media screen and (max-width: $modalFullscreenBreakpoint) {
     height: 100%;
     align-items: center;
   }
@@ -106,7 +106,7 @@
   display: flex;
   justify-content: center;
 
-  @media screen and (max-width: $mobileBreakpoint) {
+  @media screen and (max-width: $modalFullscreenBreakpoint) {
     width: fit-content;
     height: 100%;
     align-items: center;
