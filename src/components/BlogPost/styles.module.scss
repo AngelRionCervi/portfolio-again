@@ -1,0 +1,29 @@
+@import '@styles/variables.module.scss';
+
+.container {
+  word-wrap: break-word;
+  width: calc(100% - $m * 2);
+  height: calc(100vh - 5vh - $m);
+  padding: $m;
+  overflow: auto;
+
+  @media screen and (min-width: $mobileBreakpoint) {
+    padding-top: 5vh;
+  }
+
+  @media screen and (max-width: $mobileBreakpoint) {
+    margin-top: $burgerMenuHeight;
+  }
+
+  @media screen and (max-width: $modalFullscreenBreakpoint) {
+    width: calc(100% - $s * 2);
+    padding: $s;
+  }
+
+  a {
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+    text-decoration-thickness: 2px;
+  }
+}
+

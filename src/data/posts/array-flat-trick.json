@@ -1,0 +1,71 @@
+{
+  "title": "Array.flat has a cool use",
+  "slug": "array-flat-trick",
+  "contents": [
+    {
+      "type": "text",
+      "content": "I feel like the <a target=\"_blank\" href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat\">Array.flat</a> method is often forgotten in the web dev world, it does the simple thing of flattening an array and transforms this:"
+    },
+    {
+      "type": "code",
+      "content": "[0, 1, 2, [3, 4]]"
+    },
+    {
+      "type": "text",
+      "content": "into this:"
+    },
+    {
+      "type": "code",
+      "content": "[0, 1, 2, 3, 4]"
+    },
+    {
+      "type": "text",
+      "content": "essentially finding all the arrays in the instantiated array and inserting their contents starting at the indexes of the found arrays (plus the length of already inserted contents)."
+    },
+    {
+      "type": "text",
+      "content": "It's basically an hydraulic press for arrays."
+    },
+    {
+      "type": "image",
+      "src": "https://placehold.co/400",
+      "alt": "hydraulic press for array"
+    },
+    {
+      "type": "text",
+      "content": "It can take a number as an argument which defines how deep the array should go to flatten its contents, by default it's 1, but you can set it to <code>Infinity</code> to flatten arrays as deep as possible."
+    },
+    {
+      "type": "code",
+      "content": "[0, 1, 2, [3, [4]]].flat()\n//[0, 1, 2, 3, [4]]"
+    },
+    {
+      "type": "code",
+      "content": "[0, 1, 2, [3, [4]]].flat(Infinity)\n//[0, 1, 2, 3, 4]"
+    },
+    {
+      "type": "text",
+      "content": "In some cases this method can be quite useful, I find myself using it a lot when a value could also be treated as an array of values."
+    },
+    {
+      "type": "text",
+      "content": "For example, there is this function in the codebase of a client that fetches articles based on their ids. This function can either fetch one or multiple articles if a single id or an array of ids is passed by argument."
+    },
+    {
+      "type": "code",
+      "content": "function fetchArticles(id: string | string[]) {\n//fetch articles\n}"
+    },
+    {
+      "type": "text",
+      "content": "If we don't want to handle both types of argument differently we can write:"
+    },
+    {
+      "type": "code",
+      "content": "function fetchArticles(id: string | string[]) {\nconst listIds = [id].flat()\nreturn fetch(`someurl/article?ids=${listIds.join(',')}`\n}"
+    },
+    {
+      "type": "text",
+      "content": "Now both cases are handled, listIds will always be an array of depth 1, whether we have a single id or a list of ids, no need for conditions to check the types of argument or separate fetch calls."
+    }
+  ]
+}

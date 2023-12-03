@@ -5,9 +5,19 @@ import styles from './styles.module.scss'
 import RightPageInfo from '@components/RightPageInfo/RightPageInfo'
 import { usePage } from '@lib/hooks/usePage'
 import LeftMenuAnimationContextProvider from '@context/LeftMenuAnimationContext'
+import { cx } from '@/lib/helpers'
+import { usePathname } from 'next/navigation'
 
 export default function BaseLayout({ children }: { children: React.ReactNode }) {
   const page = usePage()
+  const pathname = usePathname()
+
+  console.log('pase', page)
+
+  const topBarClass = cx(styles, {
+    topBar: true,
+    topBarBorder: pathname.split('/').at(-1) === 'blog'
+  })
 
   return (
     <LeftMenuAnimationContextProvider>
@@ -19,7 +29,7 @@ export default function BaseLayout({ children }: { children: React.ReactNode }) 
             </div>
           </div>
           <div className={styles.mainContainer}>
-            <div className={styles.topBar}></div>
+            <div className={topBarClass} />
             {children}
           </div>
           <div className={styles.pageInfoContainer}>

@@ -38,8 +38,6 @@ export default function ThemeContextProvider({ children }: { children: React.Rea
   useEffect(() => {
     const theme = themeMap[currentTheme]
 
-    console.log('theme', theme, currentTheme)
-
     Object.entries(theme).forEach(([key, val]) => {
       document.documentElement.style.setProperty(`--${key}`, val)
     })
