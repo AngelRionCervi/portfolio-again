@@ -1,4 +1,5 @@
 @import '@styles/variables.module.scss';
+@import '@styles/typo.module.scss';
 
 .workContainer {
   display: flex;
@@ -8,16 +9,17 @@
   margin-top: 5vh;
   height: calc(100vh - $m * 2 - 5vh);
   
-  @media screen and (max-width: $mobileBreakpoint) {
+  @media screen and (max-width: 800px) {
     height: calc(100vh - $burgerMenuHeight - $m * 2);
     margin-top: $burgerMenuHeight;
   }
 }
 
 .workWords {
+  @extend %fontS;
   margin-top: $l;
 
-  @media screen and (max-width: $mobileBreakpoint) {
+  @media screen and (max-width: 800px) {
     margin-top: $s;
   }
 }
@@ -29,7 +31,7 @@
   display: flex;
   justify-content: center;
 
-  @media screen and (max-width: $mobileBreakpoint) {
+  @media screen and (max-width: 800px) {
     margin-top: $l;
   }
 }
@@ -41,7 +43,7 @@
   height: fit-content;
   justify-content: space-evenly;
 
-  @media screen and (max-width: $mobileBreakpoint) {
+  @media screen and (max-width: 800px) {
     gap: $l;
   }
 }

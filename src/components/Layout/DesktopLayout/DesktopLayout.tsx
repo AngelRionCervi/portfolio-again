@@ -16,7 +16,7 @@ export default function BaseLayout({ children }: { children: React.ReactNode }) 
 
   const topBarClass = cx(styles, {
     topBar: true,
-    topBarBorder: pathname.split('/').at(-1) === 'blog'
+    topBarBorder: pathname.split('/').at(-2) !== 'blog'
   })
 
   return (

@@ -36,3 +36,10 @@
   line-height: 150%;
 }
 
+%underline {
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+

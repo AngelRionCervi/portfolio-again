@@ -3,8 +3,8 @@ import { usePathname } from 'next/navigation'
 import { useContext, useEffect } from 'react'
 import styles from './styles.module.scss'
 import { BurgerMenuContext } from '@context/BurgerMenuContext'
-import { cx } from '@lib/helpers'
 import CONSTANTS from '@constants'
+import { cx } from '@lib/helpers'
 
 export default function BurgerMenu() {
   const { toggleBurgerMenu, isBurgerMenuClosing, isBurgerMenuOpen } = useContext(BurgerMenuContext)
@@ -35,7 +35,7 @@ export default function BurgerMenu() {
         <nav>
           <ul className={styles.list}>
             {CONSTANTS.ROUTES.map(({ link, name, id }) => (
-              <li key={id} className={styles.listItem}>
+              <li key={id} className={link === pathname ? styles.listItemCurrent : ''}>
                 <Link className={`${styles.link} ${link === pathname ? styles.linkCurrent : ''}`} href={link} onClick={() => switchRoute(link)}>
                   {name}
                 </Link>

@@ -1,11 +1,14 @@
 @import '@styles/variables.module.scss';
+@import '@styles/typo.module.scss';
 
 .container {
   word-wrap: break-word;
   width: calc(100% - $m * 2);
-  height: calc(100vh - 5vh - $m);
+  height: calc(100vh - 5vh - $g);
   padding: $m;
   overflow: auto;
+  display: flex;
+  justify-content: center;
 
   @media screen and (min-width: $mobileBreakpoint) {
     padding-top: 5vh;
@@ -21,9 +24,26 @@
   }
 
   a {
-    text-decoration: underline;
-    text-decoration-color: var(--accent);
-    text-decoration-thickness: 2px;
+    @extend %underline;
+  }
+
+  img {
+    max-width: 400px;
+    align-self: center;
   }
 }
 
+.innerContainer {
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+
+  @media screen and (max-width: $mobileBreakpoint) {
+    max-width: 600px;
+  }
+}
+
+.title {
+  margin-bottom: $l;
+  margin-top: $m;
+}

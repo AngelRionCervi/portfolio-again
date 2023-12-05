@@ -13,7 +13,7 @@
     border-left: 1px solid var(--black);
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
 }
 
 .isClosing {
@@ -37,11 +37,17 @@
     text-align: center;
     color: var(--black);
     padding: $xs;
+    box-sizing: border-box;
 }
 
 .linkCurrent {
-    background-color: var(--black);
-    color: var(--white);
+    background-color: var(--accent);
+    color: var(--black);
+    text-align: left;
+}
+
+.listItemCurrent {
+    width: 150px;
 }
 
 @keyframes slideOpen {
