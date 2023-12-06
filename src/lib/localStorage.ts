@@ -1,13 +1,11 @@
-'use client'
-
 import { ThemeType } from '@context/ThemeContext'
 
 export function setThemeStorage(theme: ThemeType) {
-  if (!localStorage) return
+  if (typeof window === 'undefined') return
   localStorage.setItem('theme', theme)
 }
 
 export function getThemeStorage(): ThemeType | null {
-  if (!localStorage) return null
+  if (typeof window === 'undefined') return null
   return localStorage.getItem('theme') as ThemeType
 }

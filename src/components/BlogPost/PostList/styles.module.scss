@@ -1,3 +1,18 @@
+@import '@styles/variables.module.scss';
+@import '@styles/typo.module.scss';
+
 .container {
-  
+  @media screen and (max-width: $mobileBreakpoint) {
+    margin-top: $m;
+  }
+}
+
+.postTitle {
+  @extend %fontM;
+  @extend %underline;
+}
+
+.postDate {
+  @extend %fontXS;
+  opacity: 0.5;
 }

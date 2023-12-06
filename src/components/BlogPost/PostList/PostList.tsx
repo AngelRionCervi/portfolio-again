@@ -10,7 +10,12 @@ interface PostListProps {
 export default function PostList({ posts, isLoading }: PostListProps) {
   
   function getPostDate(date: string) {
-    return new Date(date).toUTCString()
+    const dateObj = new Date(date)
+
+    return new Date(dateObj).toLocaleDateString('en-US', {
+      month: "2-digit",
+      day: "2-digit",
+    })
   }
 
   return (
@@ -18,8 +23,8 @@ export default function PostList({ posts, isLoading }: PostListProps) {
       {posts.map((post) => {
         return (
           <Link key={post.slug} href={`/blog/${post.slug}`}>
-            <p>{post.title}</p>
-            <p>{getPostDate(post.date)}</p>
+            <p className={styles.postTitle}>{post.title}</p>
+            <p className={styles.postDate}>{getPostDate(post.date)}</p>
           </Link>
         )
       })}

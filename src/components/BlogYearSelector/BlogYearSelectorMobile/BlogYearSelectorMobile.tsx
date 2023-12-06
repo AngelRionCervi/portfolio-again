@@ -6,10 +6,10 @@ import { useAfterMountEffect } from '@/lib/hooks/useAfterMountEffect'
 
 interface BlogYearSelectorMobileProps {
   onChange: (year: number) => void
+  years: Array<number>
 }
 
-export default function BlogYearSelectorMobile({ onChange }: BlogYearSelectorMobileProps) {
-  const years = [2024, 2023, 2022]
+export default function BlogYearSelectorMobile({ onChange, years }: BlogYearSelectorMobileProps) {
   const buttonHeight = 45
   const animDuration = 150
 
@@ -44,11 +44,16 @@ export default function BlogYearSelectorMobile({ onChange }: BlogYearSelectorMob
     onChange(year)
   }
 
+  function toggleSelect() {
+    if (years.length <= 1) return
+    setSelectState(!selectState)
+  }
+
   return (
     <div className={styles.container}>
-      <button onClick={() => setSelectState(!selectState)} className={styles.currentYearButton}>
+      <button onClick={toggleSelect} className={styles.currentYearButton}>
         <p className={styles.currentYear}>{currentYear}</p>
-        <CornerTriangle width="10px" height="10px" className={styles.arrowDown} />
+        <CornerTriangle width="10px" height="10px" className={styles.arrowDown} style={{ display: years.length > 1 ? 'block' : 'none' }} />
       </button>
       <div className={styles.otherYearsContainer}>
         {years

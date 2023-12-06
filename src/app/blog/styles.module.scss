@@ -3,8 +3,10 @@
 .container {
   height: 100%;
   display: flex;
+  margin-top: calc(5vh + $g);
 
   @media screen and (max-width: $mobileBreakpoint) {
+    margin-top: calc($burgerMenuHeight + $l);
     display: block;
   }
 }
@@ -24,9 +26,11 @@
 
 .articlesContainer {
   width: 65%;
-  margin-top: $m;
   padding-left: $m;
   padding-right: $m;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 
   @media screen and (max-width: $mobileBreakpoint) {
     width: calc(100% - $m * 2);

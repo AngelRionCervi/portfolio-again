@@ -4,7 +4,7 @@ import { createContext, useEffect, useState } from 'react'
 import CONSTANTS from '@constants'
 import lightTheme from '@styles/themes/light.module.scss'
 import darkTheme from '@styles/themes/dark.module.scss'
-import { getThemeStorage, setThemeStorage } from '@/lib/localStorage'
+import { getThemeStorage, setThemeStorage } from '@lib/localStorage'
 
 const themeMap = {
   light: { ...lightTheme },

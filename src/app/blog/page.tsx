@@ -8,11 +8,13 @@ import { useDevice } from '@lib/hooks/useDevice'
 import { fetchBlogPostByYear } from '@/lib/fetch/blogPost'
 import PostList from '@components/BlogPost/PostList/PostList'
 import { BlogPostPreview } from '@components/BlogPost/BlogPost'
+import { getYears } from '@lib/helpers'
 
 export default function Blog() {
   const isMobile = useDevice()
   const [isLoading, setIsLoading] = useState(false)
   const [posts, setPosts] = useState<Array<BlogPostPreview>>([])
+  const years = getYears(2023)
 
   async function changeYear(year: number) {
     setIsLoading(true)
@@ -31,7 +33,7 @@ export default function Blog() {
   return (
     <div className={styles.container}>
       <div className={styles.yearSelectorContainer}>
-        {isMobile ? <BlogYearSelectorMobile onChange={changeYear} /> : <BlogYearSelectorDesktop onChange={changeYear} />}
+        {isMobile ? <BlogYearSelectorMobile onChange={changeYear} years={years} /> : <BlogYearSelectorDesktop onChange={changeYear} years={years} />}
       </div>
       <div className={styles.articlesContainer}>
         <PostList posts={posts} isLoading={isLoading} />

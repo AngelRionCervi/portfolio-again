@@ -7,11 +7,10 @@ import { useAfterMountEffect } from '@/lib/hooks/useAfterMountEffect'
 
 interface BlogYearSelectorDesktopProps {
   onChange: (year: number) => void
+  years: Array<number>
 }
 
-export default function BlogYearSelectorDesktop({ onChange }: BlogYearSelectorDesktopProps) {
-  const years = [2024, 2023, 2022]
-
+export default function BlogYearSelectorDesktop({ onChange, years }: BlogYearSelectorDesktopProps) {
   const yearContainerRef = useRef<HTMLDivElement | null>(null)
   let yearsCoords = useRef<Array<any> | null>(null)
   let isFirstPass = useRef<boolean>(true)
