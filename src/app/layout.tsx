@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { Roboto_Mono } from 'next/font/google'
 import './style.scss'
+import '@styles/highlightThemes/panda-syntax-light.css'
+import '@styles/highlightThemes/panda-syntax-dark.css'
 import LayoutCheck from '@components/Layout/LayoutCheck'
 import ContextReducer from '@context/ContextReducer'
 

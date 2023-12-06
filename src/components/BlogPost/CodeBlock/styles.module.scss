@@ -1,0 +1,9 @@
+@import '@styles/variables.module.scss';
+@import '@styles/typo.module.scss';
+
+.codeContainer {
+  line-height: 125%;
+  padding: $xs;
+  border-radius: $xxs;
+  border: 1px solid rgba(0, 0, 0, 0.2)
+}

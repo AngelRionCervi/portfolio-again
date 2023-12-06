@@ -5,19 +5,11 @@
   "contents": [
     {
       "type": "text",
-      "content": "I feel like the <a target=\"_blank\" href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat\">Array.flat</a> method is often forgotten in the web dev world, it does the simple thing of flattening an array and transforms this:"
+      "content": "I feel like the <a target=\"_blank\" href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat\">Array.flat</a> method is often forgotten in the web dev world, it does the simple thing of returning a <b>new</b> flattened array:"
     },
     {
       "type": "code",
-      "content": "[0, 1, 2, [3, 4]]"
-    },
-    {
-      "type": "text",
-      "content": "into this:"
-    },
-    {
-      "type": "code",
-      "content": "[0, 1, 2, 3, 4]"
+      "content": "[0, 1, 2, [3, 4]].flat() // -> [0, 1, 2, 3, 4]"
     },
     {
       "type": "text",
@@ -38,11 +30,7 @@
     },
     {
       "type": "code",
-      "content": "[0, 1, 2, [3, [4]]].flat()\n//[0, 1, 2, 3, [4]]"
-    },
-    {
-      "type": "code",
-      "content": "[0, 1, 2, [3, [4]]].flat(Infinity)\n//[0, 1, 2, 3, 4]"
+      "content": "[0, 1, 2, [3, [4]]].flat() // -> [0, 1, 2, 3, [4]]\n[0, 1, 2, [3, [4]]].flat(Infinity) // -> [0, 1, 2, 3, 4]"
     },
     {
       "type": "text",
@@ -54,7 +42,7 @@
     },
     {
       "type": "code",
-      "content": "function fetchArticles(id: string | string[]) {\n//fetch articles\n}"
+      "content": "function fetchArticles(id: string | string[]) {\n  //fetch articles\n}"
     },
     {
       "type": "text",
@@ -62,7 +50,7 @@
     },
     {
       "type": "code",
-      "content": "function fetchArticles(id: string | string[]) {\nconst listIds = [id].flat()\nreturn fetch(`someurl/article?ids=${listIds.join(',')}`\n}"
+      "content": "function fetchArticles(id: string | string[]) {\n  const listIds = [id].flat()\n  return fetch(`someurl/article?ids=${listIds.join(',')}`)\n}"
     },
     {
       "type": "text",

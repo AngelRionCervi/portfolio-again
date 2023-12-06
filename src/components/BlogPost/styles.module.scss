@@ -23,6 +23,10 @@
     padding: $s;
   }
 
+  span {
+    @extend %fontS;
+  }
+
   a {
     @extend %underline;
   }

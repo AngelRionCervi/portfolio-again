@@ -6,7 +6,6 @@ import { ThemeContext } from '@context/ThemeContext'
 
 export default function ThemeSwitcher() {
   const id = 'theme_svg'
-
   const animationManager = useRef<ThemeSwicthAnimationManager | null>(null)
   const { changeTheme, currentTheme } = useContext(ThemeContext)
 

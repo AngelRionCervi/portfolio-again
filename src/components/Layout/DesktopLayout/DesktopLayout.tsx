@@ -12,8 +12,6 @@ export default function BaseLayout({ children }: { children: React.ReactNode }) 
   const page = usePage()
   const pathname = usePathname()
 
-  console.log('pase', page)
-
   const topBarClass = cx(styles, {
     topBar: true,
     topBarBorder: pathname.split('/').at(-2) !== 'blog'

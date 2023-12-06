@@ -38,11 +38,28 @@ export default function ThemeContextProvider({ children }: { children: React.Rea
   useEffect(() => {
     const theme = themeMap[currentTheme]
 
+    const css = document.createElement('style')
+    css.appendChild(
+      document.createTextNode(
+        `* {
+          -webkit-transition: none !important;
+          -moz-transition: none !important;
+          -o-transition: none !important;
+          -ms-transition: none !important;
+          transition: none !important;
+        }`
+      )
+    )
+    document.head.appendChild(css)
+
     Object.entries(theme).forEach(([key, val]) => {
       document.documentElement.style.setProperty(`--${key}`, val)
     })
 
     setThemeStorage(currentTheme)
+
+    window.getComputedStyle(css).opacity
+    document.head.removeChild(css)
   }, [currentTheme])
 
   function changeTheme(themeType: ThemeType) {
