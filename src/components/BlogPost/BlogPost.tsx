@@ -1,5 +1,7 @@
 import styles from './styles.module.scss'
 
+export type BlogPostPreview = { title: string; date: string, slug: string }
+
 export default function BlogPost({ data }) {
   console.log('data', data)
 

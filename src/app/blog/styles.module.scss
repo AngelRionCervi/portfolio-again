@@ -1,37 +1,38 @@
 @import '@styles/variables.module.scss';
 
-.containerDesktop {
+.container {
   height: 100%;
   display: flex;
+
+  @media screen and (max-width: $mobileBreakpoint) {
+    display: block;
+  }
 }
 
-.containerMobile {
-  height: 100%;
-}
-
-.yearSelectorContainerDesktop {
+.yearSelectorContainer {
   width: 35%;
   height: 75%;
+
+  @media screen and (max-width: $mobileBreakpoint) {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: $m;
+    height: 45px;
+  }
 }
 
-.yearSelectorContainerMobile {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-top: $m;
-  height: 45px;
-}
-
-.articlesContainerMobile {
-  width: calc(100% - $m * 2);
-  margin-top: $m;
-  padding-left: $m;
-  padding-right: $m;
-}
-
-.articlesContainerDesktop {
+.articlesContainer {
   width: 65%;
   margin-top: $m;
   padding-left: $m;
   padding-right: $m;
+
+  @media screen and (max-width: $mobileBreakpoint) {
+    width: calc(100% - $m * 2);
+    margin-top: $m;
+    padding-left: $m;
+    padding-right: $m;
+  }
 }
+

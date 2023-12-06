@@ -5,7 +5,11 @@ import { useEffect, useRef, useState } from 'react'
 import styles from './styles.module.scss'
 import { useAfterMountEffect } from '@/lib/hooks/useAfterMountEffect'
 
-export default function BlogYearSelectorDesktop() {
+interface BlogYearSelectorDesktopProps {
+  onChange: (year: number) => void
+}
+
+export default function BlogYearSelectorDesktop({ onChange }: BlogYearSelectorDesktopProps) {
   const years = [2024, 2023, 2022]
 
   const yearContainerRef = useRef<HTMLDivElement | null>(null)
@@ -47,6 +51,7 @@ export default function BlogYearSelectorDesktop() {
 
     const yearPosition = yearsCoords.current.find(({ year }) => year === yearToFind)
     setCurSelectorY(yearPosition.y)
+    onChange(yearToFind)
   }
 
   return (

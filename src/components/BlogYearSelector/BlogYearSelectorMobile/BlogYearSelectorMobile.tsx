@@ -4,7 +4,11 @@ import CornerTriangle from '@assets/icons/corner-triangle.svg'
 import anime from 'animejs'
 import { useAfterMountEffect } from '@/lib/hooks/useAfterMountEffect'
 
-export default function BlogYearSelectorMobile() {
+interface BlogYearSelectorMobileProps {
+  onChange: (year: number) => void
+}
+
+export default function BlogYearSelectorMobile({ onChange }: BlogYearSelectorMobileProps) {
   const years = [2024, 2023, 2022]
   const buttonHeight = 45
   const animDuration = 150
@@ -37,6 +41,7 @@ export default function BlogYearSelectorMobile() {
   function changeYear(year: number) {
     setCurrentYear(year)
     setSelectState(false)
+    onChange(year)
   }
 
   return (

@@ -1,4 +1,4 @@
-import { getBlogPost } from '@lib/getBlogPost'
+import { getBlogPost } from '@/lib/server/blogPost'
 import styles from './styles.module.scss'
 import BlogPost from '@components/BlogPost/BlogPost'
 
