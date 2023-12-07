@@ -3,12 +3,15 @@
 
 .container {
   word-wrap: break-word;
-  width: calc(100% - $m * 2);
-  height: calc(100vh - 5vh - $g);
+  width: 100%;
+  height: 100vh;
   padding: $m;
   overflow: auto;
   display: flex;
   justify-content: center;
+  box-sizing: border-box;
+  scrollbar-color: var(--gray) var(--background);
+  scrollbar-width: thin;
 
   @media screen and (min-width: $mobileBreakpoint) {
     padding-top: 5vh;
@@ -16,10 +19,10 @@
 
   @media screen and (max-width: $mobileBreakpoint) {
     margin-top: $burgerMenuHeight;
+    height: calc(100vh - $burgerMenuHeight);
   }
 
   @media screen and (max-width: $modalFullscreenBreakpoint) {
-    width: calc(100% - $s * 2);
     padding: $s;
   }
 
@@ -41,6 +44,7 @@
   display: flex;
   align-content: center;
   flex-direction: column;
+  max-width: 800px;
 
   @media screen and (max-width: $mobileBreakpoint) {
     max-width: 600px;

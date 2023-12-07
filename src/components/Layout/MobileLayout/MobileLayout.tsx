@@ -7,26 +7,21 @@ import CONSTANTS from '@constants'
 import TopMenuMobile from '@components/TopMenuMobile/TopMenuMobile'
 import BurgerMenu from '@components/BurgerMenu/BurgerMenu'
 import { BurgerMenuContext } from '@context/BurgerMenuContext'
+import { usePage } from '@lib/hooks/usePage'
 
 export default function BaseLayout({ children }: { children: React.ReactNode }) {
-    const { isBurgerMenuOpen } = useContext(BurgerMenuContext);
-    const pathname = usePathname()
+  const { isBurgerMenuOpen } = useContext(BurgerMenuContext)
+  const page = usePage()
 
-    const page = CONSTANTS.ROUTES.find((route) => route.link === pathname) ?? CONSTANTS.ROUTES[0];
-
-    return (
-        <>
-            {isBurgerMenuOpen && (
-                <BurgerMenu />
-            )}
-            <div className={styles.baseLayout}>
-                <div className={styles.menuContainer}>
-                    <TopMenuMobile title={page.name} />
-                </div>
-                <div className={styles.innerLayout}>
-                    {children}
-                </div>
-            </div>
-        </>
-    )
+  return (
+    <>
+      {isBurgerMenuOpen && <BurgerMenu />}
+      <div className={styles.baseLayout}>
+        <div className={styles.menuContainer}>
+          <TopMenuMobile title={page.name} />
+        </div>
+        <div className={styles.innerLayout}>{children}</div>
+      </div>
+    </>
+  )
 }

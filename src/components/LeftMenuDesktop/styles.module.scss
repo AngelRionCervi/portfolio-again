@@ -19,10 +19,11 @@
   display: flex;
   flex-direction: column;
   gap: $s;
+  position: relative;
 }
 
 .navItem {
-  @extend %fontL;
+  @extend %fontML;
 }
 
 .bar {
@@ -34,7 +35,7 @@
 .navPointer {
   display: flex;
   align-items: center;
-  gap: $xs;
+  gap: $s;
 }
 
 .pointerRound {
@@ -46,6 +47,6 @@
 
 .pointerBar {
   height: 1px;
-  width: 35px;
+  width: 30px;
   background-color: var(--black);
 }

@@ -1,36 +1,55 @@
 'use client'
 
 import anime from 'animejs'
-import { usePathname } from 'next/navigation'
 import Link from 'next/link'
+import { useEffect, useRef, useState } from 'react'
 import styles from './styles.module.scss'
 import CONSTANTS from '@constants'
 import LeftMenuAnimation from './LeftMenuAnimation/LeftMenuAnimation'
-
-interface NavItem {
-  name: string
-  link: string
-  pointerY: number
-}
+import { usePage } from '@lib/hooks/usePage'
+import { useAfterMountEffect } from '@lib/hooks/useAfterMountEffect'
 
 export default function LeftMenuDesktop() {
-  const navPointerOffset = 15
-  const navPointerSpace = 51
+  const itemsContainerEl = useRef<HTMLUListElement | null>(null)
+  const itemsCoords = useRef<Array<any> | null>(null)
+  const [curSelectorY, setCurSelectorY] = useState<number | null>(null)
+  const [oldSelectorY, setOldSelectorY] = useState<number | null>(null)
+  let isFirstPass = useRef<boolean>(true)
+  const page = usePage()
 
-  const navItems = CONSTANTS.ROUTES.map((route, index) => ({ ...route, pointerY: navPointerOffset + navPointerSpace * index }))
+  const itemOffsetY = 12
 
-  const pathname = usePathname()
+  useEffect(() => {
+    const allItemEl = [...((itemsContainerEl.current?.querySelectorAll('li') as NodeListOf<HTMLElement>) ?? [])]
 
-  let curPointerY = navItems.find(({ link }) => link === pathname)?.pointerY
+    if (allItemEl.length) {
+      itemsCoords.current = allItemEl.map((itemEl) => ({ x: itemEl.offsetLeft, y: itemEl.offsetTop + itemOffsetY, name: itemEl.innerText }))
 
-  function changePage({ pointerY }: NavItem) {
-    anime({
-      targets: `.${styles.navPointer}`,
-      translateY: [curPointerY, pointerY],
-      easing: 'easeOutQuad',
-      duration: 250,
-    })
-    curPointerY = pointerY
+      console.log('page', page, itemsCoords.current)
+
+      setCurSelectorY(itemsCoords.current.find((item) => item.name === page.name).y)
+    }
+  }, [])
+
+  useAfterMountEffect(() => {
+    if (!isFirstPass.current) {
+      anime({
+        targets: `.${styles.navPointer}`,
+        translateY: [oldSelectorY, curSelectorY],
+        easing: 'easeOutQuad',
+        duration: 250,
+      })
+    } else {
+      isFirstPass.current = false
+    }
+    setOldSelectorY(curSelectorY)
+  }, [curSelectorY])
+
+  function changePage(name: string) {
+    if (!itemsCoords.current) return
+
+    const newY = itemsCoords.current.find((item) => item.name === name).y
+    setCurSelectorY(newY)
   }
 
   return (
@@ -39,11 +58,11 @@ export default function LeftMenuDesktop() {
         <LeftMenuAnimation />
         <div className={styles.navContainer}>
           <nav>
-            <ul className={styles.navUl}>
-              {navItems.map((item) => {
+            <ul ref={itemsContainerEl} className={styles.navUl}>
+              {CONSTANTS.ROUTES.map((item) => {
                 return (
                   <li key={item.name} className={styles.navItem}>
-                    <Link href={item.link} as={item.link} onClick={() => changePage(item)}>
+                    <Link href={item.link} as={item.link} onClick={() => changePage(item.name)}>
                       {item.name}
                     </Link>
                   </li>
@@ -52,7 +71,7 @@ export default function LeftMenuDesktop() {
             </ul>
           </nav>
           <div>
-            <div style={{ transform: `translateY(${curPointerY}px)` }} className={styles.navPointer}>
+            <div style={{ transform: `translateY(${curSelectorY}px)` }} className={styles.navPointer}>
               <div className={styles.pointerRound} />
               <div className={styles.pointerBar} />
             </div>

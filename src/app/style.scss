@@ -79,3 +79,17 @@ h5 {
 .burgerMenuOpen {
   overflow: hidden;
 }
+
+::-webkit-scrollbar {
+  width: 13px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background); 
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: var(--black);
+  border: 6px solid transparent;
+  background-clip: content-box;
+}

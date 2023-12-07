@@ -1,0 +1,33 @@
+@import '@styles/variables.module.scss';
+@import '@styles/typo.module.scss';
+
+.container {
+  width: 100vw;
+  background-color: var(--black);
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.innerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  gap: $m;
+}
+
+.link {
+  @extend %fontS;
+  @extend %underline;
+  color: var(--background);
+}
+
+.separator {
+  width: 1px;
+  height: 12px;
+  background-color: var(--background);
+  margin-top: 4px;
+  transform: rotate(90deg);
+}

@@ -7,6 +7,7 @@ import { usePage } from '@lib/hooks/usePage'
 import LeftMenuAnimationContextProvider from '@context/LeftMenuAnimationContext'
 import { cx } from '@/lib/helpers'
 import { usePathname } from 'next/navigation'
+import Footer from '@/components/Footer/Footer'
 
 export default function BaseLayout({ children }: { children: React.ReactNode }) {
   const page = usePage()
@@ -14,7 +15,7 @@ export default function BaseLayout({ children }: { children: React.ReactNode }) 
 
   const topBarClass = cx(styles, {
     topBar: true,
-    topBarBorder: pathname.split('/').at(-2) !== 'blog'
+    topBarBorder: pathname.split('/').at(-2) !== 'blog',
   })
 
   return (
@@ -36,6 +37,7 @@ export default function BaseLayout({ children }: { children: React.ReactNode }) 
             </div>
           </div>
         </div>
+        <Footer />
       </div>
     </LeftMenuAnimationContextProvider>
   )
