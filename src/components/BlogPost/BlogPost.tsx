@@ -1,16 +1,17 @@
-import CodeBlock from './CodeBlock/CodeBlock';
+import CodeBlock from './CodeBlock/CodeBlock'
 import styles from './styles.module.scss'
 
-export type BlogPostPreview = { title: string; date: string; slug: string }
-export type BlogPostText = { type: 'text'; content: string }
-export type BlogPostImage = { type: 'image'; src: string; alt: string }
-export type BlogPostCode = { type: 'code'; content: string }
+export type BlogPostPreview = { title: string; date: string; slug: string; id: string }
+export type BlogPostText = { type: 'text'; content: string; id: string }
+export type BlogPostImage = { type: 'image'; src: string; alt: string; id: string }
+export type BlogPostCode = { type: 'code'; content: string; id: string }
 export type BlogPostBlock = BlogPostText | BlogPostImage | BlogPostCode
 
 export interface BlogPost {
   title: string
   date: string
   slug: string
+  id: string
   contents: Array<BlogPostBlock>
 }
 
@@ -30,12 +31,12 @@ export default function BlogPost({ data }: { data: BlogPost }) {
           }
 
           return (
-            <>
+            <div className={`${styles.block} ${block.type === 'image' ? styles.blockImage : ''}`} key={block.id}>
               {content}
-              <br />
-            </>
+            </div>
           )
         })}
+        <div className={styles.postFooter} />
       </div>
     </div>
   )

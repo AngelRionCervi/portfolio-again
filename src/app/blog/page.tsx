@@ -34,15 +34,17 @@ export default function Blog() {
   return (
     <PageContentTransition>
       <div className={styles.container}>
-        <div className={styles.yearSelectorContainer}>
-          {isMobile ? (
-            <BlogYearSelectorMobile onChange={changeYear} years={years} />
-          ) : (
-            <BlogYearSelectorDesktop onChange={changeYear} years={years} />
-          )}
-        </div>
-        <div className={styles.articlesContainer}>
-          <PostList posts={posts} isLoading={isLoading} />
+        <div className={styles.innerContainer}>
+          <div className={styles.yearSelectorContainer}>
+            {isMobile ? (
+              <BlogYearSelectorMobile onChange={changeYear} years={years} />
+            ) : (
+              <BlogYearSelectorDesktop onChange={changeYear} years={years} />
+            )}
+          </div>
+          <div className={styles.articlesContainer}>
+            <PostList posts={posts} isLoading={isLoading} />
+          </div>
         </div>
       </div>
     </PageContentTransition>

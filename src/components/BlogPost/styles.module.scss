@@ -4,14 +4,12 @@
 .container {
   word-wrap: break-word;
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - $footerHeight);
   padding: $m;
   overflow: auto;
   display: flex;
   justify-content: center;
   box-sizing: border-box;
-  scrollbar-color: var(--gray) var(--background);
-  scrollbar-width: thin;
 
   @media screen and (min-width: $mobileBreakpoint) {
     padding-top: 5vh;
@@ -36,7 +34,6 @@
 
   img {
     max-width: 400px;
-    align-self: center;
   }
 }
 
@@ -45,6 +42,7 @@
   align-content: center;
   flex-direction: column;
   max-width: 800px;
+  height: calc(fit-content + $g);
 
   @media screen and (max-width: $mobileBreakpoint) {
     max-width: 600px;
@@ -53,5 +51,20 @@
 
 .title {
   margin-bottom: $l;
-  margin-top: $m;
+  margin-top: $s;
+}
+
+.block {
+    margin-bottom: 1em;
+}
+
+.blockImage {
+  display: flex;
+  justify-content: center;
+}
+
+.postFooter {
+  height: $m;
+  min-height: $m;
+  width: 100%;
 }

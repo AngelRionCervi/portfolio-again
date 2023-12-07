@@ -5,7 +5,6 @@ export type AnimationType = 'idle' | 'enter' | 'leave' | 'down' | 'up'
 interface ButtonCubeAnimationElements {
   id: string
   aboveFrame: string
-  belowFrame: string
   triangleTopContainer: string
   triangleBottomContainer: string
 }
@@ -18,7 +17,6 @@ const animationTypes = ['idle', 'enter', 'leave', 'down', 'up'] as const
 export default function ButtonCubeAnimationManager({
   id,
   aboveFrame,
-  belowFrame,
   triangleTopContainer,
   triangleBottomContainer,
 }: ButtonCubeAnimationElements) {

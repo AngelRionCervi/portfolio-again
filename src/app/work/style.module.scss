@@ -4,20 +4,27 @@
 .workContainer {
   display: flex;
   flex-direction: column;
+  align-items: center;
   overflow: auto;
   padding: $m;
   margin-top: 5vh;
-  height: calc(100vh - $m * 2 - 5vh);
+  height: calc(100vh - 5vh - $m * 2 - $footerHeight);
   
   @media screen and (max-width: 800px) {
-    height: calc(100vh - $burgerMenuHeight - $m * 2);
     margin-top: $burgerMenuHeight;
+    height: calc(100vh - $burgerMenuHeight - $m * 2 - $footerHeight);
+  }
+}
+
+.workContainerInner {
+  @media screen and (min-width: 800px) {
+    width: 80%;
   }
 }
 
 .workWords {
   @extend %fontS;
-  margin-top: $l;
+  margin-top: $m;
 
   @media screen and (max-width: 800px) {
     margin-top: $s;

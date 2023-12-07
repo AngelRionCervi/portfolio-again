@@ -13,5 +13,9 @@ export default function Post({ params }: { params: { slug: string } }) {
     )
   }
 
-  return <BlogPost data={post} />
+  return (
+    <div className={styles.container}>
+      <BlogPost data={post} />
+    </div>
+  )
 }

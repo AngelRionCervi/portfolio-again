@@ -1,5 +1,7 @@
 @import '@styles/variables.module.scss';
 
 .container {
-  margin-top: $burgerMenuHeight;
+  @media screen and (max-width: $mobileBreakpoint) {
+    margin-top: $burgerMenuHeight;
+  }
 }

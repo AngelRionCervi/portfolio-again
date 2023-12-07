@@ -24,7 +24,6 @@ export default function ButtonCube({ children, size, id, onClick }: ButtonCubePr
     animationManager.current = ButtonCubeAnimationManager({
       id,
       aboveFrame: styles.aboveFrame,
-      belowFrame: styles.belowFrame,
       triangleTopContainer: styles.triangleTopContainer,
       triangleBottomContainer: styles.triangleBottomContainer,
     })

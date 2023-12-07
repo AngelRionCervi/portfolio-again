@@ -7,12 +7,12 @@ export default function Footer() {
     <div className={styles.container}>
       <div className={styles.innerContainer}>
         {Object.values(socialsData).map(({ label, link }, index) => (
-          <>
-            <Link className={styles.link} key={label} target="_blank" href={link}>
+          <div className={styles.item} key={label}>
+            <Link className={styles.link} target="_blank" href={link}>
               {label}
             </Link>
             {index < Object.values(socialsData).length - 1 && <div className={styles.separator} />}
-          </>
+          </div>
         ))}
       </div>
     </div>

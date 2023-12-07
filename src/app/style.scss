@@ -17,6 +17,12 @@
   }
 }
 
+* {
+  scrollbar-color: var(--gray) var(--background);
+  scrollbar-width: thin;
+  scroll-behavior: smooth;
+}
+
 body {
   @extend %defaultTypo;
   padding: 0;

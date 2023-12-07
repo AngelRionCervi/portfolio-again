@@ -17,7 +17,7 @@ export async function GET(request: NextRequest) {
   const contentsRaw = await Promise.all(files.map((file) => fsPromise.readFile(path.join(postDir, file), { encoding: 'utf8' })))
   const contents = contentsRaw.map((content) => JSON.parse(content))
   const contentByYear = contents.filter((content) => new Date(content.date).getFullYear() === year)
-  const filteredContent = contentByYear.map(({ date, slug, title }) => ({ date, slug, title }))
+  const filteredContent = contentByYear.map(({ date, slug, title, id }) => ({ date, slug, title, id }))
 
   return Response.json({ posts: filteredContent }, { status: 200 })
 }

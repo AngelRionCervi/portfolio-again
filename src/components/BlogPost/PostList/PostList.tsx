@@ -22,7 +22,7 @@ export default function PostList({ posts, isLoading }: PostListProps) {
     <div className={styles.container}>
       {posts.map((post) => {
         return (
-          <Link key={post.slug} href={`/blog/${post.slug}`}>
+          <Link key={post.id} href={`/blog/${post.slug}`}>
             <p className={styles.postTitle}>{post.title}</p>
             <p className={styles.postDate}>{getPostDate(post.date)}</p>
           </Link>

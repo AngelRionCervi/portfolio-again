@@ -2,18 +2,28 @@
 
 .container {
   height: 100%;
-  display: flex;
   margin-top: calc(5vh + $g);
+  display: flex;
+  justify-content: center;
 
   @media screen and (max-width: $mobileBreakpoint) {
     margin-top: calc($burgerMenuHeight + $l);
+  }
+}
+
+.innerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 60%;
+
+  @media screen and (max-width: $mobileBreakpoint) {
     display: block;
   }
 }
 
 .yearSelectorContainer {
   width: 35%;
-  height: 75%;
 
   @media screen and (max-width: $mobileBreakpoint) {
     width: 100%;
@@ -39,4 +49,3 @@
     padding-right: $m;
   }
 }
-

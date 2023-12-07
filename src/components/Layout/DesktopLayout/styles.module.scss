@@ -12,25 +12,38 @@
 
 .innerLayout {
   display: grid;
-  grid-template-columns: 2fr 8fr 1fr;
+  grid-template-columns: 1fr 8fr 1fr;
   height: 100%;
   width: 90%;
 }
 
-.topBar {
+.topBarContainer {
   height: calc(5vh - 2px);
-  width: calc(100% - 20px);
+  width: 100%;
   position: absolute;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  background-color: var(--background);
   z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: column;
+}
+
+.opacityVeil {
+  background-color: var(--background);
   opacity: 0.35;
+  height: 100%;
+  width: 100%;
+}
+
+.topBar {
+  height: 0;
+  width: 80%;
 }
 
 .topBarBorder {
-  opacity: 1;
   border-bottom: 1px solid var(--black);
 }
 
@@ -43,6 +56,8 @@
 .mainContainer {
   position: relative;
   max-height: 90vh;
+  display: flex;
+  justify-content: center;
 }
 
 .menuContainer {
@@ -66,3 +81,7 @@
   width: 100%;
 }
 
+.childrenContainer {
+  width: 100%;
+  max-width: $desktopContentMaxWidth;
+}

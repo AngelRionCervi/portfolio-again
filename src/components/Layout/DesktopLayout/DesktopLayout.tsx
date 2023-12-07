@@ -1,13 +1,13 @@
 'use client'
 
+import { usePathname } from 'next/navigation'
 import LeftMenuDesktop from '@components/LeftMenuDesktop/LeftMenuDesktop'
 import styles from './styles.module.scss'
 import RightPageInfo from '@components/RightPageInfo/RightPageInfo'
 import { usePage } from '@lib/hooks/usePage'
 import LeftMenuAnimationContextProvider from '@context/LeftMenuAnimationContext'
-import { cx } from '@/lib/helpers'
-import { usePathname } from 'next/navigation'
-import Footer from '@/components/Footer/Footer'
+import { cx } from '@lib/helpers'
+import Footer from '@components/Footer/Footer'
 
 export default function BaseLayout({ children }: { children: React.ReactNode }) {
   const page = usePage()
@@ -28,8 +28,11 @@ export default function BaseLayout({ children }: { children: React.ReactNode }) 
             </div>
           </div>
           <div className={styles.mainContainer}>
-            <div className={topBarClass} />
-            {children}
+            <div className={styles.topBarContainer}>
+              <div className={styles.opacityVeil} />
+              <div className={topBarClass} />
+            </div>
+            <div className={styles.childrenContainer}>{children}</div>
           </div>
           <div className={styles.pageInfoContainer}>
             <div className={styles.pageInfoInner}>
