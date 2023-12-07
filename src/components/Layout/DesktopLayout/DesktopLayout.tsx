@@ -8,6 +8,7 @@ import LeftMenuAnimationContextProvider from '@context/LeftMenuAnimationContext'
 import { cx } from '@/lib/helpers'
 import { usePathname } from 'next/navigation'
 import Footer from '@/components/Footer/Footer'
+import ThemeSwitcher from '@/components/ThemeSwitcher/ThemeSwitcher'
 
 export default function BaseLayout({ children }: { children: React.ReactNode }) {
   const page = usePage()
@@ -29,11 +30,15 @@ export default function BaseLayout({ children }: { children: React.ReactNode }) 
           </div>
           <div className={styles.mainContainer}>
             <div className={topBarClass} />
-            {children}
-          </div>
-          <div className={styles.pageInfoContainer}>
-            <div className={styles.pageInfoInner}>
-              <RightPageInfo text={page.name} id={page.id} />
+            <div className={styles.mainContainerInner}>
+              <div />
+              {children}
+              <div className={styles.rightInfo}>
+                <div className={styles.themeSwitcherContainer}>
+                <ThemeSwitcher />
+                </div>
+                
+              </div>
             </div>
           </div>
         </div>

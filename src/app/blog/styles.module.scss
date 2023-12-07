@@ -3,7 +3,7 @@
 .container {
   height: 100%;
   display: flex;
-  margin-top: calc(5vh + $g);
+  margin-top: calc(2.5vh + $g);
 
   @media screen and (max-width: $mobileBreakpoint) {
     margin-top: calc($burgerMenuHeight + $l);

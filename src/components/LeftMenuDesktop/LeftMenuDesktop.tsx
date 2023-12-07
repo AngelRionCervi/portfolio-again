@@ -54,32 +54,33 @@ export default function LeftMenuDesktop() {
 
   return (
     <div className={styles.container}>
-      <div>
-        <LeftMenuAnimation />
+      <div className={styles.innerContainer}>
+    
+          <LeftMenuAnimation />
+     
         <div className={styles.navContainer}>
-          <nav>
-            <ul ref={itemsContainerEl} className={styles.navUl}>
-              {CONSTANTS.ROUTES.map((item) => {
-                return (
-                  <li key={item.name} className={styles.navItem}>
-                    <Link href={item.link} as={item.link} onClick={() => changePage(item.name)}>
-                      {item.name}
-                    </Link>
-                  </li>
-                )
-              })}
-            </ul>
-          </nav>
-          <div>
-            <div style={{ transform: `translateY(${curSelectorY}px)` }} className={styles.navPointer}>
-              <div className={styles.pointerRound} />
-              <div className={styles.pointerBar} />
+          <div className={styles.navInnerContainer}>
+            <nav>
+              <ul ref={itemsContainerEl} className={styles.navUl}>
+                {CONSTANTS.ROUTES.map((item) => {
+                  return (
+                    <li key={item.name} className={styles.navItem}>
+                      <Link href={item.link} as={item.link} onClick={() => changePage(item.name)}>
+                        {item.name}
+                      </Link>
+                    </li>
+                  )
+                })}
+              </ul>
+            </nav>
+            <div>
+              <div style={{ transform: `translateY(${curSelectorY}px)` }} className={styles.navPointer}>
+                <div className={styles.pointerRound} />
+                <div className={styles.pointerBar} />
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div>
-        <div className={styles.bar} />
       </div>
     </div>
   )

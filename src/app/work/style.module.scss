@@ -6,8 +6,8 @@
   flex-direction: column;
   overflow: auto;
   padding: $m;
-  margin-top: 5vh;
-  height: calc(100vh - $m * 2 - 5vh);
+  margin-top: 2.5vh;
+  height: calc(100vh - $m * 2 - 2.5vh);
   
   @media screen and (max-width: 800px) {
     height: calc(100vh - $burgerMenuHeight - $m * 2);

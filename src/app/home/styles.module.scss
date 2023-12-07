@@ -10,7 +10,7 @@
 
 .innerContainer {
   max-width: 400px;
-  margin-top: calc(5vh + $g);
+  margin-top: calc(2.5vh + $g);
   padding: $m;
 
   @media screen and (max-width: $mobileBreakpoint) {

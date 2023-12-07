@@ -3,16 +3,26 @@
 
 .container {
   display: flex;
-  gap: $s;
   height: 100%;
+  border-right: 1px solid var(--black);
+  justify-content: center;
+}
+
+.innerContainer {
+  margin-top: calc(2.5vh + $s);
 }
 
 .navContainer {
   margin-top: $g;
   display: flex;
-  margin-left: $m;
-  justify-content: space-between;
-  gap: $s;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.navInnerContainer {
+  display: flex;
+  width: 135px;
+  gap: $m;
 }
 
 .navUl {
