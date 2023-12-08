@@ -8,6 +8,7 @@ import DashLineH from '@assets/icons/dash-line-h.svg'
 import { cx } from '@lib/helpers'
 import CONSTANTS from '@constants'
 import { useDevice } from '@lib/hooks/useDevice'
+import { useAfterMountEffect } from '@lib/hooks/useAfterMountEffect'
 
 export interface WorkModalTimeProps {
   periode: { start: Array<number>; end: Array<number> }
@@ -15,7 +16,7 @@ export interface WorkModalTimeProps {
 
 export default function WorkModalTime({ periode }: WorkModalTimeProps) {
   const monthLabels = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec']
-  const isMobile = useDevice('modal')
+  const isMobileModal = useDevice('modal')
 
   useEffect(() => {
     workModalTimeAnimation({
@@ -25,9 +26,11 @@ export default function WorkModalTime({ periode }: WorkModalTimeProps) {
       periode,
       monthLabels,
     })
-
-    console.log('modal mobile', isMobile)
   }, [])
+
+  useAfterMountEffect(() => {
+    
+  }, [isMobileModal])
 
   function getDateClass(isTop: boolean) {
     return cx(styles, {
@@ -46,7 +49,7 @@ export default function WorkModalTime({ periode }: WorkModalTimeProps) {
             <p>{periode.start[1]}</p>
           </div>
           <div className={styles.dashLineContainer}>
-            {isMobile ? (
+            {isMobileModal ? (
               <DashLineH className={styles.topDashLineMobile} />
             ) : (
               <DashLine
@@ -57,7 +60,7 @@ export default function WorkModalTime({ periode }: WorkModalTimeProps) {
           </div>
           <div className={styles.circle}>
             <div className={styles.dashLineContainerBottom}>
-              {isMobile ? (
+              {isMobileModal ? (
                 <DashLineH  width={27} stroke="var(--black)" />
               ) : (
                 <DashLine height={50} stroke="var(--black)" />

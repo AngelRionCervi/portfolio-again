@@ -1,7 +1,7 @@
-import { useEffect, useRef, useState, useContext, useReducer } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import anime from 'animejs'
 import styles from './styles.module.scss'
-import CornerTriangle from '@assets/icons/corner-triangle.svg'
+import ButtonCubeTriangle from '@assets/icons/button-cube-triangle.svg'
 import ButtonCubeAnimationManager, { AnimationType } from './ButtonCubeAnimations'
 import { WorkModalContentProps } from '../WorkModalContent/WorkModalContent'
 
@@ -12,8 +12,9 @@ interface ButtonCubeProps {
   onClick: (id: WorkModalContentProps['id']) => void
 }
 
+const shift = 15
+
 export default function ButtonCube({ children, size, id, onClick }: ButtonCubeProps) {
-  const shift = 15
   const [buttonState, setButtonState] = useState<AnimationType | null>(null)
   const animationManager = useRef<ReturnType<typeof ButtonCubeAnimationManager> | null>(null)
   const idleTimeout = useRef<ReturnType<typeof setTimeout> | null>(null)
@@ -66,12 +67,12 @@ export default function ButtonCube({ children, size, id, onClick }: ButtonCubePr
       onTouchEnd={() => setButtonState('up')}
       onClick={() => onClick(id)}
     >
-      <div style={{ width: `${size}px`, height: `${size}px` }} className={styles.belowFrame} />
+      <div style={{ width: `${size - 1}px`, height: `${size - 1}px` }} className={styles.belowFrame} />
       <div className={styles.triangleTopContainer}>
-        <CornerTriangle className={styles.triangleTop} width="17px" height="17px" />
+        <ButtonCubeTriangle className={styles.triangleTop} width="15px" height="15px" />
       </div>
       <div className={styles.triangleBottomContainer}>
-        <CornerTriangle className={styles.triangleBottom} width="17px" height="17px" />
+        <ButtonCubeTriangle className={styles.triangleBottom} width="15px" height="15px" />
       </div>
       <div style={{ width: `${size - 2}px`, height: `${size - 2}px` }} className={styles.aboveFrame}>
         {children}

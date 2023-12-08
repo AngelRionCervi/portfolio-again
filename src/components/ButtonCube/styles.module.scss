@@ -6,8 +6,11 @@ $duration: 400ms;
 .container {
   position: relative;
 
-  &:hover, &:focus, &:active {
-    .triangleTop, .triangleBottom {
+  &:hover,
+  &:focus,
+  &:active {
+    .triangleTop > :first-child,
+    .triangleBottom > :first-child {
       fill: var(--accent);
     }
     .belowFrame {
@@ -22,6 +25,8 @@ $duration: 400ms;
   top: 15px;
   left: -15px;
   transition: background-color $duration $easInOutQuad;
+  border-left: 1px solid var(--black);
+  border-bottom: 1px solid var(--black);
 }
 
 .aboveFrame {
@@ -33,13 +38,17 @@ $duration: 400ms;
 }
 
 .triangleTop {
-  transform: rotate(180deg);
-  transition: fill $duration $easInOutQuad;
+  transform: rotate(0deg);
+  :first-child {
+    transition: fill $duration $easInOutQuad, stroke $duration $easInOutQuad;
+  }
 }
 
 .triangleBottom {
-  transform: rotate(0deg);
-  transition: fill $duration $easInOutQuad;
+  transform: rotate(180deg);
+  :first-child {
+    transition: fill $duration $easInOutQuad, stroke $duration $easInOutQuad;
+  }
 }
 
 .triangleTopContainer {
@@ -54,7 +63,7 @@ $duration: 400ms;
 .triangleBottomContainer {
   position: absolute;
   right: -1px;
-  bottom: -1px;
+  bottom: 0px;
   height: 17px;
   width: 17px;
   transform-origin: bottom left;

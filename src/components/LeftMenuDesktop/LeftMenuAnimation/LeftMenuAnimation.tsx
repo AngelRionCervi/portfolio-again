@@ -35,7 +35,7 @@ export default function LeftMenuAnimation() {
     <div className={styles.container}>
       <div className={styles.belowFrame} />
       <div className={styles.triangleTopContainer}>
-        <CornerTriangle className={styles.triangleTop} width="17px" height="18px" />
+        <CornerTriangle className={styles.triangleTop} width="17px" height="17px" />
       </div>
       <div className={styles.triangleBottomContainer}>
         <CornerTriangle className={styles.triangleBottom} width="17px" height="17px" />

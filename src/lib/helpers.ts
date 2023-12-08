@@ -1,4 +1,5 @@
 import classNames from 'classnames/bind'
+import CONSTANTS from '@constants'
 
 export function cx(styles: { readonly [key: string]: string }, bindings: { readonly [key: string]: boolean } | Array<string>) {
   const binds = classNames.bind(styles)
@@ -19,4 +20,15 @@ export function getYears(start: number) {
   const years = new Array(currentYear - start + 1).fill(0)
 
   return years.map((_, index) => currentYear - index)
+}
+
+export function isMobile(type: 'mobile' | 'modal' = 'mobile') {
+  if (typeof window === 'undefined') return null
+
+  const breakpointMap = {
+    mobile: CONSTANTS.MOBILE_BREAKPOINT,
+    modal: CONSTANTS.MODAL_FULLSCREEN_BREAKPOINT,
+  }
+
+  return window.innerWidth <= breakpointMap[type]
 }
