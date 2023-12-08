@@ -6,7 +6,8 @@
   width: 100%;
   height: calc(100vh - $footerHeight);
   padding: $m;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
   display: flex;
   justify-content: center;
   box-sizing: border-box;
@@ -25,7 +26,17 @@
   }
 
   span {
-    @extend %fontXS;
+
+    font-size: 14px;
+
+    @media screen and (max-width: $superSmallDevice) {
+      font-size: 12px;
+    }
+  }
+
+  pre {
+    width: 100%;
+    overflow-x: auto;
   }
 
   a {
@@ -34,6 +45,7 @@
 
   img {
     max-width: 400px;
+    width: 100%;
   }
 }
 
@@ -55,7 +67,8 @@
 }
 
 .block {
-    margin-bottom: 1em;
+  width: calc(100vw - $m * 2);
+  margin-bottom: 1em;
 }
 
 .blockImage {
