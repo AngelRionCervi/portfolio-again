@@ -3,12 +3,15 @@
 
 :root {
   --workCircleDiameter: 150px;
-  --background: var(--background);
+  --background: #e3e3e3;
   --black: #000000;
   --gray: #747474;
   --accent: #e08c8c;
   --textColor: #000000;
   --textColorInverted: #ffffff;
+  --codeColor: #2a2c2d;
+  --codeBackground: #f0f0f0;
+  --codeBorder: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 @media screen and (max-width: $modalFullscreenBreakpoint) {
@@ -18,7 +21,7 @@
 }
 
 * {
-  scrollbar-color: var(--gray) var(--background);
+  scrollbar-color: var(--gray) transparent;
   scrollbar-width: thin;
   scroll-behavior: smooth;
 }
@@ -31,7 +34,9 @@ body {
   overflow: hidden;
 }
 
-body, button, p {
+body,
+button,
+p {
   color: var(--textColor);
 }
 
@@ -91,9 +96,9 @@ h5 {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--background); 
+  background: transparent;
 }
- 
+
 ::-webkit-scrollbar-thumb {
   background: var(--black);
   border: 6px solid transparent;

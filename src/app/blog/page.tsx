@@ -9,7 +9,8 @@ import { fetchBlogPostByYear } from '@/lib/fetch/blogPost'
 import PostList from '@components/BlogPost/PostList/PostList'
 import { BlogPostPreview } from '@components/BlogPost/BlogPost'
 import { getYears } from '@lib/helpers'
-import PageContentTransition from '@/components/Animation/PageContentTransition'
+import PageContentTransition from '@components/Animation/PageContentTransition'
+import Loader from '@components/Loader/Loader'
 
 export default function Blog() {
   const isMobile = useDevice()
@@ -21,10 +22,7 @@ export default function Blog() {
     setIsLoading(true)
     const data = await fetchBlogPostByYear(year)
     setPosts(data.posts)
-    console.log('end content', data)
-    setTimeout(() => {
-      setIsLoading(false)
-    }, 5000)
+    setIsLoading(false)
   }
 
   useEffect(() => {
@@ -42,9 +40,7 @@ export default function Blog() {
               <BlogYearSelectorDesktop onChange={changeYear} years={years} />
             )}
           </div>
-          <div className={styles.articlesContainer}>
-            <PostList posts={posts} isLoading={isLoading} />
-          </div>
+          <div className={styles.articlesContainer}>{isLoading ? <Loader size="m" /> : <PostList posts={posts} isLoading={isLoading} />}</div>
         </div>
       </div>
     </PageContentTransition>

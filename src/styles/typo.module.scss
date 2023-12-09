@@ -54,9 +54,12 @@
     transition: all 250ms ease-out;
     display: block;
     position: absolute;
+    padding-left: 4px;
+    padding-right: 4px;
     width: 100%;
-    left: 0;
-    bottom: 1px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -1px;
     z-index: -1;
     opacity: 0;
   }
@@ -64,7 +67,7 @@
   &:hover {
     &:after {
       background-color: var(--accent);
-      height: 100%;
+      height: calc(100% + 1px);
       opacity: 1;
     }
   }

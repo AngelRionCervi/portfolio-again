@@ -81,7 +81,7 @@ export default function LeftMenuDesktop() {
     if (blogPost) {
       anime({
         targets: `.${styles.pointerArrowContainer}`,
-        translate: ['8px 0px', '0px 0px'],
+        translate: ['10px 0px', '-1px 0px'],
         opacity: [0, 1],
         duration,
         easing,

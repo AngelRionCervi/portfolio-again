@@ -46,7 +46,7 @@ export default function BlogYearSelectorDesktop({ onChange, years }: BlogYearSel
   }, [curSelectorY])
 
   function changeYear(yearToFind: number) {
-    if (!yearsCoords.current || years.length < 1) return
+    if (!yearsCoords.current || years.length <= 1) return
 
     const yearPosition = yearsCoords.current.find(({ year }) => year === yearToFind)
     setCurSelectorY(yearPosition.y)
@@ -59,7 +59,7 @@ export default function BlogYearSelectorDesktop({ onChange, years }: BlogYearSel
       <div ref={yearContainerRef} className={styles.yearsContainer}>
         {years.map((year) => {
           return (
-            <button className={styles.year} key={year} onClick={() => changeYear(year)}>
+            <button className={styles.year} key={year} disabled={years.length <= 1} onClick={() => changeYear(year)}>
               <p>{year}</p>
             </button>
           )

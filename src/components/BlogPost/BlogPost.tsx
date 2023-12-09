@@ -1,5 +1,7 @@
+import Link from 'next/link';
 import CodeBlock from './CodeBlock/CodeBlock'
 import styles from './styles.module.scss'
+import BackArrowMenuMobile from '@assets/icons/back-arrow-menu-mobile.svg'
 
 export type BlogPostPreview = { title: string; date: string; slug: string; id: string }
 export type BlogPostText = { type: 'text'; content: string; id: string }
@@ -16,11 +18,10 @@ export interface BlogPost {
 }
 
 export default function BlogPost({ data }: { data: BlogPost }) {
-
   const styleMap = {
     image: styles.blockImage,
-    code: styles.blockCode,
-    text: ''
+    code: '',
+    text: '',
   }
 
   return (
@@ -43,7 +44,12 @@ export default function BlogPost({ data }: { data: BlogPost }) {
             </div>
           )
         })}
-        <div className={styles.postFooter} />
+        <div className={styles.postFooter}>
+          <Link href="/blog" className={styles.backContainer}>
+            <BackArrowMenuMobile width="20px" />
+            <p>Back</p>
+          </Link>
+        </div>
       </div>
     </div>
   )

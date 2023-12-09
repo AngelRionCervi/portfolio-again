@@ -8,11 +8,11 @@
 }
 
 .postTitle {
-  @extend %fontM;
   @extend %underline;
 }
 
 .postDate {
   @extend %fontXS;
   opacity: 0.5;
+  margin-top: 1px;
 }

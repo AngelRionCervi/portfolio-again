@@ -25,7 +25,7 @@
 
 .selection {
   position: absolute;
-  background-color: $accent;
+  background-color: var(--accent);
   height: 35px;
   width: 75px;
   left: 50%;

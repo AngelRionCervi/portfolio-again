@@ -1,10 +1,14 @@
 $background: #e3e3e3;
-$textColor: #000000;
-$textColorInverted: #ffffff;
-$black: #000000;
-$white: #ffffff;
+$textColor: #1d1d1d;
+$textColorInverted: #e3e3e3;
+$black: #1d1d1d;
+$white: #e3e3e3;
 $gray: #747474;
 $accent: #e08c8c;
+
+$codeColor: #2a2c2d;
+$codeBackground: #f0f0f0;
+$codeBorder: 1px solid rgba(0, 0, 0, 0.2);
 
 :export {
   background: $background;
@@ -14,4 +18,7 @@ $accent: #e08c8c;
   white: $white;
   gray: $gray;
   accent: $accent;
+  codeColor: $codeColor;
+  codeBackground: $codeBackground;
+  codeBorder: $codeBorder;
 }

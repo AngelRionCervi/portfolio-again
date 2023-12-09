@@ -5,9 +5,9 @@
  */
 
 .hl-theme-dark {
-  color: #e6e6e6;
-  background: #2a2c2d;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--codeColor);
+  background: var(--codeBackground);
+  border: var(--codeBorder);
 
   .hljs-emphasis {
     font-style: italic;

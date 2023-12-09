@@ -39,8 +39,8 @@
 }
 
 .pointerContainer {
-  width: $xs;
-  height: $xs;
+  width: 9px;
+  height: 9px;
   position: relative;
   pointer-events: none;
 }
@@ -50,8 +50,8 @@
 }
 
 .pointerRound {
-  width: $xs;
-  height: $xs;
+  width: 9px;
+  height: 9px;
   background-color: var(--accent);
   border-radius: 100%;
 }

@@ -39,7 +39,15 @@
     box-sizing: border-box;
   }
 
-  a {
+  code {
+    padding: 1px;
+    border-radius: 4px;
+    color: var(--codeColor);
+    background: var(--codeBackground);
+    border: var(--codeBorder);
+  }
+
+  a:not(.backContainer) {
     @extend %underline;
   }
 
@@ -81,7 +89,33 @@
 }
 
 .postFooter {
-  height: $m;
-  min-height: $m;
+  height: 30px;
+  min-height: 30px;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $s;
+
+  @media screen and (min-width: $mobileBreakpoint) {
+    padding: 0;
+  }
+}
+
+.backContainer {
+  display: flex;
+  align-items: center;
+  gap: $s;
+
+  @media screen and (min-width: $mobileBreakpoint) {
+    display: none;
+  }
+
+  p {
+    @extend %underlineS;
+  }
+
+  svg {
+    margin-top: 2px;
+  }
 }
