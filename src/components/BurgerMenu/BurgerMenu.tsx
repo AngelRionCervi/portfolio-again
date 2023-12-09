@@ -1,15 +1,14 @@
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
 import { useContext, useEffect } from 'react'
 import styles from './styles.module.scss'
 import { BurgerMenuContext } from '@context/BurgerMenuContext'
 import CONSTANTS from '@constants'
 import { cx } from '@lib/helpers'
+import { usePage } from '@/lib/hooks/usePage'
 
 export default function BurgerMenu() {
   const { toggleBurgerMenu, isBurgerMenuClosing, isBurgerMenuOpen } = useContext(BurgerMenuContext)
-
-  const pathname = usePathname()
+  const page = usePage()
 
   useEffect(() => {
     document.body.classList.add('burgerMenuOpen')
@@ -20,7 +19,7 @@ export default function BurgerMenu() {
   })
 
   function switchRoute(newPath: string) {
-    if (pathname === newPath) return
+    if (page.link === newPath) return
     toggleBurgerMenu()
   }
 
@@ -35,8 +34,8 @@ export default function BurgerMenu() {
         <nav>
           <ul className={styles.list}>
             {CONSTANTS.ROUTES.map(({ link, name, id }) => (
-              <li key={id} className={link === pathname ? styles.listItemCurrent : ''}>
-                <Link className={`${styles.link} ${link === pathname ? styles.linkCurrent : ''}`} href={link} onClick={() => switchRoute(link)}>
+              <li key={id} className={link === page.link ? styles.listItemCurrent : ''}>
+                <Link className={`${styles.link} ${link === page.link ? styles.linkCurrent : ''}`} href={link} onClick={() => switchRoute(link)}>
                   {name}
                 </Link>
               </li>

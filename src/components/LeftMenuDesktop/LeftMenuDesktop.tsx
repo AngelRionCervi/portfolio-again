@@ -6,8 +6,13 @@ import { useEffect, useRef, useState } from 'react'
 import styles from './styles.module.scss'
 import CONSTANTS from '@constants'
 import LeftMenuAnimation from './LeftMenuAnimation/LeftMenuAnimation'
-import { usePage } from '@lib/hooks/usePage'
+import { useBlogPost, usePage } from '@lib/hooks/usePage'
 import { useAfterMountEffect } from '@lib/hooks/useAfterMountEffect'
+import BackArrow from '@assets/icons/back-arrow.svg'
+import { cx } from '@lib/helpers'
+import { useMounted } from '@lib/hooks/useMounted'
+
+const itemOffsetY = 12
 
 export default function LeftMenuDesktop() {
   const itemsContainerEl = useRef<HTMLUListElement | null>(null)
@@ -16,8 +21,13 @@ export default function LeftMenuDesktop() {
   const [oldSelectorY, setOldSelectorY] = useState<number | null>(null)
   let isFirstPass = useRef<boolean>(true)
   const page = usePage()
+  const blogPost = useBlogPost()
+  const isMounted = useMounted()
 
-  const itemOffsetY = 12
+  const pointerLinkClass = cx(styles, {
+    pointerContainer: true,
+    pointerLink: blogPost,
+  })
 
   useEffect(() => {
     const allItemEl = [...((itemsContainerEl.current?.querySelectorAll('li') as NodeListOf<HTMLElement>) ?? [])]
@@ -44,6 +54,42 @@ export default function LeftMenuDesktop() {
     }
     setOldSelectorY(curSelectorY)
   }, [curSelectorY])
+
+  useEffect(() => {
+    if (!isMounted && !blogPost) return
+
+    const easing = blogPost ? 'easeOutQuad' : 'easeInQuad'
+    const duration = 350
+
+    anime({
+      targets: `.${styles.pointerRound}`,
+      scale: [1, 5],
+      duration,
+      easing,
+      direction: blogPost ? 'forward' : 'reverse',
+    })
+
+    anime({
+      targets: `.${styles.pointerArrowContainer} > svg`,
+      scale: [0.1, 1],
+      opacity: [0, 1],
+      duration: blogPost ? duration : 150,
+      easing,
+      direction: blogPost ? 'forward' : 'reverse',
+    })
+
+    if (blogPost) {
+      anime({
+        targets: `.${styles.pointerArrowContainer}`,
+        translate: ['8px 0px', '0px 0px'],
+        opacity: [0, 1],
+        duration,
+        easing,
+        direction: 'forward',
+        delay: 100,
+      })
+    }
+  }, [blogPost])
 
   function changePage(name: string) {
     if (!itemsCoords.current) return
@@ -72,7 +118,12 @@ export default function LeftMenuDesktop() {
           </nav>
           <div>
             <div style={{ transform: `translateY(${curSelectorY}px)` }} className={styles.navPointer}>
-              <div className={styles.pointerRound} />
+              <Link className={pointerLinkClass} href="/blog">
+                <div className={styles.pointerRound} />
+                <div className={styles.pointerArrowContainer}>
+                  <BackArrow />
+                </div>
+              </Link>
               <div className={styles.pointerBar} />
             </div>
           </div>

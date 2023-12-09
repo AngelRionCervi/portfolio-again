@@ -24,9 +24,26 @@
 }
 
 .menuPage {
-  @extend %fontL;
-  text-align: center;
-  font-weight: bold;
+  p {
+    flex: 1;
+    @extend %fontL;
+    text-align: center;
+    font-weight: bold;
+  }
+}
+
+.backArrowContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.backArrowLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 24px;
+  margin-right: $l;
 }
 
 .burgerMenuContainer {

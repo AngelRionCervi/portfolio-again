@@ -26,7 +26,6 @@
   }
 
   span {
-
     font-size: 14px;
 
     @media screen and (max-width: $superSmallDevice) {
@@ -37,6 +36,7 @@
   pre {
     width: 100%;
     overflow-x: auto;
+    box-sizing: border-box;
   }
 
   a {
@@ -67,8 +67,12 @@
 }
 
 .block {
-  width: calc(100vw - $m * 2);
   margin-bottom: 1em;
+
+  @media screen and (max-width: $mobileBreakpoint) {
+    width: calc(100vw - $s * 2);
+    max-width: 600px;
+  }
 }
 
 .blockImage {

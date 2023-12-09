@@ -16,6 +16,13 @@ export interface BlogPost {
 }
 
 export default function BlogPost({ data }: { data: BlogPost }) {
+
+  const styleMap = {
+    image: styles.blockImage,
+    code: styles.blockCode,
+    text: ''
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.innerContainer}>
@@ -31,7 +38,7 @@ export default function BlogPost({ data }: { data: BlogPost }) {
           }
 
           return (
-            <div className={`${styles.block} ${block.type === 'image' ? styles.blockImage : ''}`} key={block.id}>
+            <div className={`${styles.block} ${styleMap[block.type]}`} key={block.id}>
               {content}
             </div>
           )

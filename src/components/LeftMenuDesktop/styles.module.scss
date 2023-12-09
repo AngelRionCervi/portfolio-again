@@ -38,11 +38,34 @@
   gap: $s;
 }
 
-.pointerRound {
-  background-color: var(--accent);
-  border-radius: 100%;
+.pointerContainer {
   width: $xs;
   height: $xs;
+  position: relative;
+  pointer-events: none;
+}
+
+.pointerLink {
+  pointer-events: auto;
+}
+
+.pointerRound {
+  width: $xs;
+  height: $xs;
+  background-color: var(--accent);
+  border-radius: 100%;
+}
+
+.pointerArrowContainer {
+  position: absolute;
+  transform-origin: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .pointerBar {

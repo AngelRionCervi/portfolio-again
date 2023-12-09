@@ -9,3 +9,10 @@ export function usePage() {
 
   return page
 }
+
+export function useBlogPost() {
+  const pathname = usePathname()
+  const isBlogPost = pathname.split('/').at(-2) === 'blog'
+
+  return isBlogPost
+}
