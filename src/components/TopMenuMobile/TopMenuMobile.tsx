@@ -1,11 +1,12 @@
+import Link from 'next/link'
 import { useContext } from 'react'
 import styles from './styles.module.scss'
 import BurgerMenuIcon from '@components/BurgerMenu/BurgerMenuIcon/BurgerMenuIcon'
 import { BurgerMenuContext } from '@context/BurgerMenuContext'
 import ThemeSwitcher from '@components/ThemeSwitcher/ThemeSwitcher'
-import { useBlogPost } from '@lib/hooks/usePage'
+import { useBlogPost, usePage } from '@lib/hooks/usePage'
 import BackArrowMenuMobile from '@assets/icons/back-arrow-menu-mobile.svg'
-import Link from 'next/link'
+import { cx } from '@/lib/helpers'
 
 interface TopMenuMobileProps {
   title: string
@@ -14,6 +15,12 @@ interface TopMenuMobileProps {
 export default function TopMenuMobile({ title }: TopMenuMobileProps) {
   const { toggleBurgerMenu } = useContext(BurgerMenuContext)
   const blogPost = useBlogPost()
+  const page = usePage()
+
+  const titleClass = cx(styles, {
+    menuTitleLink: true,
+    disableTitleLink: !blogPost,
+  })
 
   return (
     <>
@@ -25,7 +32,9 @@ export default function TopMenuMobile({ title }: TopMenuMobileProps) {
           <ThemeSwitcher />
         </div>
         <div className={styles.menuPage}>
-          <p>{title}</p>
+          <Link className={titleClass} href={page.link}>
+            {title}
+          </Link>
         </div>
         {blogPost ? (
           <div className={styles.backArrowContainer}>

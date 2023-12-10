@@ -21,15 +21,26 @@
 
 .themeSwitcherContainer {
   margin-top: 4px;
+
+  button {
+    margin-left: 4px;
+  }
 }
 
 .menuPage {
-  p {
-    flex: 1;
-    @extend %fontL;
-    text-align: center;
-    font-weight: bold;
-  }
+  display: flex;
+  justify-content: center;
+}
+
+.menuTitleLink {
+  max-width: fit-content;
+  @extend %fontL;
+  text-align: center;
+  font-weight: bold;
+}
+
+.disableTitleLink {
+  pointer-events: none;
 }
 
 .backArrowContainer {
@@ -42,8 +53,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 24px;
+  max-width: 50px;
   margin-right: $l;
+  height: 50px;
 }
 
 .burgerMenuContainer {
@@ -54,6 +66,8 @@
 .burgerMenuButton {
   z-index: 99;
   position: fixed;
-  right: 20px;
-  top: 15px;
+  width: 58px;
+  height: 50px;
+  top: 0;
+  right: 0;
 }
