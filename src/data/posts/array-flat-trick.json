@@ -6,7 +6,7 @@
   "contents": [
     {
       "type": "text",
-      "content": "I feel like the <a target=\"_blank\" href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat\">Array.flat</a> method is often forgotten in the web dev world, it does the simple thing of returning a <b>new</b> flattened array:",
+      "content": "I feel like the <a target=\"_blank\" href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat\">Array.flat</a> method is often forgotten, it does the simple thing of returning a new flattened array without mutating it's source array:",
       "id": "1"
     },
     {
@@ -16,12 +16,12 @@
     },
     {
       "type": "text",
-      "content": "essentially finding all the arrays in the instantiated array and inserting their contents starting at the indexes of the found arrays (plus the length of already inserted contents).",
+      "content": "essentially creating a new array with all sub-array elements spread into it recursively up to the specified depth.",
       "id": "3"
     },
     {
       "type": "text",
-      "content": "It's basically an hydraulic press for arrays.",
+      "content": "It's basically a hydraulic press for arrays.",
       "id": "4"
     },
     {
@@ -32,7 +32,7 @@
     },
     {
       "type": "text",
-      "content": "It can take a number as an argument which defines how deep the array should flatten its contents, by default it's 1, but you can set it to <code>Infinity</code> to flatten arrays as deep as possible.",
+      "content": "It can take a number as an argument which defines how many recursions to perform, by default it's 1, but you can set it to <code>Infinity</code> (or <code>Number.POSITIVE_INFINITY</code>) to flatten arrays as deep as possible.",
       "id": "6"
     },
     {
@@ -42,17 +42,17 @@
     },
     {
       "type": "text",
-      "content": "In some cases this method can be quite useful, I find myself using it a lot when a value could also be treated as an array of values.",
+      "content": "In some cases this method can be quite useful, I find myself using it when a value could also be treated as an array of values.",
       "id": "8"
     },
     {
       "type": "text",
-      "content": "For example, there is this function in the codebase of a client that fetches articles based on their ids. This function can either fetch one or multiple articles if a single id or an array of ids is passed by argument.",
+      "content": "For example, there is this function in the codebase of a client that fetches articles based on their id. This function can either fetch one or multiple articles if a single id or an array of ids is passed by argument.",
       "id": "9"
     },
     {
       "type": "code",
-      "content": "function fetchArticles(id: string | string[]) {\n  //fetch articles\n}",
+      "content": "function fetchArticles(id: string | string[]) {\n  // fetch articles\n}",
       "id": "10"
     },
     {
@@ -67,7 +67,7 @@
     },
     {
       "type": "text",
-      "content": "Now both cases are handled, listIds will always be an array of depth 1, whether we have a single id or a list of ids, no need for conditions to check the types of argument or separate fetch calls.",
+      "content": "Now both cases are handled, <code>listIds</code> will always be an array of depth 1, whether we have a single id or a list of ids, no need for conditions to check the type of the argument or separate fetch calls.",
       "id": "13"
     }
   ]
