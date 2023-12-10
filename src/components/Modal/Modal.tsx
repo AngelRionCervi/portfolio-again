@@ -28,7 +28,6 @@ export default function Modal() {
   }, [])
 
   useEffect(() => {
-    console.log('isMobileModal', isMobileModal)
     if (!isModalOpen) return
 
     animationManager.current?.openAnimation().then(() => {

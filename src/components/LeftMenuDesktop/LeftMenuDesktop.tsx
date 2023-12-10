@@ -34,9 +34,6 @@ export default function LeftMenuDesktop() {
 
     if (allItemEl.length) {
       itemsCoords.current = allItemEl.map((itemEl) => ({ x: itemEl.offsetLeft, y: itemEl.offsetTop + itemOffsetY, name: itemEl.innerText }))
-
-      console.log('page', page, itemsCoords.current)
-
       setCurSelectorY(itemsCoords.current.find((item) => item.name === page.name).y)
     }
   }, [])

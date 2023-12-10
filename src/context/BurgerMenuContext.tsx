@@ -35,7 +35,6 @@ export default function BurgerMenuContextProvider({ children }: { children: Reac
     setTimeout(() => {
       setBurgerMenuClosing(false)
       setBurgerMenuOpen(false)
-      console.log('hola')
     }, CONSTANTS.BURGER_MENU_ANIMATION_DURATION)
   }
 
