@@ -32,7 +32,7 @@
     },
     {
       "type": "text",
-      "content": "It can take a number as an argument which defines how deep the array should go to flatten its contents, by default it's 1, but you can set it to <code>Infinity</code> to flatten arrays as deep as possible.",
+      "content": "It can take a number as an argument which defines how deep the array should flatten its contents, by default it's 1, but you can set it to <code>Infinity</code> to flatten arrays as deep as possible.",
       "id": "6"
     },
     {
