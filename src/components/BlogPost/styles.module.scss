@@ -11,6 +11,12 @@
   display: flex;
   justify-content: center;
   box-sizing: border-box;
+  font-size: $fontS;
+  line-height: 150%;
+
+  @media screen and (max-width: $superSmallDevice) {
+    font-size: $fontXS;
+  }
 
   @media screen and (min-width: $mobileBreakpoint) {
     padding-top: 5vh;
@@ -25,15 +31,8 @@
     padding: $s;
   }
 
-  span {
-    font-size: 14px;
-
-    @media screen and (max-width: $superSmallDevice) {
-      font-size: 12px;
-    }
-  }
-
   pre {
+    line-height: 150%;
     width: 100%;
     overflow-x: auto;
     box-sizing: border-box;

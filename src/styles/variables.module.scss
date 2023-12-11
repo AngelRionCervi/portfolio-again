@@ -14,6 +14,10 @@ $xl: 48px;
 $xxl: 64px;
 $g: 96px;
 
+$fontXS: 12px;
+$fontS: 14px;
+$fontM: 16px;
+
 $mobileBreakpoint: 1100px;
 $modalFullscreenBreakpoint: 650px;
 $modalWidthDesktop: 600px;
@@ -21,7 +25,7 @@ $modalHeightDesktop: 600px;
 $burgerMenuHeight: 50px;
 $footerHeight: 40px;
 $desktopContentMaxWidth: 1000px;
-$superSmallDevice: 450px;
+$superSmallDevice: 400px;
 
 :export {
   background: $background;
