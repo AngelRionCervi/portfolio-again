@@ -8,6 +8,7 @@
 
 .yearsContainer {
   height: 30%;
+  gap: $m;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;

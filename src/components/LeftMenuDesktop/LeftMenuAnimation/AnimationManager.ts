@@ -102,7 +102,9 @@ export default function AnimationManager() {
 
     await Promise.all([roundAnim.finished, scaleAnim.finished, triangleAnim.finished])
 
-    const aboveFrameEl = document.querySelector(`.${aboveFrame}`) as HTMLElement
+    const aboveFrameEl = document.querySelector<HTMLElement>(`.${aboveFrame}`)
+
+    if (!aboveFrameEl) return
 
     aboveFrameEl.innerText = "It's broken now :/"
     aboveFrameEl.style.display = 'block'

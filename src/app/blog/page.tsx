@@ -15,18 +15,20 @@ import Loader from '@components/Loader/Loader'
 export default function Blog() {
   const isMobile = useDevice()
   const [isLoading, setIsLoading] = useState(false)
+  const [currentYear, setCurrentYear] = useState(new Date().getFullYear())
   const [posts, setPosts] = useState<Array<BlogPostPreview>>([])
   const years = getYears(2023)
 
   async function changeYear(year: number) {
     setIsLoading(true)
+    setCurrentYear(year)
     const data = await fetchBlogPostByYear(year)
     setPosts(data.posts)
     setIsLoading(false)
   }
 
   useEffect(() => {
-    changeYear(new Date().getFullYear())
+    changeYear(currentYear)
   }, [])
 
   return (
@@ -40,7 +42,7 @@ export default function Blog() {
               <BlogYearSelectorDesktop onChange={changeYear} years={years} />
             )}
           </div>
-          <div className={styles.articlesContainer}>{isLoading ? <Loader size="m" /> : <PostList posts={posts} isLoading={isLoading} />}</div>
+          <div className={styles.articlesContainer}>{isLoading ? <Loader size="m" /> : <PostList posts={posts} currentYear={currentYear} />}</div>
         </div>
       </div>
     </PageContentTransition>

@@ -39,6 +39,7 @@ $duration: 400ms;
 
 .triangleTop {
   transform: rotate(0deg);
+
   :first-child {
     transition: fill $duration $easInOutQuad, stroke $duration $easInOutQuad;
   }
@@ -46,6 +47,7 @@ $duration: 400ms;
 
 .triangleBottom {
   transform: rotate(180deg);
+  
   :first-child {
     transition: fill $duration $easInOutQuad, stroke $duration $easInOutQuad;
   }
