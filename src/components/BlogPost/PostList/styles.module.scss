@@ -2,6 +2,10 @@
 @import '@styles/typo.module.scss';
 
 .container {
+  display: flex;
+  flex-direction: column;
+  gap: $m;
+
   @media screen and (max-width: $mobileBreakpoint) {
     margin-top: $m;
   }

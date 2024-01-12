@@ -14,7 +14,7 @@
 .innerContainer {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   width: 60%;
 
   @media screen and (max-width: $mobileBreakpoint) {

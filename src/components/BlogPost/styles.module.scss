@@ -71,12 +71,27 @@
 }
 
 .title {
+  @extend %fontXXL;
   margin-bottom: $l;
   margin-top: $s;
 }
 
+.h2 > h2 {
+  @extend %fontXL;
+  margin-top: $l;
+  margin-bottom: $m;
+}
+
+.h3 > h3 {
+  @extend %fontL;
+  margin-top: $m;
+  margin-bottom: $s;
+}
+
 .block {
-  margin-bottom: 1em;
+  &:not(.h2, .h3, .framedText) {
+    margin-bottom: 1em;
+  }
 
   @media screen and (max-width: $mobileBreakpoint) {
     width: calc(100vw - $s * 2);
@@ -117,5 +132,18 @@
 
   svg {
     margin-top: 2px;
+  }
+}
+
+.framedText {
+  border: 1px dashed var(--black);
+  box-sizing: border-box;
+  padding: $s;
+  margin-top: $s;
+  margin-bottom: $m;
+  background-color: var(--accent);
+
+  @media screen and (max-width: $superSmallDevice) {
+    padding: $xs;
   }
 }

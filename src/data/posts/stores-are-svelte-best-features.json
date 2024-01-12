@@ -1,0 +1,174 @@
+{
+  "title": "Stores are Svelte best features...",
+  "slug": "stores-are-svelte-best-features",
+  "date": "2023-12-03T10:32:14+00:00",
+  "id": "post_2",
+  "contents": [
+    {
+      "type": "text",
+      "content": "…because Svelte reactivity is too simple ?",
+      "id": "1"
+    },
+    {
+      "type": "text",
+      "content": "One of the biggest differences with Svelte and other frameworks it's the way Svelte handles reactivity. The low amount of necessary boilerplate code like <code>useState</code> makes it very appealing because svelte uses variable assignments to trigger reactive behavior.",
+      "id": "2"
+    },
+    {
+      "type": "text",
+      "content": "Basically all you have to do is declare a variable:",
+      "id": "3"
+    },
+    {
+      "type": "code",
+      "content": "let count = 0;",
+      "id": "4"
+    },
+    {
+      "type": "text",
+      "content": "and then, whenever count is reassigned with \"<code>=</code>\" an update is triggered to rerender parts of the DOM where this value is used.",
+      "id": "5"
+    },
+    {
+      "type": "text",
+      "content": "Meaning that this Svelte code is somewhat equivalent to this react code (in terms of reactivity):",
+      "id": "6"
+    },
+    {
+      "type": "code",
+      "content": "const [count, setCount] = useState(0);",
+      "id": "7"
+    },
+    {
+      "type": "text",
+      "content": "Guessing which solution is the simplest and most elegant is a no brainer, having the declared variables be the actual state to react (eheh) to is just superior in terms of reducing boilerplate code (and so, mental hassle).",
+      "id": "8"
+    },
+    {
+      "type": "text",
+      "content": "Svelte basically <a target=\"_blank\" href=\"https://www.youtube.com/watch?v=AdNJ3fydeao\">rethought reactivity</a> and made it easier thanks to its magic compiler.",
+      "id": "9"
+    },
+    {
+      "type": "h2",
+      "content": "But then, what is not reactive ?",
+      "id": "10"
+    },
+    {
+      "type": "text",
+      "content": "So this is reactive (as it triggers reactive behavior):",
+      "id": "11"
+    },
+    {
+      "type": "code",
+      "content": "let count = 0;",
+      "id": "12"
+    },
+    {
+      "type": "text",
+      "content": "but will this <code>doubleCount</code> variable get updated if we reassign count ?:",
+      "id": "13"
+    },
+    {
+      "type": "code",
+      "content": "let count = 0;\nlet doubleCount = count * 2;",
+      "id": "14"
+    },
+    {
+      "type": "text",
+      "content": "Nope, if count gets reassigned, doubleCount doesn't get reassigned too. The compiler might not be smart enough, but more probably it's something that we don't really want, (a framework that would assign variables for you ?).",
+      "id": "15"
+    },
+    {
+      "type": "text",
+      "content": "Still, we want to update doubleCount when count gets updated, so we need a way to tell Svelte that a variable should be reassigned when another is too.",
+      "id": "16"
+    },
+    {
+      "type": "text",
+      "content": "We have to explicitly tell the compiler that we want to <i>derive</i> a value from another. The change is really simple:",
+      "id": "17"
+    },
+    {
+      "type": "code",
+      "content": "let count = 0;\n$: doubleCount = count * 2;",
+      "id": "18"
+    },
+    {
+      "type": "text",
+      "content": "Now every time count gets reassigned, doubleCount gets reassigned too and the dom is updated.",
+      "id": "19"
+    },
+    {
+      "type": "text",
+      "content": "<i>Hurra !</i>",
+      "id": "20"
+    },
+    {
+      "type": "image",
+      "src": "/posts/arrayman-getting-pressed.jpg",
+      "alt": "hydraulic press for array",
+      "id": "21"
+    },
+    {
+      "type": "text",
+      "content": " <i>- But wait ! What is this ? “$:”, did we history.back() all the way to PHP ?</i>",
+      "id": "22"
+    },
+    {
+      "type": "text",
+      "content": "Nope.",
+      "id": "23"
+    },
+    {
+      "type": "text",
+      "content": "\"<code>$:</code>\" is valid javascript syntax, it's called a <a target=\"_blank\" href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/label\">labeled statement</a>, you might know about it or not, I've personally never seen it in production code other than Svelte. Of course the way this works in vanilla JS is not the way it works in Svelte. In vanilla JS it allows you to label loops or blocks of code in order to use the <code>continue</code> and <code>break</code> statement with a target, like so:",
+      "id": "24"
+    },
+    {
+      "type": "code",
+      "content": "someLabel: {\n  console.log(\"this logs\");\n  break someLabel;\n  console.log(\"this doesn't log\");\n}",
+      "id": "25"
+    },
+    {
+      "type": "text",
+      "content": "or:",
+      "id": "26"
+    },
+    {
+      "type": "code",
+      "content": "loop1: for (let i = 0;; i++) {\n  loop2: for (let j = 0; j < 10; j++) {\n    if (i + j > 20) {\n      break loop1;\n    }\n    console.log(i, j)\n    // this will stop at i = 12 and j = 8\n  }\n}",
+      "id": "27"
+    },
+    {
+      "type": "text",
+      "content": "In Svelte however, $: tells the compiler to rerun a block of code when one of the reactive values inside of it changes. So we can read the previous example:",
+      "id": "28"
+    },
+    {
+      "type": "code",
+      "content": "$: doubleCount = count * 2;",
+      "id": "29"
+    },
+    {
+      "type": "text",
+      "content": "as \"reassign <code>doubleCount</code> to <code>count * 2</code> whenever count gets reassigned\"",
+      "id": "30"
+    },
+    {
+      "type": "framedText",
+      "content": "The compiler is smart enough to guess that <code>count</code> is a dependency and it should rerun the code after a labeled statement (<code>$:</code>) containing it, when it gets reassigned. Imagine a <code>useEffect</code> hook with dependencies automaticaly set! (but probably a bit less explicit)",
+      "id": "31"
+    },
+    {
+      "type": "text",
+      "content": " <i>- But hmm, this syntax can only be used in Svelte files since JS files will be ignored by the compiler right ? How do I externalize reactive logic?</i>",
+      "id": "32"
+    },
+    {
+      "type": "h2",
+      "content": "Externalizing reactive logic",
+      "id": "33"
+    }
+  ]
+}

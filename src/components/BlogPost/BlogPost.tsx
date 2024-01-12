@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from 'next/link'
 import CodeBlock from './CodeBlock/CodeBlock'
 import styles from './styles.module.scss'
 import BackArrowMenuMobile from '@assets/icons/back-arrow-menu-mobile.svg'
@@ -7,7 +7,10 @@ export type BlogPostPreview = { title: string; date: string; slug: string; id: s
 export type BlogPostText = { type: 'text'; content: string; id: string }
 export type BlogPostImage = { type: 'image'; src: string; alt: string; id: string }
 export type BlogPostCode = { type: 'code'; content: string; id: string }
-export type BlogPostBlock = BlogPostText | BlogPostImage | BlogPostCode
+export type BlogPostH2 = { type: 'h2'; content: string; id: string }
+export type BlogPostH3 = { type: 'h3'; content: string; id: string }
+export type BlogPostFramedText = { type: 'framedText'; content: string; id: string }
+export type BlogPostBlock = BlogPostText | BlogPostImage | BlogPostCode | BlogPostH2 | BlogPostH3 | BlogPostFramedText
 
 export interface BlogPost {
   title: string
@@ -17,11 +20,15 @@ export interface BlogPost {
   contents: Array<BlogPostBlock>
 }
 
+// need separors between titles
 export default function BlogPost({ data }: { data: BlogPost }) {
   const styleMap = {
     image: styles.blockImage,
     code: '',
     text: '',
+    h2: styles.h2,
+    h3: styles.h3,
+    framedText: styles.framedText,
   }
 
   return (
@@ -31,11 +38,21 @@ export default function BlogPost({ data }: { data: BlogPost }) {
         {data.contents.map((block, index: number) => {
           let content = null
           if (block.type === 'text') {
-            content = <span key={index} dangerouslySetInnerHTML={{ __html: block.content }} />
+            content = <span key={block.id} dangerouslySetInnerHTML={{ __html: block.content }} />
           } else if (block.type === 'image') {
-            content = <img key={index} src={block.src} alt={block.alt} />
+            content = <img key={block.id} src={block.src} alt={block.alt} />
           } else if (block.type === 'code') {
-            content = <CodeBlock key={index} code={block.content} />
+            content = <CodeBlock key={block.id} code={block.content} />
+          } else if (block.type === 'h2') {
+            content = <h2 key={block.id}>{block.content}</h2>
+          } else if (block.type === 'h3') {
+            content = <h3 key={block.id}>{block.content}</h3>
+          } else if (block.type === 'framedText') {
+            content = (
+              <div key={block.id}>
+                <span dangerouslySetInnerHTML={{ __html: block.content }} />
+              </div>
+            )
           }
 
           return (
