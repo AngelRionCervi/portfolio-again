@@ -3,6 +3,7 @@
 import anime from 'animejs'
 import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
+import { Roboto_Mono } from 'next/font/google'
 import styles from './styles.module.scss'
 import CONSTANTS from '@constants'
 import LeftMenuAnimation from './LeftMenuAnimation/LeftMenuAnimation'
@@ -12,6 +13,7 @@ import BackArrow from '@assets/icons/back-arrow.svg'
 import { cx } from '@lib/helpers'
 import { useMounted } from '@lib/hooks/useMounted'
 
+const robotoMono = Roboto_Mono({ subsets: ['latin'] })
 const itemOffsetY = 12
 
 export default function LeftMenuDesktop() {
@@ -105,7 +107,7 @@ export default function LeftMenuDesktop() {
               {CONSTANTS.ROUTES.map((item) => {
                 return (
                   <li key={item.name} className={styles.navItem}>
-                    <Link href={item.link} as={item.link} onClick={() => changePage(item.name)}>
+                    <Link className={robotoMono.className} href={item.link} as={item.link} onClick={() => changePage(item.name)}>
                       {item.name}
                     </Link>
                   </li>

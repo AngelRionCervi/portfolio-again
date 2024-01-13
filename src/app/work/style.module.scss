@@ -23,7 +23,7 @@
 }
 
 .workWords {
-  @extend %fontS;
+  @extend %fontM;
   margin-top: $m;
 
   @media screen and (max-width: 800px) {
@@ -49,6 +49,7 @@
   flex-wrap: wrap;
   height: fit-content;
   justify-content: space-evenly;
+  font-weight: bold;
 
   @media screen and (max-width: 800px) {
     gap: $l;

@@ -56,7 +56,7 @@ $duration: 400ms;
 .triangleTopContainer {
   position: absolute;
   left: -16px;
-  top: -1px;
+  top: 0px;
   height: 17px;
   width: 17px;
   transform-origin: 1px 17px;
@@ -65,7 +65,7 @@ $duration: 400ms;
 .triangleBottomContainer {
   position: absolute;
   right: -1px;
-  bottom: 0px;
+  bottom: -1px;
   height: 17px;
   width: 17px;
   transform-origin: 0px 17px;

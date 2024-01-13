@@ -11,7 +11,7 @@
   display: flex;
   justify-content: center;
   box-sizing: border-box;
-  font-size: $fontS;
+  font-size: $fontM;
   line-height: 150%;
 
   @media screen and (max-width: $superSmallDevice) {
@@ -84,13 +84,30 @@
 
 .h3 > h3 {
   @extend %fontL;
-  margin-top: $m;
-  margin-bottom: $s;
+  margin-top: $l;
+  margin-bottom: $m;
+}
+
+.separator {
+  margin: $m 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  > div {
+    width: $g;
+    height: 1px;
+    background-color: var(--black);
+  }
 }
 
 .block {
   &:not(.h2, .h3, .framedText) {
     margin-bottom: 1em;
+  }
+
+  &.framedText > .block:last-of-type {
+    margin-bottom: 0;
   }
 
   @media screen and (max-width: $mobileBreakpoint) {

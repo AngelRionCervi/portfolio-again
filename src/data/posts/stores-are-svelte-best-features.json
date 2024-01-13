@@ -1,0 +1,336 @@
+{
+  "title": "Stores are Svelte's best features...",
+  "slug": "stores-are-svelte-best-features",
+  "date": "2023-12-03T10:32:14+00:00",
+  "id": "post_2",
+  "contents": [
+    {
+      "type": "text",
+      "content": "...because Svelte reactivity is too simple?",
+      "id": "1"
+    },
+    {
+      "type": "text",
+      "content": "One of the biggest differences with Svelte and other frameworks it's the way Svelte handles reactivity. The low amount of necessary boilerplate code like <code>useState</code> makes it very appealing because Svelte uses variable assignments to trigger reactive behavior.",
+      "id": "2"
+    },
+    {
+      "type": "text",
+      "content": "Basically all you have to do is declare a variable:",
+      "id": "3"
+    },
+    {
+      "type": "code",
+      "content": "let count = 0;",
+      "id": "4"
+    },
+    {
+      "type": "text",
+      "content": "and then, whenever count is reassigned with <code>=</code> reactive behaviors are triggered, such as updating the DOM with the new value or running side effects.",
+      "id": "5"
+    },
+    {
+      "type": "text",
+      "content": "This means that this Svelte code is equivalent to this React code (in terms of reactivity):",
+      "id": "6"
+    },
+    {
+      "type": "code",
+      "content": "const [count, setCount] = useState(0);",
+      "id": "7"
+    },
+    {
+      "type": "text",
+      "content": "Guessing which solution is the simplest and most elegant is a no brainer, having the declared variables be the actual state to react (eheh) to is just superior in terms of reducing boilerplate code (and so, mental hassle).",
+      "id": "8"
+    },
+    {
+      "type": "text",
+      "content": "Svelte basically <a target=\"_blank\" href=\"https://www.youtube.com/watch?v=AdNJ3fydeao\">rethought reactivity</a> and made it easier to interpret thanks to its magic compiler.",
+      "id": "9"
+    },
+    {
+      "type": "separator",
+      "id": "separator-1"
+    },
+    {
+      "type": "h2",
+      "content": "But then, what is not reactive?",
+      "id": "10"
+    },
+    {
+      "type": "text",
+      "content": "So this is reactive (as: it triggers reactive behavior):",
+      "id": "11"
+    },
+    {
+      "type": "code",
+      "content": "let count = 0;",
+      "id": "12"
+    },
+    {
+      "type": "text",
+      "content": "but will this <code>doubleCount</code> variable get updated if we reassign count?",
+      "id": "13"
+    },
+    {
+      "type": "code",
+      "content": "let count = 0;\nlet doubleCount = count * 2;",
+      "id": "14"
+    },
+    {
+      "type": "text",
+      "content": "Nope, if count gets reassigned, <code>doubleCount</code> doesn't get reassigned too. The compiler might not be smart enough, but it's more probably something that we don't want (a framework that would assign variables for you?).",
+      "id": "15"
+    },
+    {
+      "type": "text",
+      "content": "Still, we want to update <code>doubleCount</code> when count gets updated, so we need a way to tell Svelte that a variable should be reassigned when another is too.",
+      "id": "16"
+    },
+    {
+      "type": "text",
+      "content": "We have to explicitly tell the compiler that we want to <i>derive</i> a value from another. The change is really simple:",
+      "id": "17"
+    },
+    {
+      "type": "code",
+      "content": "let count = 0;\n$: doubleCount = count * 2;",
+      "id": "18"
+    },
+    {
+      "type": "text",
+      "content": "Now every time count gets reassigned, <code>doubleCount</code> gets reassigned too and the DOM is updated.",
+      "id": "19"
+    },
+    {
+      "type": "text",
+      "content": "<br><i><b>- Hurra!</b> But wait! What's this </i><code>$:</code><i> ? Did we </i><code>history.back()</code><i> all the way to PHP?</i><br><br>",
+      "id": "20"
+    },
+    {
+      "type": "text",
+      "content": "Nope.",
+      "id": "23"
+    },
+    {
+      "type": "text",
+      "content": "<code>$:</code> is valid javascript syntax, it's called a <a target=\"_blank\" href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/label\">labeled statement</a>, you might know about it or not, I've personally never seen it in production code other than Svelte. Of course the way this works in vanilla JS is not the way it works in Svelte. In vanilla JS it allows you to label loops or blocks of code in order to use the <code>continue</code> and <code>break</code> statement with a target, like so:",
+      "id": "24"
+    },
+    {
+      "type": "code",
+      "content": "someLabel: {\n  console.log(\"this logs\");\n  break someLabel;\n  console.log(\"this doesn't log\");\n}",
+      "id": "25"
+    },
+    {
+      "type": "text",
+      "content": "or:",
+      "id": "26"
+    },
+    {
+      "type": "code",
+      "content": "loop1: for (let i = 0;; i++) {\n  loop2: for (let j = 0; j < 10; j++) {\n    if (i + j > 20) {\n      break loop1;\n    }\n    console.log(i, j)\n    // this will stop at i = 12 and j = 8\n  }\n}",
+      "id": "27"
+    },
+    {
+      "type": "text",
+      "content": "In Svelte however, <code>$:</code> tells the compiler to rerun a block of code when one of the reactive values inside of it changes. So we can read the previous example:",
+      "id": "28"
+    },
+    {
+      "type": "code",
+      "content": "$: doubleCount = count * 2;",
+      "id": "29"
+    },
+    {
+      "type": "text",
+      "content": "as \"reassign <code>doubleCount</code> to <code>count * 2</code> whenever count gets reassigned\"",
+      "id": "30"
+    },
+    {
+      "type": "framedText",
+      "content": "The compiler is smart enough to guess that <code>count</code> is a dependency and it should rerun the code after a labeled statement (<code>$:</code>) containing it. Imagine a <code>useEffect</code> hook with dependencies automaticaly set! Although a bit less explicit...",
+      "id": "31"
+    },
+    {
+      "type": "text",
+      "content": "<br><i>- But hmm, this syntax can only be used in Svelte files since JS files will be ignored by the compiler right? How do I externalize reactive logic?</i><br><br>",
+      "id": "32"
+    },
+    {
+      "type": "separator",
+      "id": "separator-2"
+    },
+    {
+      "type": "h2",
+      "content": "Externalizing reactive logic",
+      "id": "33"
+    },
+    {
+      "type": "text",
+      "content": "Svelte has a solution for this: stores, I think it's one of it's best features by allowing developers to externalize reactive logic when needed.",
+      "id": "34"
+    },
+    {
+      "type": "text",
+      "content": "Svelte doesn't have a prebuilt way of handling external reactivity like custom hooks or context for React, instead it exports observables to let developers build simple stores with low boilerplate and expand them if necessary.",
+      "id": "35"
+    },
+    {
+      "type": "text",
+      "content": "As its simplest form a store file looks something like that (from the Svelte documentation):",
+      "id": "36"
+    },
+    {
+      "type": "code",
+      "content": "import { writable } from 'svelte/store';\n\nconst count = writable(0);\n\nexport default count;",
+      "id": "37"
+    },
+    {
+      "type": "text",
+      "content": "(note: a Svelte store can also be created with the <code>readable</code> or <code>derived</code> function, but it's basically used the same way and we focus on the paradigm here)",
+      "id": "38"
+    },
+    {
+      "type": "text",
+      "content": "now in other files we can use the store:",
+      "id": "39"
+    },
+    {
+      "type": "text",
+      "content": "- subscribe to the store, the callback function is ran when the store's value gets reassigned:",
+      "id": "40"
+    },
+    {
+      "type": "code",
+      "content": "count.subscribe((value) => {\n  console.log(value);\n});",
+      "id": "41"
+    },
+    {
+      "type": "text",
+      "content": "- set the store value:",
+      "id": "42"
+    },
+    {
+      "type": "code",
+      "content": "count.set(1); // logs '1'",
+      "id": "43"
+    },
+    {
+      "type": "text",
+      "content": "- update the store value based on the previous:",
+      "id": "44"
+    },
+    {
+      "type": "code",
+      "content": "count.update((n) => n + 1); // logs '2'",
+      "id": "45"
+    },
+    {
+      "type": "text",
+      "content": "Fairly straightforward, now let's see how we can consume the store in a Svelte file:",
+      "id": "46"
+    },
+    {
+      "type": "code",
+      "content": "$count // 1, 2, 3, …",
+      "id": "47"
+    },
+    {
+      "type": "text",
+      "content": "That's it! The <code>$</code> in front of the store means we want to subscribe to the observable and automaticaly update <code>$count</code> with the newest value, if we omit <code>$:</code>, it means we want to access the store object on which the store methods are (<code>set</code>, <code>update</code>) to manipulate the store value.",
+      "id": "48"
+    },
+    {
+      "type": "framedText",
+      "content": "Behind the scenes, the compiler makes observables behave kind of synchronously (like signals), we don't have to explicitly subscribe to the observable and wait for a value, we get the current value plus the future ones automatically without boilerplate code.",
+      "id": "49"
+    },
+    {
+      "type": "text",
+      "content": "<br><i>- But that's a lot of code for a simple counter!</i><br><br>",
+      "id": "50"
+    },
+    {
+      "type": "text",
+      "content": "Most of the time we want to use a custom store with an object of key value pairs and personalized methods for updating it.",
+      "id": "51"
+    },
+    {
+      "type": "text",
+      "content": "How do we do it?",
+      "id": "52"
+    },
+    {
+      "type": "separator",
+      "id": "separator-3"
+    },
+    {
+      "type": "h2",
+      "content": "Custom stores",
+      "id": "53"
+    },
+    {
+      "type": "text",
+      "content": "Simple: the same way we do regular stores, but this time we pass an object instead of a 0 to the writable as argument that represent the values we want to store and we export an object that adds custom methods to update these values:",
+      "id": "54"
+    },
+    {
+      "type": "code",
+      "content": "import { writable } from 'svelte/store';\n\nconst { subscribe, update } = writable({\n  count: 0,\n  type: 'days',\n});\n\nconst counterStore =  {\n  subscribe,\n  setCount(newValue) {\n    return update((store) => ({...store, count: newValue}));\n  },\n  setType(newType) {\n    return update((store) => ({...store, type: newType}));\n  }\n}\n\nexport default counterStore;",
+      "id": "55"
+    },
+    {
+      "type": "text",
+      "content": "We want to make sure to add the subscribe method returned by the writable to our object so we can subscribe to its observable (with the <code>$</code> syntaxe in the Svelte files and the <code>subscribe</code> method in other files).",
+      "id": "56"
+    },
+    {
+      "type": "text",
+      "content": "In Svelte files:",
+      "id": "57"
+    },
+    {
+      "type": "code",
+      "content": "import counterStore from '$stores/counterStore';\n\ncounterStore.setCount(9000);\ncounterStore.setType('month');\n\n$counterStore.count // 0\n$counterStore.type // 'day'",
+      "id": "58"
+    },
+    {
+      "type": "framedText",
+      "content": "Quick tip: we can destructure both the methods and the values from our store like so:",
+      "id": "59",
+      "subBlocks": [
+        {
+          "type": "code",
+          "content": "import counterStore from '$stores/counterStore';\n\n// the store methods:\nconst { setCount, setType } = counterStore;\n\n// the reactive values:\n$: ({ count, type } = $counterStore);",
+          "id": "59-1"
+        },
+        {
+          "type": "text",
+          "content": "This is how I prefer to do it if the component I'm working on doesn't have to use many different stores.",
+          "id": "59-2"
+        }
+      ]
+    },
+    {
+      "type": "separator",
+      "id": "separator-4"
+    },
+    {
+      "type": "h3",
+      "content": "Why are Svelte stores so great?",
+      "id": "60"
+    },
+    {
+      "type": "text",
+      "content": "I think stores are great due to their simplicity, they kind of solve the scalable reactivity issue the framework has in its templating files. Svelte reactivity is based on simple variable assignment so it can stay very close to vanilla JS, but the language was never designed to handle this type of reactivity so it can be a bit unpredictable and hard to resonate.",
+      "id": "61"
+    },
+    {
+      "type": "text",
+      "content": "Trying to make things as abstract and intuitive as possible actually brought up a bit of complexity and edge cases. Now let's see how Runes can improve on these concepts to make Svelte reactivity more predictable and scalable.",
+      "id": "62"
+    }
+  ]
+}
