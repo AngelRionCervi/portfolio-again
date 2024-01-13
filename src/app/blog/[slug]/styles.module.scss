@@ -1,6 +1,11 @@
 @import '@styles/variables.module.scss';
 
 .container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   @media screen and (max-width: $mobileBreakpoint) {
     margin-top: $burgerMenuHeight;
   }

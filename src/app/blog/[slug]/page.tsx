@@ -1,7 +1,6 @@
 import { getBlogPost } from '@/lib/server/blogPost'
 import styles from './styles.module.scss'
 import BlogPost from '@components/BlogPost/BlogPost'
-import Footer from '@/components/Footer/Footer'
 
 export default function Post({ params }: { params: { slug: string } }) {
   const post = getBlogPost(params.slug)
@@ -9,7 +8,7 @@ export default function Post({ params }: { params: { slug: string } }) {
   if (!post) {
     return (
       <div className={styles.container}>
-        <p>no post found</p>
+        <p>No post found.</p>
       </div>
     )
   }
@@ -17,7 +16,6 @@ export default function Post({ params }: { params: { slug: string } }) {
   return (
     <div className={styles.container}>
       <BlogPost data={post} />
-      
     </div>
   )
 }
