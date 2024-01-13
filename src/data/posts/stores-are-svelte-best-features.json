@@ -329,7 +329,7 @@
     },
     {
       "type": "text",
-      "content": "I'm a big fan of Svelte and i'm very excited to see how <a target=\"_blank\" href=\"https://svelte.dev/blog/runes\">Runes</a> can improve on these concepts to make Svelte reactivity more predictable and scalable.",
+      "content": "I'm a big fan of Svelte and I'm very excited to see how <a target=\"_blank\" href=\"https://svelte.dev/blog/runes\">runes</a> can improve on these concepts to make Svelte reactivity more predictable and scalable.",
       "id": "62"
     }
   ]
