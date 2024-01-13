@@ -73,6 +73,12 @@ export default function BlogPost({ data }: { data: BlogPost }) {
       <div className={styles.innerContainer}>
         <h1 className={styles.title}>{data.title}</h1>
         <PostBlock blocks={data.contents} />
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
         <div className={styles.postFooter}>
           <Link href="/blog" className={styles.backContainer}>
             <BackArrowMenuMobile width="20px" />

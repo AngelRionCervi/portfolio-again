@@ -19,7 +19,7 @@
 }
 
 .link {
-  @extend %fontXS;
+  @extend %fontS;
   @extend %underlineS;
   color: var(--background);
 }
