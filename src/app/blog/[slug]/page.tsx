@@ -7,7 +7,7 @@ export default function Post({ params }: { params: { slug: string } }) {
 
   if (!post) {
     return (
-      <div className={styles.container}>
+      <div className={styles.nothingContainer}>
         <p>No post found.</p>
       </div>
     )
