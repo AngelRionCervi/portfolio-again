@@ -2,6 +2,9 @@
 @import '@styles/typo.module.scss';
 
 .codeContainer {
+  width: 100%;
+  overflow-x: auto;
+  box-sizing: border-box;
   line-height: 125%;
   padding: $xs;
   border-radius: $xxs;

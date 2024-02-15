@@ -31,13 +31,6 @@
     padding: $s;
   }
 
-  pre {
-    line-height: 150%;
-    width: 100%;
-    overflow-x: auto;
-    box-sizing: border-box;
-  }
-
   code {
     padding: 1px;
     border-radius: 4px;
@@ -162,5 +155,9 @@
 
   @media screen and (max-width: $superSmallDevice) {
     padding: $xs;
+  }
+
+  > .block {
+    width: 100%;
   }
 }

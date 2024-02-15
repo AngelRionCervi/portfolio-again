@@ -1,9 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
 @import '@styles/variables.module.scss';
 
 %defaultTypo {
   font-size: 16px;
   font-weight: 400;
   color: var(--black);
+  font-family: "Karla", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 %fontS {
